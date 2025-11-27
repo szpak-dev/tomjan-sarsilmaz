@@ -1,0 +1,24 @@
+---
+import type { ui } from "../i18n/ui";
+import { useTranslations } from "../i18n/utils";
+
+const { specification, lang } = Astro.props;
+const t = useTranslations(lang as keyof typeof ui);
+---
+
+<section id="specifications">
+    <table class="table table-striped">
+        <tbody>
+            {
+                specification.map((spec) => (
+                    <tr>
+                        <th scope="row" class="w-50">
+                            {spec.name}
+                        </th>
+                        <td>{spec.value}</td>
+                    </tr>
+                ))
+            }
+        </tbody>
+    </table>
+</section>

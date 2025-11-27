@@ -1,0 +1,11 @@
+---
+import type { ui } from "../i18n/ui";
+import { useTranslations } from "../i18n/utils";
+
+const { description, lang } = Astro.props;
+const t = useTranslations(lang as keyof typeof ui);
+---
+<section id="description">
+    <h3 class="h4 mb-3">{t("headings.description")}</h3>
+    <p class="mb-4">{description}</p>
+</section>

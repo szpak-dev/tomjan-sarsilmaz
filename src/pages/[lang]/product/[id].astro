@@ -1,0 +1,106 @@
+---
+import { CldImage } from "astro-cloudinary";
+
+import Layout from "../../../layouts/Layout.astro";
+import ProductSpecification from "../../../components/ProductSpecification.astro";
+import ProductFeatures from "../../../components/ProductFeatures.astro";
+import ProductDescription from "../../../components/ProductDescription.astro";
+import { getCollection } from "astro:content";
+import { languages, ui } from "../../../i18n/ui";
+import { useTranslations } from "../../../i18n/utils";
+
+export async function getStaticPaths() {
+  const products = await getCollection("products");
+
+  return Object.keys(languages).flatMap((lang) => {
+    const langProducts = products.filter((p) => p.id.startsWith(`${lang}/`));
+    return langProducts.map((product) => {
+      const id = product.id.split("/")[1]; // remove lang prefix
+      return {
+        params: { lang, id },
+        props: { product: product.data, lang },
+      };
+    });
+  });
+}
+
+const { product, lang } = Astro.props;
+const t = useTranslations(lang as keyof typeof ui);
+
+const image =
+  product.images.length > 0
+    ? product.images[0]
+    : "https://placehold.co/600x400/eee/333?text=No+Image";
+
+const translatedSpecs = product.specification.map((spec) => {
+  let value = spec.value;
+  if (Array.isArray(value)) {
+    value = value.map((v) => t(`spec.${v}` as any) || v).join(", ");
+  }
+
+  return {
+    ...spec,
+    name: t(`spec.${spec.name}` as any) || spec.name,
+    value,
+  };
+});
+
+const translatedFeatures = product.features.map((feature) => ({
+  ...feature,
+  category: t(`category.${feature.category}` as any) || feature.category,
+  parameters: feature.parameters.map((param) => {
+    if (Array.isArray(param)) {
+      return param.map((p) => t(`param.${p}` as any) || p).join(", ");
+    } else if (typeof param === "string") {
+      return t(`param.${param}` as any) || param;
+    } else {
+      return {
+        ...param,
+        name: t(`param.${param.name}` as any) || param.name,
+      };
+    }
+  }),
+}));
+---
+
+<Layout title={`${product.name} | Sarsilmaz`}>
+  <div class="container py-5">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+          <a href={`/${lang}`}>{t("nav.home")}</a>
+        </li>
+        <li class="breadcrumb-item active" aria-current="page">
+          {product.name}
+        </li>
+      </ol>
+    </nav>
+
+    <div class="row">
+      <div class="col-md-6 mb-4">
+        <CldImage
+          crop="fill"
+          gravity="auto"
+          format="auto"
+          quality="auto"
+          width={800}
+          src={`sarsilmaz.pl/${image}.jpg`}
+          class="card-img-top"
+          alt={product.name}
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+        />
+      </div>
+      <div class="col-md-6">
+        <h1 class="h2 mb-3">{product.name}</h1>
+        <ProductSpecification specification={translatedSpecs} />
+      </div>
+    </div>
+    <div class="row mt-3">
+      <ProductDescription description={product.description} lang={lang} />
+    </div>
+    <div class="row mt-3"></div>
+    <div class="row mt-3">
+      <ProductFeatures features={translatedFeatures} lang={lang} />
+    </div>
+  </div>
+</Layout>

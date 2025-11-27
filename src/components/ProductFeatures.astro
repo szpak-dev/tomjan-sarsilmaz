@@ -1,0 +1,42 @@
+---
+import type { ui } from "../i18n/ui";
+import { useTranslations } from "../i18n/utils";
+
+const { features, lang } = Astro.props;
+const t = useTranslations(lang as keyof typeof ui);
+---
+
+<section id="features">
+    <h3 class="h4 mb-3">{t("headings.features")}</h3>
+    <table class="table table-striped">
+        <tbody>
+            {
+                features.map((feature) => (
+                    <>
+                        <tr>
+                            <th colspan="2" class="table-dark">
+                                {feature.category}
+                            </th>
+                        </tr>
+                        {feature.parameters.map((param) => {
+                            if (typeof param === "string") {
+                                return (
+                                    <tr>
+                                        <td colspan="2">{param}</td>
+                                    </tr>
+                                );
+                            } else {
+                                return (
+                                    <tr>
+                                        <th scope="row">{param.name}</th>
+                                        <td>{param.value}</td>
+                                    </tr>
+                                );
+                            }
+                        })}
+                    </>
+                ))
+            }
+        </tbody>
+    </table>
+</section>

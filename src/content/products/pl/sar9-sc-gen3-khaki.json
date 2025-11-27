@@ -1,0 +1,112 @@
+{
+    "id": "sar9-sc-gen3-khaki",
+    "catalogNumber": "",
+    "active": true,
+    "name": "SARSILMAZ SAR9 SC GEN3 KHAKI 9x19mm Pistolet Półautomatyczny",
+    "shortName": "SAR9 SC GEN3",
+    "color": "Khaki",
+    "lead": "Łącząc kompaktową konstrukcję, doskonałą wydajność i bezpieczeństwo, SAR9 SC GEN3 oferuje maksymalny komfort bez poświęcania mocy dzięki idealnemu rozmiarowi do skrytego noszenia.",
+    "description": "Płaska konstrukcja spustu 90°, która zapewnia doskonałą kontrolę spustu przy nagłych i szybkich strzałach, zwiększa szybkość i celność strzelania, zapewniając jednocześnie szybszą reakcję przy krótszej drodze resetu. Konstrukcja zamka, wzbogacona o mocne linie i ergonomiczne detale, sprawia, że przeładowanie jest bardzo praktyczne, zapewniając użytkownikowi doskonałą wydajność zarówno pod względem estetycznym, jak i funkcjonalnym. Specjalnie zaprojektowane nacięcia chłodzące, które odgrywają ważną rolę w doskonałej wydajności SAR9 SC GEN3, pomagają lufie szybciej stygnąć i zapewniają maksymalną kontrolę przy szybkim strzelaniu. Kompatybilność z celownikami kolimatorowymi, która jest szczególnie podkreślana w trzeciej generacji SAR9 SC, sprawia, że celowanie jest szybsze i łatwiejsze niż kiedykolwiek. Kwadratowa osłona spustu SAR9 SC GEN3, która ma znaczące ulepszenia w zakresie bezpieczeństwa, zapewnia wygodne i bezpieczne strzelanie. SAR9 SC GEN3 oferuje również szeroką gamę opcji dostosowywania dzięki szynie Picatinny, która umożliwia integrację wszelkiego rodzaju akcesoriów, stopce magazynka z oparciem na palec, która poprawia ergonomiczny chwyt, oraz opcjom magazynków 12 i 15-nabojowych.",
+    "images": [
+        "sar9-sc-gen3-khaki-0",
+        "sar9-sc-gen3-khaki-1",
+        "sar9-sc-gen3-khaki-2"
+    ],
+    "specification": [
+        {
+            "name": "Caliber",
+            "value": "9 x 19 mm"
+        },
+        {
+            "name": "Trigger Pull",
+            "value": "20 - 30 N"
+        },
+        {
+            "name": "Barrel Length",
+            "value": "85 mm"
+        },
+        {
+            "name": "Operating Principle",
+            "value": "Semi Auto"
+        },
+        {
+            "name": "Capacity",
+            "value": "12 / 15 / 17 / 19 Bullets"
+        },
+        {
+            "name": "Slide Width",
+            "value": "158 mm"
+        },
+        {
+            "name": "Muzzle Velocity",
+            "value": "350 m/s"
+        },
+        {
+            "name": "Safety System",
+            "value": ["Trigger", "Firing pin", "Drop Safety"]
+        }
+    ],
+    "features": [
+        {
+            "category": "Dimensions",
+            "parameters": [
+                {
+                    "name": "Overall Length",
+                    "value": "163 mm"
+                },
+                {
+                    "name": "Height",
+                    "value": "133 mm"
+                },
+                {
+                    "name": "Overall Width",
+                    "value": "29.9 mm"
+                },
+                {
+                    "name": "Slide Width",
+                    "value": "158 mm"
+                },
+                {
+                    "name": "Slide Height",
+                    "value": "23.5 mm"
+                },
+                {
+                    "name": "Sight Radius",
+                    "value": "138.5 mm"
+                },
+                {
+                    "name": "Trigger Distance",
+                    "value": "68 mm"
+                }
+            ]
+        },
+        {
+            "category": "Weights",
+            "parameters": [
+                {
+                    "name": "Without Magazine",
+                    "value": "550 g"
+                },
+                {
+                    "name": "With Empty Magazine",
+                    "value": "615 g"
+                },
+                {
+                    "name": "With Loaded Magazine",
+                    "value": "765 g"
+                }
+            ]
+        },
+        {
+            "category": "Product Features",
+            "parameters": [
+                "Polymer Frame",
+                "Slide With Cooling Channels",
+                "Optic Ready Slide Cut",
+                "Aggressive Cover Stripes For Easy Installation",
+                "Picatinny Rail",
+                "Vertical Trigger Guard"
+            ]
+        }
+    ]
+}

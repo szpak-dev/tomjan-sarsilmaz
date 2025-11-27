@@ -1,0 +1,51 @@
+---
+import { getCollection } from "astro:content";
+import { CldImage } from "astro-cloudinary";
+
+const products = await getCollection("products");
+const featuredProducts = products.filter((product) => product.data.featured).map((product) => ({
+  id: product.id,
+  name: product.data.name,
+  image: product.data.images[0],
+}));
+---
+
+<div id="promotedProducts" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-inner">
+    {featuredProducts.map((product, index) => (
+      <div class={`carousel-item ${index === 0 ? "active" : ""}`}>
+        <CldImage
+          src={`sarsilmaz.pl/${product.image}.jpg`}
+          alt={product.name}
+          crop="fill"
+          gravity="auto"
+          quality="auto"
+          format="auto"
+          loading="eager"
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+        />
+        <div class="carousel-caption">
+          <h5 class="text-white bg-dark w-100">{product.name}</h5>
+        </div>
+      </div>
+    ))}
+  </div>
+  <button
+    class="carousel-control-prev"
+    type="button"
+    data-bs-target="#promotedProducts"
+    data-bs-slide="prev"
+  >
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button
+    class="carousel-control-next"
+    type="button"
+    data-bs-target="#promotedProducts"
+    data-bs-slide="next"
+  >
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="">Next</span>
+  </button>
+</div>
