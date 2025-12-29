@@ -1,11 +1,9 @@
 ---
 import { CldImage } from "astro-cloudinary";
 
-import { getLangFromUrl } from "../i18n/utils";
-
-let { product } = Astro.props;
-const lang = getLangFromUrl(Astro.url);
+let { product, link } = Astro.props;
 product = product.data;
+
 const image = product.images[0] || "https://placehold.co/400x300/eee/333?text=No+Image";
 ---
 
@@ -29,7 +27,7 @@ const image = product.images[0] || "https://placehold.co/400x300/eee/333?text=No
       <h6 class="card-subtitle text-truncate text-secondary h6">
         {product.color}
       </h6>
-      <a href={`/${lang}/product/${product.id}`} class="mt-auto stretched-link"
+      <a href={link} class="mt-auto stretched-link"
       ></a>
     </div>
   </div>

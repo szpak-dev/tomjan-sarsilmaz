@@ -1,5 +1,8 @@
 ---
-import { defaultLang } from "../i18n/ui";
+import { getRelativeLocaleUrl } from "astro:i18n";
+import {defaultLang} from "../i18n/ui";
 
-return Astro.redirect(`/${defaultLang}`);
+const redirectUrl = getRelativeLocaleUrl(defaultLang);
 ---
+
+<meta http-equiv="refresh" content={`0;url=${redirectUrl}`} />

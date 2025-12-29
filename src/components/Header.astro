@@ -18,11 +18,11 @@ const socials = [
 ---
 
 <header class="container-fluid">
-  <div class="row align-items-center">
-      <Socials socials={socials} />
-  </div>
   <div class="container d-flex justify-content-between align-items-center">
     <Logo />
-    <LanguageSelector />
+    <div class="d-flex align-items-center gap-3">
+      <Socials socials={socials} />
+      <LanguageSelector />
+    </div>
   </div>
 </header>

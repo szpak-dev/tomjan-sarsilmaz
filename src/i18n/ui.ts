@@ -1,9 +1,9 @@
 export const languages = {
-    en: 'English',
-    pl: 'Polski',
+    en: 'EN',
+    pl: 'PL',
 };
 
-export const defaultLang = 'en';
+export const defaultLang = 'pl';
 
 export const ui = {
     en: {

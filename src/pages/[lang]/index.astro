@@ -8,25 +8,28 @@ import { useTranslations } from "../../i18n/utils";
 import type { ui } from "../../i18n/ui";
 
 export async function getStaticPaths() {
-	return Object.keys(languages).map((lang) => ({ params: { lang } }));
+  return Object.keys(languages).map((lang) => ({ params: { lang } }));
 }
 
-const { lang } = Astro.params;
+import { getRelativeLocaleUrl } from "astro:i18n";
+const lang = Astro.currentLocale as string;
+
 const products = await getCollection("products", ({ id }) => {
-	return id.startsWith(`${lang}/`);
+  return id.startsWith(`${lang}/`);
 });
+
 const activeProducts = products.filter((product) => product.data.active);
 const t = useTranslations(lang as keyof typeof ui);
 ---
 
 <Layout title="Sarsilmaz Pistols">
-	<div class="row">
-		<Slider />
-	</div>
-	<div class="row">
-		<h2 class="text-center mb-4">{t("headings.products")}</h2>
-	</div>
-	<div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
-		{activeProducts.map((product) => <ProductCard product={product} />)}
-	</div>
+  <div class="row">
+    <Slider />
+  </div>
+  <div class="row">
+    <h2 class="text-center mb-4">{t("headings.products")}</h2>
+  </div>
+  <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+    {activeProducts.map((product) => <ProductCard product={product} link={getRelativeLocaleUrl(lang, `/product/${product.id.split('/')[1]}/`)} />)}
+  </div>
 </Layout>

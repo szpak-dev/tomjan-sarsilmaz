@@ -1,9 +1,19 @@
 ---
 const { socials } = Astro.props;
+
+type SocialProps = {
+  name: string;
+  url: string;
+  icon: string;
+};
 ---
 
-<div class="d-flex gap-3 bg-dark">
-{socials.map((social) => (
-    <a href={social.url} class="text-white">{social.name}</a>
-))}
+<div class="d-flex gap-1">
+  {
+    socials.map((social: SocialProps) => (
+      <a href={social.url} class="fs-5 link-underline link-underline-opacity-0">
+        <i class={social.icon}></i>
+      </a>
+    ))
+  }
 </div>

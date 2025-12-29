@@ -1,42 +1,29 @@
 ---
 import { languages } from "../i18n/ui";
-import { getLangFromUrl } from "../i18n/utils";
+import { getRelativeLocaleUrl } from "astro:i18n";
 
-const lang = getLangFromUrl(Astro.url);
-const { pathname } = Astro.url;
-const segments = pathname.split("/").filter(Boolean);
-
-function getPathForLang(l: string) {
-    const newSegments = [...segments];
-    if (newSegments.length > 0 && newSegments[0] in languages) {
-        newSegments[0] = l;
-    } else {
-        newSegments.unshift(l);
-    }
-    return `/${newSegments.join("/")}`;
-}
+const currentLang = Astro.currentLocale as string;
 ---
 
 <div class="dropdown d-inline-block ms-3">
-    <button
-        class="btn btn-outline-secondary dropdown-toggle btn-sm"
-        type="button"
-        data-bs-toggle="dropdown"
-        aria-expanded="false"
-    >
-        {lang === "pl" ? "🇵🇱" : "🇬🇧"}
-
-    </button>
-    <ul class="dropdown-menu">
-        {
-            Object.entries(languages).map(([l, label]) => (
-                <li>
-                    <a class="dropdown-item" href={getPathForLang(l)}>
-                        {l === "pl" ? "🇵🇱" : "🇬🇧"}
-                        {label}
-                    </a>
-                </li>
-            ))
-        }
-    </ul>
+  <button
+    class="btn btn-outline-secondary dropdown-toggle btn-sm"
+    type="button"
+    data-bs-toggle="dropdown"
+    aria-expanded="false"
+  >
+    {currentLang === "pl" ? "🇵🇱" : "🇬🇧"}
+  </button>
+  <ul class="dropdown-menu">
+    {
+      Object.entries(languages).map(([l, label]) => (
+        <li>
+          <a class="dropdown-item" href={getRelativeLocaleUrl(l)}>
+            {l === "pl" ? "🇵🇱" : "🇬🇧"}
+            {label}
+          </a>
+        </li>
+      ))
+    }
+  </ul>
 </div>
