@@ -4,22 +4,20 @@ import { CldImage } from "astro-cloudinary";
 let { product, link } = Astro.props;
 product = product.data;
 
-const image = product.images[0] || "https://placehold.co/400x300/eee/333?text=No+Image";
+const image =
+  product.images[0] || "https://placehold.co/400x300/eee/333?text=No+Image";
 ---
 
 <div class="col">
   <div class="card h-100 shadow-sm">
-    <CldImage
-      class={'bg-dark h-100 w-100'}
-      crop="fill"
-      gravity="auto"
-      format="auto"
-      quality="auto"
-      width={400}
-      src={`sarsilmaz.pl/${image}.jpg`}
-      alt={product.name}
-      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-    />
+      <CldImage
+        class={"card-img-top"}
+        crop="fill"
+        gravity="auto"
+        width={400}
+        src={`sarsilmaz.pl/${image}.jpg`}
+        alt={product.name}
+      />
     <div class="card-body d-flex flex-column">
       <h5 class="card-title text-truncate h6" title={product.name}>
         {product.shortName}
@@ -27,8 +25,7 @@ const image = product.images[0] || "https://placehold.co/400x300/eee/333?text=No
       <h6 class="card-subtitle text-truncate text-secondary h6">
         {product.color}
       </h6>
-      <a href={link} class="mt-auto stretched-link"
-      ></a>
+      <a href={link} class="mt-auto stretched-link"></a>
     </div>
   </div>
 </div>

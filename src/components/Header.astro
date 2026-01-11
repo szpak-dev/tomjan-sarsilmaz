@@ -17,11 +17,13 @@ const socials = [
 ];
 ---
 
-<header class="container-fluid">
+<header class="container-fluid px-0">
+  <div class="socials-container bg-dark">
+    <Socials socials={socials} />
+  </div>
   <div class="container d-flex justify-content-between align-items-center">
     <Logo />
     <div class="d-flex align-items-center gap-3">
-      <Socials socials={socials} />
       <LanguageSelector />
     </div>
   </div>
