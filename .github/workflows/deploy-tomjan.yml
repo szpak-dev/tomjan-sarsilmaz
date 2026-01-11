@@ -1,0 +1,124 @@
+name: Deploy to TomJan
+
+on:
+  release:
+    types: [published]
+
+  workflow_dispatch:
+
+env:
+  BUILD_PATH: "."
+
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      
+      - name: Detect package manager
+        id: detect-package-manager
+        run: |
+          if [ -f "${{ github.workspace }}/yarn.lock" ]; then
+            echo "manager=yarn" >> $GITHUB_OUTPUT
+            echo "command=install" >> $GITHUB_OUTPUT
+            echo "runner=yarn" >> $GITHUB_OUTPUT
+            echo "lockfile=yarn.lock" >> $GITHUB_OUTPUT
+            exit 0
+          elif [ -f "${{ github.workspace }}/package.json" ]; then
+            echo "manager=npm" >> $GITHUB_OUTPUT
+            echo "command=ci" >> $GITHUB_OUTPUT
+            echo "runner=npx --no-install" >> $GITHUB_OUTPUT
+            echo "lockfile=package-lock.json" >> $GITHUB_OUTPUT
+            exit 0
+          else
+            echo "Unable to determine package manager"
+            exit 1
+          fi
+      
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: ${{ steps.detect-package-manager.outputs.manager }}
+          cache-dependency-path: ${{ env.BUILD_PATH }}/${{ steps.detect-package-manager.outputs.lockfile }}
+      
+      - name: Install dependencies
+        run: ${{ steps.detect-package-manager.outputs.manager }} ${{ steps.detect-package-manager.outputs.command }}
+        working-directory: ${{ env.BUILD_PATH }}
+      
+      - name: Check required environment variables
+        env:
+          PUBLIC_CLOUDINARY_CLOUD_NAME: ${{ secrets.PUBLIC_CLOUDINARY_CLOUD_NAME }}
+        run: |
+          if [ -z "$PUBLIC_CLOUDINARY_CLOUD_NAME" ]; then
+            echo "ERROR: PUBLIC_CLOUDINARY_CLOUD_NAME is not set in GitHub secrets"
+            exit 1
+          fi
+          echo "✓ PUBLIC_CLOUDINARY_CLOUD_NAME is configured"
+      
+      - name: Build with Astro
+        env:
+          PUBLIC_CLOUDINARY_CLOUD_NAME: ${{ secrets.PUBLIC_CLOUDINARY_CLOUD_NAME }}
+          SITE_URL: ${{ secrets.SITE_URL }}
+        run: |
+          ${{ steps.detect-package-manager.outputs.runner }} astro build \
+            --site "${SITE_URL:-https://example.com}"
+        working-directory: ${{ env.BUILD_PATH }}
+      
+      - name: Upload build artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: dist
+          path: ${{ env.BUILD_PATH }}/dist
+          retention-days: 1
+
+  deploy:
+    name: Deploy to Caddy
+    needs: build
+    runs-on: tomjan-runner
+    env:
+      CADDY_WEBROOT: ${{ vars.CADDY_WEBROOT }}
+    steps:
+      - name: Download build artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: dist
+          path: ./dist
+      
+      - name: Backup current deployment
+        run: |
+          BACKUP_DIR="${CADDY_WEBROOT}/backup-$(date +%Y%m%d-%H%M%S)"
+          if [ -d "${CADDY_WEBROOT}" ]; then
+            sudo mkdir -p "$BACKUP_DIR"
+            sudo cp -r ${CADDY_WEBROOT}/* "$BACKUP_DIR/" 2>/dev/null || true
+            echo "Backup created at $BACKUP_DIR"
+          fi
+      
+      - name: Deploy to Caddy webroot
+        run: |
+          echo "Deploying to ${CADDY_WEBROOT}"
+          sudo rsync -av --delete ./dist/ ${CADDY_WEBROOT}/
+          sudo chown -R caddy:caddy ${CADDY_WEBROOT}
+          echo "Deployment completed successfully"
+      
+      - name: Reload Caddy
+        run: |
+          sudo systemctl reload caddy
+          echo "Caddy server reloaded"
+      
+      - name: Verify deployment
+        run: |
+          sleep 2
+          if curl -f -s -o /dev/null http://localhost; then
+            echo "✓ Deployment verification successful"
+          else
+            echo "✗ Deployment verification failed"
+            exit 1
+          fi
+      
+      - name: Cleanup artifact
+        if: always()
+        run: |
+          rm -rf ./dist
