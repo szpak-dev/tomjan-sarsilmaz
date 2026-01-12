@@ -1,38 +1,39 @@
 ---
 import Layout from "../../layouts/Layout.astro";
-import Slider from "../../components/Slider.astro";
+import FrontPageSlider from "../../components/FrontPageSlider.astro";
 import ProductCard from "../../components/ProductCard.astro";
-import { getCollection } from "astro:content";
-import { languages } from "../../i18n/ui";
-import { useTranslations } from "../../i18n/utils";
-import type { ui } from "../../i18n/ui";
+import { translationRepository, productRepository } from "../../content";
+import FrontPageSection from "../../components/FrontPageSection.astro";
 
 export async function getStaticPaths() {
-  return Object.keys(languages).map((lang) => ({ params: { lang } }));
+  return translationRepository.findAvailableLanguages().map((lang) => ({
+    params: { lang: lang.code },
+    props: {},
+  }));
 }
 
-import { getRelativeLocaleUrl } from "astro:i18n";
 const lang = Astro.currentLocale as string;
+const t = translationRepository.getTranslator(lang);
 
-const products = await getCollection("products", ({ id }) => {
-  return id.startsWith(`${lang}/`);
-});
-
-const activeProducts = products.filter((product) => product.data.active);
-const t = useTranslations(lang as keyof typeof ui);
+const products = await productRepository.findProducts(lang);
+const featuredProducts = products.filter((product) => product.featured);
+const activeProducts = products.filter((product) => product.active);
 ---
 
-<Layout title="Sarsilmaz Pistols">
-  <div class="row">
-    <Slider />
-  </div>
-  <div class="row">
-    <h2 class="text-center mb-4">{t("headings.products")}</h2>
-  </div>
-  <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
-    {activeProducts.map((product) => <ProductCard 
-      product={product} 
-      link={getRelativeLocaleUrl(lang, `/product/${product.id.split('/')[1]}/`)} />)
-    }
-  </div>
+<Layout title={t("meta.title")}>
+  <section id="promotedProductSlider" class="row">
+    <FrontPageSlider products={featuredProducts} />
+  </section>
+  
+  <FrontPageSection heading={t("headings.products")}>
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+      {activeProducts.map((product) => {
+        return (
+          <div class="col">
+            <ProductCard product={product} />
+          </div>
+        )
+      })}
+    </div>
+  </FrontPageSection>
 </Layout>

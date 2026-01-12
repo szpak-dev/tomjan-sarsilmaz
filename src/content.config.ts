@@ -5,6 +5,7 @@ const products = defineCollection({
   loader: glob({ pattern: "**/*.json", base: "./src/content/products" }),
   schema: z.object({
     id: z.string(),
+    lang: z.string(),
     catalogNumber: z.string(),
     active: z.boolean(),
     featured: z.boolean().optional().default(false),

@@ -43,7 +43,12 @@
     },
     {
       "name": "Safety System",
-      "value": ["Manual Safety", "Trigger", "Firing Pin", "Drop Safety"]
+      "value": [
+        "Manual Safety",
+        "Trigger",
+        "Firing Pin",
+        "Drop Safety"
+      ]
     }
   ],
   "features": [
@@ -106,5 +111,6 @@
         "Picatinny Rail"
       ]
     }
-  ]
+  ],
+  "lang": "en"
 }

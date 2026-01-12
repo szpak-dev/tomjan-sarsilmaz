@@ -1,111 +1,115 @@
 {
-    "id": "p8-l-stainless-steel",
-    "catalogNumber": "400474",
-    "active": true,
-    "featured": true,
-    "name": "SARSILMAZ P8 L STAINLESS STEEL 9x19mm Pistolet Półautomatyczny",
-    "shortName": "P8 L",
-    "color": "Stal Nierdzewna",
-    "lead": "P8 L pozostaje wyborem ekspertów dzięki kompensatorowi redukującemu podrzut, a także ramie, zamkowi i lufie z kutej stali nierdzewnej.",
-    "description": "Oferując mocne i niezawodne użytkowanie dzięki wydłużonej lufie, P8 L może łatwo dostosować się do preferencji właściciela dzięki wymiennej muszce.",
-    "images": [
-        "p-8-l-stainless-steel-0",
-        "p-8-l-stainless-steel-1",
-        "p-8-l-stainless-steel-2"
-    ],
-    "specification": [
+  "id": "p8-l-stainless-steel",
+  "catalogNumber": "400474",
+  "active": true,
+  "featured": true,
+  "name": "SARSILMAZ P8 L STAINLESS STEEL 9x19mm Pistolet Półautomatyczny",
+  "shortName": "P8 L",
+  "color": "Stal Nierdzewna",
+  "lead": "P8 L pozostaje wyborem ekspertów dzięki kompensatorowi redukującemu podrzut, a także ramie, zamkowi i lufie z kutej stali nierdzewnej.",
+  "description": "Oferując mocne i niezawodne użytkowanie dzięki wydłużonej lufie, P8 L może łatwo dostosować się do preferencji właściciela dzięki wymiennej muszce.",
+  "images": [
+    "p-8-l-stainless-steel-0",
+    "p-8-l-stainless-steel-1",
+    "p-8-l-stainless-steel-2"
+  ],
+  "specification": [
+    {
+      "name": "Caliber",
+      "value": "9x19 mm"
+    },
+    {
+      "name": "Trigger Pull",
+      "value": "45-55 N"
+    },
+    {
+      "name": "Barel Length",
+      "value": "117 mm"
+    },
+    {
+      "name": "Operating Principle",
+      "value": "Semi-auto"
+    },
+    {
+      "name": "Capacity",
+      "value": "10/15/17 bullets"
+    },
+    {
+      "name": "Slide Width",
+      "value": "182 mm"
+    },
+    {
+      "name": "Muzzle Velocity",
+      "value": "350 m/s"
+    },
+    {
+      "name": "Safety System",
+      "value": [
+        "Manual Safety",
+        "Firing Pin"
+      ]
+    }
+  ],
+  "features": [
+    {
+      "category": "Dimensions",
+      "parameters": [
         {
-            "name": "Caliber",
-            "value": "9x19 mm"
+          "name": "Overall Length",
+          "value": "200 mm"
         },
         {
-            "name": "Trigger Pull",
-            "value": "45-55 N"
+          "name": "Height",
+          "value": "140 mm"
         },
         {
-            "name": "Barel Length",
-            "value": "117 mm"
+          "name": "Overall Width",
+          "value": "33 mm"
         },
         {
-            "name": "Operating Principle",
-            "value": "Semi-auto"
+          "name": "Slide Width",
+          "value": "182 mm"
         },
         {
-            "name": "Capacity",
-            "value": "10/15/17 bullets"
+          "name": "Slide Height",
+          "value": "22.8 mm"
         },
         {
-            "name": "Slide Width",
-            "value": "182 mm"
+          "name": "Sight Radius",
+          "value": "155 mm"
         },
         {
-            "name": "Muzzle Velocity",
-            "value": "350 m/s"
-        },
-        {
-            "name": "Safety System",
-            "value": ["Manual Safety", "Firing Pin"]
+          "name": "Trigger Distance",
+          "value": "75 mm"
         }
-    ],
-    "features": [
+      ]
+    },
+    {
+      "category": "Weights",
+      "parameters": [
         {
-            "category": "Dimensions",
-            "parameters": [
-                {
-                    "name": "Overall Length",
-                    "value": "200 mm"
-                },
-                {
-                    "name": "Height",
-                    "value": "140 mm"
-                },
-                {
-                    "name": "Overall Width",
-                    "value": "33 mm"
-                },
-                {
-                    "name": "Slide Width",
-                    "value": "182 mm"
-                },
-                {
-                    "name": "Slide Height",
-                    "value": "22.8 mm"
-                },
-                {
-                    "name": "Sight Radius",
-                    "value": "155 mm"
-                },
-                {
-                    "name": "Trigger Distance",
-                    "value": "75 mm"
-                }
-            ]
+          "name": "Without Magazine",
+          "value": "955 g"
         },
         {
-            "category": "Weights",
-            "parameters": [
-                {
-                    "name": "Without Magazine",
-                    "value": "955 g"
-                },
-                {
-                    "name": "With Empty Magazine",
-                    "value": "1040 g"
-                },
-                {
-                    "name": "With Loaded Magazine",
-                    "value": "1255 g"
-                }
-            ]
+          "name": "With Empty Magazine",
+          "value": "1040 g"
         },
         {
-            "category": "Product Features",
-            "parameters": [
-                "Slide With Cooling Channels",
-                "Ergonomic Grip",
-                "Adjustable Rear Sight",
-                "Double Action Trigger"
-            ]
+          "name": "With Loaded Magazine",
+          "value": "1255 g"
         }
-    ]
+      ]
+    },
+    {
+      "category": "Product Features",
+      "parameters": [
+        "Slide With Cooling Channels",
+        "Ergonomic Grip",
+        "Adjustable Rear Sight",
+        "Double Action Trigger"
+      ]
+    }
+  ],
+  "lang": "pl"
 }

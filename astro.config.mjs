@@ -15,4 +15,12 @@ export default defineConfig({
             redirectToDefaultLocale: true,
         }
     },
+    vite: {
+        optimizeDeps: {
+            include: ['bootstrap']
+        },
+        ssr: {
+            noExternal: ['bootstrap']
+        }
+    }
 });

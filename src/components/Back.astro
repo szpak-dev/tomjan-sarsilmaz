@@ -1,0 +1,16 @@
+---
+export type Props = {
+  link: string;
+  label?: string;
+  className?: string;
+};
+
+const { link, label, className = "my-4" } = Astro.props;
+---
+
+<div class={className}>
+  <a class="btn btn-outline-secondary border-0 m-0" href={link}>
+    <i class="bi bi-arrow-left-circle me-2"></i>
+    <span>{label || ""}</span>
+  </a>
+</div>

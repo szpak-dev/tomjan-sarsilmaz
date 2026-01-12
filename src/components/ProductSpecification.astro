@@ -1,24 +1,18 @@
 ---
-import type { ui } from "../i18n/ui";
-import { useTranslations } from "../i18n/utils";
+import { translationRepository } from "../content";
+import type { SpecificationItem } from "../content/product.repository";
+import ProductSection from "./ProductSection.astro";
+import AttributeGroup from "./AttributeGroup.astro";
+
+export type Props = {
+  specification: SpecificationItem[];
+  lang: string;
+};
 
 const { specification, lang } = Astro.props;
-const t = useTranslations(lang as keyof typeof ui);
+const t = translationRepository.getTranslator(lang);
 ---
 
-<section id="specifications">
-    <table class="table table-striped">
-        <tbody>
-            {
-                specification.map((spec) => (
-                    <tr>
-                        <th scope="row" class="w-50">
-                            {spec.name}
-                        </th>
-                        <td>{spec.value}</td>
-                    </tr>
-                ))
-            }
-        </tbody>
-    </table>
-</section>
+<ProductSection heading={t("headings.specification")}>
+  <AttributeGroup attributes={specification} />
+</ProductSection>

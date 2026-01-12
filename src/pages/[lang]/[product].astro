@@ -1,0 +1,74 @@
+---
+import { CldImage } from "astro-cloudinary";
+import Back from "../../components/Back.astro";
+import Layout from "../../layouts/Layout.astro";
+import ProductSpecification from "../../components/ProductSpecification.astro";
+import ProductFeatures from "../../components/ProductFeatures.astro";
+import ProductDescription from "../../components/ProductDescription.astro";
+
+import { productRepository, translationRepository } from "../../content";
+
+export async function getStaticPaths() {
+  const availableLangs = translationRepository.findAvailableLanguages();
+  const paths = [];
+
+  for (const lang of availableLangs) {
+    const products = await productRepository.findProducts(lang.code);
+
+    for (const product of products) {
+      paths.push({
+        params: { lang: lang.code, product: product.id },
+        props: { lang: lang.code, product: product.id },
+      });
+    }
+  }
+
+  return paths;
+}
+
+const { lang, product } = Astro.props;
+
+const productData = await productRepository.getProductById(product, lang);
+productRepository.translateProduct(productData, lang);
+---
+
+<Layout title={`${productData.name} | Tomasz Jantos`}>
+    <Back link={`/${lang}/`} label={lang === 'en' ? "Back" : "Powrót"} />
+
+    <div class="vstack gap-4">
+      <h1 class="mb-3 fs-2 fw-bold text-center">{productData.name}</h1>
+      <div class="row">
+        <div class="col-md-6 mb-4">
+          <CldImage
+            crop="fill"
+            format="auto"
+            quality="auto"
+            width={500}
+            src={productData.images?.[0]}
+            class="card-img-top"
+            alt={productData.name}
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+          />
+        </div>
+        <div class="col-md-6">
+          <ProductSpecification
+            specification={productData.specification}
+            lang={lang}
+          />
+        </div>
+      </div>
+    </div>
+    
+    <div class="vstack gap-4">
+      <ProductDescription
+        description={productData.description || ""}
+        lang={lang}
+      />
+
+      <ProductFeatures 
+        features={productData.features} 
+        lang={lang} 
+      />
+    </div>
+  </div>
+</Layout>

@@ -1,29 +1,24 @@
 ---
-import { languages } from "../i18n/ui";
 import { getRelativeLocaleUrl } from "astro:i18n";
+import { translationRepository } from "../content";
 
-const currentLang = Astro.currentLocale as string;
+const languages = translationRepository.findAvailableLanguages();
+const currentLang = translationRepository.getLanguage(Astro.currentLocale as string);
+const currentPath = Astro.url.pathname.split('/').slice(2).join('/');
 ---
 
 <div class="dropdown d-inline-block ms-3">
-  <button
-    class="btn btn-outline-secondary dropdown-toggle btn-sm"
-    type="button"
-    data-bs-toggle="dropdown"
-    aria-expanded="false"
-  >
-    {currentLang === "pl" ? "🇵🇱" : "🇬🇧"}
+  <button class="btn btn-outline-secondary dropdown-toggle btn-sm" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+    {currentLang.flag}
   </button>
   <ul class="dropdown-menu">
-    {
-      Object.entries(languages).map(([l, label]) => (
+    { languages.map(({ code, label, flag }) => (
         <li>
-          <a class="dropdown-item" href={getRelativeLocaleUrl(l)}>
-            {l === "pl" ? "🇵🇱" : "🇬🇧"}
+          <a class="dropdown-item" href={getRelativeLocaleUrl(code, currentPath)}>
+            {flag}
             {label}
           </a>
         </li>
-      ))
-    }
+      )) }
   </ul>
 </div>

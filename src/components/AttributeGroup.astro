@@ -1,0 +1,31 @@
+---
+import Attribute from "./Attribute.astro";
+
+export type Props = {
+  attributes: string[] | { name: string; value: string }[];
+  title?: string;
+  titleClass?: string;
+  attributesClass?: string;
+};
+
+const { title, attributes = [], titleClass, attributesClass } = Astro.props;
+---
+
+<div class="attribute-group">
+  {title && 
+    <h6 class={`h6 fw-bold ${titleClass}`}>
+        {title}
+    </h6>
+  }
+  {
+    attributes && attributes.map((attr) => (
+        <>
+          {typeof attr === "string" ? (
+            <Attribute value={attr} className={attributesClass} />
+          ) : (
+            <Attribute name={attr.name} value={attr.value} className={attributesClass} />
+          )}
+        </>
+      ))
+  }
+</div>

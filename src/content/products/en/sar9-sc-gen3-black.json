@@ -43,7 +43,11 @@
     },
     {
       "name": "Safety System",
-      "value": ["Trigger", "Firing pin", "Drop Safety"]
+      "value": [
+        "Trigger",
+        "Firing pin",
+        "Drop Safety"
+      ]
     }
   ],
   "features": [
@@ -108,5 +112,6 @@
         "Vertical Trigger Guard"
       ]
     }
-  ]
+  ],
+  "lang": "en"
 }

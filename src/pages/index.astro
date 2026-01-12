@@ -1,8 +1,26 @@
 ---
-import { getRelativeLocaleUrl } from "astro:i18n";
-import {defaultLang} from "../i18n/ui";
-
-const redirectUrl = getRelativeLocaleUrl(defaultLang);
 ---
 
-<meta http-equiv="refresh" content={`0;url=${redirectUrl}`} />
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Redirecting...</title>
+    <script is:inline>
+      (function() {
+        const languages = ['en', 'pl'];
+        const defaultLang = 'en';
+        
+        const browserLang = navigator.language.split('-')[0];
+        const targetLang = languages.includes(browserLang) ? browserLang : defaultLang;
+        
+        window.location.replace('/' + targetLang + '/');
+      })();
+    </script>
+    
+    <noscript>
+      <meta http-equiv="refresh" content="0;url=/en/" />
+    </noscript>
+  </head>
+  <body>
+  </body>
+</html>

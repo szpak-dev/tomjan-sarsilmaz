@@ -7,6 +7,7 @@ export const defaultLang = 'pl';
 
 export const ui = {
     en: {
+        'meta.title': 'Official Polish Distributor of Sarsilmaz Firearms',
         'nav.home': 'Home',
         'nav.products': 'Products',
 
@@ -14,6 +15,7 @@ export const ui = {
         'headings.products': 'Products',
         'headings.description': 'Description',
         'headings.features': 'Features',
+        'headings.specification': 'Specification',
 
         // Specifications
         'spec.Caliber': 'Caliber',
@@ -67,6 +69,7 @@ export const ui = {
         'param.Slide Cover Plate': 'Slide Cover Plate'
     },
     pl: {
+        'meta.title': 'Oficjalny Dystrybutor Broni Sarsilmaz w Polsce',
         'nav.home': 'Strona główna',
         'nav.products': 'Produkty',
 
@@ -74,6 +77,7 @@ export const ui = {
         'headings.products': 'Produkty',
         'headings.description': 'Opis',
         'headings.features': 'Cechy',
+        'headings.specification': 'Specyfikacja',
 
         // Specifications
         'spec.Caliber': 'Kaliber',

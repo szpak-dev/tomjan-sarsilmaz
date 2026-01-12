@@ -1,0 +1,47 @@
+---
+import { CldImage } from "astro-cloudinary";
+import { Carousel } from "astro-bootstrap";
+import type { CarouselSlideType } from "astro-bootstrap";
+import type { Product } from "../content/product.repository";
+
+export type Props = {
+  products: Product[];
+};
+
+const { products } = Astro.props;
+
+const slides: CarouselSlideType[] = products.map((product, index) => ({
+  img: product.images[0],
+  alt: product.name,
+  active: index === 0,
+}));
+
+const id = "promotedProducts";
+---
+
+<Carousel {id} fade dark>
+  <Carousel.Indicators {id} {slides} />
+  <Carousel.Inner>
+    {slides.map((slide, index) => (
+      <Carousel.Item active={index === 0}>
+          <CldImage
+            class="d-block w-100"
+            src={slide.img}
+            alt={slide.alt}
+            width={1200}
+            height={400}
+            crop="pad"
+            quality="auto"
+            format="auto"
+            loading="eager"
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 100vw, 1200px"
+          />
+        <div class="carousel-caption d-none d-md-block">
+          <h5>{products[index].shortName}</h5>
+        </div>
+        <a href={products[index].link} class="stretched-link"></a>
+      </Carousel.Item>
+    ))}
+  </Carousel.Inner>
+  <Carousel.Controls {id} />
+</Carousel>

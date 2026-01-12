@@ -1,0 +1,14 @@
+---
+export type Props = {
+  name?: string;
+  value: string;
+  className?: string;
+};
+
+const { name, value, className } = Astro.props;
+---
+
+<div class={`row m-0 ${className ?? ""}`}>
+  {name && <div class="col p-1"><strong>{name}</strong></div>}
+  <div class="col p-1">{value}</div>
+</div>

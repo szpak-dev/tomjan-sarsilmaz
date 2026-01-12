@@ -1,11 +1,16 @@
 ---
-import type { ui } from "../i18n/ui";
-import { useTranslations } from "../i18n/utils";
+import { translationRepository } from "../content";
+import ProductSection from "./ProductSection.astro";
+
+export type Props = {
+  description: string;
+  lang: string;
+};
 
 const { description, lang } = Astro.props;
-const t = useTranslations(lang as keyof typeof ui);
+const t = translationRepository.getTranslator(lang);
 ---
-<section id="description">
-    <h3 class="h4 mb-3">{t("headings.description")}</h3>
-    <p class="mb-4">{description}</p>
-</section>
+
+<ProductSection heading={t("headings.description")}>
+  <p class="mb-4">{description}</p>
+</ProductSection>

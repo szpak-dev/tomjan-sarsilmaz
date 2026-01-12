@@ -10,7 +10,7 @@
   "images": [
     "sar9-gen3-black-0",
     "sar9-gen3-black-1",
-    "sar9-gen3-black-2" 
+    "sar9-gen3-black-2"
   ],
   "specification": [
     {
@@ -43,7 +43,12 @@
     },
     {
       "name": "Safety System",
-      "value": ["Manual Safety", "Trigger", "Firing Pin", "Drop Safety"]
+      "value": [
+        "Manual Safety",
+        "Trigger",
+        "Firing Pin",
+        "Drop Safety"
+      ]
     }
   ],
   "features": [
@@ -106,5 +111,6 @@
         "Picatinny Rail"
       ]
     }
-  ]
+  ],
+  "lang": "en"
 }

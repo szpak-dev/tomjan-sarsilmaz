@@ -2,29 +2,22 @@
 import Socials from "./Socials.astro";
 import Logo from "./Logo.astro";
 import LanguageSelector from "./LanguageSelector.astro";
+import { miscRepository } from "../content";
 
-const socials = [
-  {
-    name: "Facebook",
-    url: "https://www.facebook.com/greyhunter",
-    icon: "bi bi-facebook",
-  },
-  {
-    name: "Instagram",
-    url: "https://www.instagram.com/greyhunter",
-    icon: "bi bi-instagram",
-  },
-];
+const socials = miscRepository.findSocialAccounts();
 ---
 
 <header class="container-fluid px-0">
   <div class="socials-container bg-dark">
     <Socials socials={socials} />
   </div>
-  <div class="container d-flex justify-content-between align-items-center">
+  <div class="container d-flex justify-content-between align-items-center py-2">
     <Logo />
     <div class="d-flex align-items-center gap-3">
       <LanguageSelector />
     </div>
   </div>
 </header>
+<div class="container-fluid bg-secondary text-center py-1 text-white">
+  GREY HUNTER
+</div>
