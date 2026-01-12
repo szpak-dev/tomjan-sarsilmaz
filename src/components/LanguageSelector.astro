@@ -3,22 +3,40 @@ import { getRelativeLocaleUrl } from "astro:i18n";
 import { translationRepository } from "../content";
 
 const languages = translationRepository.findAvailableLanguages();
-const currentLang = translationRepository.getLanguage(Astro.currentLocale as string);
-const currentPath = Astro.url.pathname.split('/').slice(2).join('/');
+const currentLang = translationRepository.getLanguage(
+  Astro.currentLocale as string
+);
+
+const pathname = Astro.url.pathname;
+const localePrefix = `/${Astro.currentLocale}/`;
+
+const currentPath = pathname.startsWith(localePrefix)
+  ? pathname.slice(localePrefix.length)
+  : pathname;
 ---
 
 <div class="dropdown d-inline-block ms-3">
-  <button class="btn btn-outline-secondary dropdown-toggle btn-sm" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+  <button
+    class="btn btn-outline-secondary dropdown-toggle btn-sm"
+    type="button"
+    data-bs-toggle="dropdown"
+    aria-expanded="false"
+  >
     {currentLang.flag}
   </button>
   <ul class="dropdown-menu">
-    { languages.map(({ code, label, flag }) => (
+    {
+      languages.map(({ code, label, flag }) => (
         <li>
-          <a class="dropdown-item" href={getRelativeLocaleUrl(code, currentPath)}>
+          <a
+            class="dropdown-item"
+            href={getRelativeLocaleUrl(code, currentPath)}
+          >
             {flag}
             {label}
           </a>
         </li>
-      )) }
+      ))
+    }
   </ul>
 </div>
