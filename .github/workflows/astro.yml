@@ -68,6 +68,7 @@ jobs:
           echo "✓ PUBLIC_CLOUDINARY_CLOUD_NAME is configured"
       - name: Build with Astro
         env:
+          BASE_PATH: "${{ steps.pages.outputs.base_path }}"
           PUBLIC_CLOUDINARY_CLOUD_NAME: ${{ secrets.PUBLIC_CLOUDINARY_CLOUD_NAME }}
         run: |
           ${{ steps.detect-package-manager.outputs.runner }} astro build \
