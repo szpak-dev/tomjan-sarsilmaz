@@ -64,6 +64,88 @@ function loadDictionary<T = any>(language: string, fileName: string): T {
 }
 
 /**
+ * Apply translations from dictionaries to an existing product
+ */
+function applyTranslationsToProduct(
+  product: Product,
+  dictionaries: {
+    attributeGroups: Record<string, string>;
+    attributes: Record<string, string>;
+    variants: Record<string, string>;
+    descriptions: Record<string, string[]>;
+    categories: Record<string, string>;
+    attributeValues: Record<string, Record<string, string>>;
+  }
+): Product {
+  const updatedProduct: Product = { ...product };
+  
+  // Translate category name
+  if (dictionaries.categories[product.category_slug]) {
+    updatedProduct.category_name = dictionaries.categories[product.category_slug];
+  } else {
+    console.warn(`  ⚠ Missing translation for category slug: ${product.category_slug}`);
+  }
+  
+  // Translate lead (first description paragraph)
+  if (dictionaries.descriptions[product.id]) {
+    updatedProduct.lead = dictionaries.descriptions[product.id][0];
+    updatedProduct.description = dictionaries.descriptions[product.id];
+  } else {
+    console.warn(`  ⚠ Missing translation for description of product: ${product.id}`);
+  }
+  
+  // Translate attribute groups and properties
+  updatedProduct.attribute_groups = product.attribute_groups.map(group => {
+    const translatedGroup = { ...group };
+    
+    // Translate group name
+    if (dictionaries.attributeGroups[group.id]) {
+      translatedGroup.name = dictionaries.attributeGroups[group.id];
+    } else {
+      console.warn(`  ⚠ Missing translation for attribute group: ${group.id}`);
+    }
+    
+    // Translate properties
+    translatedGroup.properties = group.properties.map(property => {
+      const translatedProperty = { ...property };
+      
+      // Translate property name
+      if (dictionaries.attributes[property.id]) {
+        translatedProperty.name = dictionaries.attributes[property.id];
+      } else {
+        console.warn(`  ⚠ Missing translation for attribute: ${property.id}`);
+      }
+      
+      // Translate property value from attribute-values dictionary
+      if (dictionaries.attributeValues[product.id]?.[property.id]) {
+        translatedProperty.value = dictionaries.attributeValues[product.id][property.id];
+      } else {
+        console.warn(`  ⚠ Missing translated value for attribute: ${property.id} in product: ${product.id}`);
+      }
+      
+      return translatedProperty;
+    });
+    
+    return translatedGroup;
+  });
+  
+  // Translate variants
+  updatedProduct.variants = product.variants.map(variant => {
+    const translatedVariant = { ...variant };
+    
+    if (dictionaries.variants[variant.id]) {
+      translatedVariant.name = dictionaries.variants[variant.id];
+    } else {
+      console.warn(`  ⚠ Missing translation for variant: ${variant.id}`);
+    }
+    
+    return translatedVariant;
+  });
+  
+  return updatedProduct;
+}
+
+/**
  * Translate a single product from source language to target language using dictionaries
  */
 function translateProduct(
@@ -302,20 +384,91 @@ export async function translateCategories(sourceLang: string, targetLang: string
   }
 }
 
+/**
+ * Update existing products with translations from dictionaries
+ */
+export async function updateProductTranslations(targetLang: string): Promise<void> {
+  console.log(`Updating ${targetLang} products with dictionary translations...\n`);
+  
+  // Load all dictionaries for target language
+  console.log('Loading dictionaries...');
+  const dictionaries = {
+    attributeGroups: loadDictionary<Record<string, string>>(targetLang, 'attribute-groups.json'),
+    attributes: loadDictionary<Record<string, string>>(targetLang, 'attributes.json'),
+    variants: loadDictionary<Record<string, string>>(targetLang, 'variants.json'),
+    descriptions: loadDictionary<Record<string, string[]>>(targetLang, 'descriptions.json'),
+    categories: loadDictionary<Record<string, string>>(targetLang, 'categories.json'),
+    attributeValues: loadDictionary<Record<string, Record<string, string>>>(targetLang, 'attribute-values.json')
+  };
+  console.log('✓ Dictionaries loaded\n');
+  
+  // Get target products directory
+  const targetProductsDir = path.join(projectRoot, 'src', 'content', 'products', targetLang);
+  if (!fs.existsSync(targetProductsDir)) {
+    throw new Error(`Target products directory not found: ${targetProductsDir}`);
+  }
+  
+  // Get all product files
+  const productFiles = fs.readdirSync(targetProductsDir).filter(file => file.endsWith('.json'));
+  console.log(`Found ${productFiles.length} products to update\n`);
+  
+  let successCount = 0;
+  let errorCount = 0;
+  
+  for (const file of productFiles) {
+    try {
+      console.log(`Processing ${file}...`);
+      const filePath = path.join(targetProductsDir, file);
+      
+      // Load existing product
+      const existingProduct: Product = JSON.parse(fs.readFileSync(filePath, 'utf-8'));
+      
+      // Apply translations
+      const updatedProduct = applyTranslationsToProduct(existingProduct, dictionaries);
+      
+      // Save updated product
+      fs.writeFileSync(
+        filePath,
+        JSON.stringify(updatedProduct, null, 2) + '\n'
+      );
+      
+      console.log(`✓ ${file} updated\n`);
+      successCount++;
+    } catch (error) {
+      console.error(`✗ ${file}: ${error instanceof Error ? error.message : String(error)}\n`);
+      errorCount++;
+    }
+  }
+  
+  console.log(`\n✓ Update complete: ${successCount} products updated`);
+  
+  if (errorCount > 0) {
+    console.log(`⚠ ${errorCount} product(s) had errors`);
+  }
+}
+
 // Main entry point for CLI execution
 async function main() {
   const args = process.argv.slice(2);
-  const sourceLang = args[0];
-  const targetLang = args[1];
+  const command = args[0];
   
-  if (!sourceLang || !targetLang) {
-    console.error('Error: Both source and target languages are required');
-    console.error('Usage: npm run translations -- <sourceLang> <targetLang>');
-    process.exit(1);
+  if (command === 'update') {
+    const targetLang = args[1] || 'pl';
+    await updateProductTranslations(targetLang);
+  } else {
+    const sourceLang = args[0];
+    const targetLang = args[1];
+    
+    if (!sourceLang || !targetLang) {
+      console.error('Error: Both source and target languages are required');
+      console.error('Usage: npm run translations -- <sourceLang> <targetLang>');
+      console.error('   or: npm run translations -- update <targetLang>');
+      process.exit(1);
+    }
+    
+    await translateProducts(sourceLang, targetLang);
+    await translateCategories(sourceLang, targetLang);
   }
-  
-  await translateProducts(sourceLang, targetLang);
-  await translateCategories(sourceLang, targetLang);
 }
 
 main().catch((error) => {

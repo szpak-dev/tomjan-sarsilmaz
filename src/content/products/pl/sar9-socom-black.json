@@ -4,65 +4,65 @@
   "url": "https://www.sarsilmaz.com/en/product/detail/sar9-socom/black",
   "manufacturer": "sarsilmaz",
   "category_slug": "polymer",
-  "category_name": "Polymer",
+  "category_name": "Polimerowy",
   "name": "SAR9 SOCOM Black",
   "name_short": "SAR9 SOCOM",
   "slug": "sar9-socom-black",
   "model_name": "",
-  "lead": "Sarsılmaz's new model SAR9 SOCOM, which is preferred by law enforcement agencies in the United States, offers a professional user experience with its full-size carry features and design suitable for competition use.",
+  "lead": "Nowy model Sarsılmaz SAR9 SOCOM, który jest preferowany przez agencje ścigania w Stanach Zjednoczonych, oferuje profesjonalne doświadczenie użytkownika dzięki funkcjom noszenia pełnego rozmiaru i designowi odpowiedniemu do użytku zawodniczego.",
   "description": [
-    "Sarsılmaz's new model SAR9 SOCOM, which is preferred by law enforcement agencies in the United States, offers a professional user experience with its full-size carry features and design suitable for competition use.",
-    "The innovative magwell design, which facilitates magazine changes during firing, increases the comfort of the SAR9 SOCOM's grip and maximizes pistol control. Thanks to its slide design with co-witness feature, SAR9 SOCOM offers the opportunity to use with red-dot as well as optic-ready mechanical sights. The picatinny rail system suitable for accessory integration (flashlight, laser pointer, etc.) in international standards and the flat trigger design with a single-action feature that improves shooting performance maximizes the target success of the SAR9 SOCOM. The slide design of the SAR9 SOCOM provides a high level of user comfort thanks to the increased cooling channels to prevent overheating during continuous firing, and the disassembly catch that facilitates slide tool removal."
+    "Nowy model Sarsılmaz SAR9 SOCOM, który jest preferowany przez agencje ścigania w Stanach Zjednoczonych, oferuje profesjonalne doświadczenie użytkownika dzięki funkcjom noszenia pełnego rozmiaru i designowi odpowiedniemu do użytku zawodniczego.",
+    "Innowacyjny design magwell, który ułatwia wymianę magazynka podczas strzelania, zwiększa komfort chwytu SAR9 SOCOM i maksymalizuje kontrolę pistoletu. Dzięki designowi zamka z funkcją co-witness, SAR9 SOCOM oferuje możliwość użycia z celownikiem kolimatorowym, jak również mechanicznymi celownikami gotowymi do optyki. System szyny Picatinny odpowiedni do integracji akcesoriów (latarka, wskaźnik laserowy itp.) według standardów międzynarodowych oraz design płaskiego spustu z funkcją jednofazową poprawiającą wydajność strzelania maksymalizują sukces celowania SAR9 SOCOM. Design zamka SAR9 SOCOM zapewnia wysoki poziom komfortu użytkownika dzięki zwiększonym kanałom chłodzącym zapobiegającym przegrzaniu podczas ciągłego strzelania oraz zatrzaskowi demontażowemu ułatwiającemu usunięcie zamka."
   ],
   "attribute_groups": [
     {
       "id": "specification",
-      "name": "Specification",
+      "name": "Specyfikacja",
       "properties": [
         {
           "id": "caliber",
-          "name": "Caliber",
+          "name": "Kaliber",
           "value": "9 x 19 mm"
         },
         {
           "id": "trigger-pull",
-          "name": "Trigger Pull",
+          "name": "Nacisk spustowy",
           "value": "15 - 25 N"
         },
         {
           "id": "without-magazine",
-          "name": "Without Magazine",
+          "name": "Bez magazynka",
           "value": "750 g / 26.4 oz"
         },
         {
           "id": "barrel-length",
-          "name": "Barrel Length",
+          "name": "Długość lufy",
           "value": "131 mm / 5.1”"
         },
         {
           "id": "operating-prenciple",
-          "name": "Operating Prenciple",
-          "value": "Semi Auto"
+          "name": "Zasada działania",
+          "value": "Półautomatyczna"
         },
         {
           "id": "capacity",
-          "name": "Capacity",
-          "value": "10 / 15 / 17 BULLETS"
+          "name": "Pojemność",
+          "value": "10 / 15 / 17 naboi"
         },
         {
           "id": "slide-width",
-          "name": "Slide Width",
+          "name": "Szerokość zamka",
           "value": "185.5 mm / 7.3”"
         },
         {
           "id": "muzzle-velocity",
-          "name": "Muzzle Velocity",
+          "name": "Prędkość wylotowa",
           "value": "350 m/s"
         },
         {
           "id": "safety-system",
-          "name": "Safety System",
-          "value": "Trigger, Firing pin and Drop Safety"
+          "name": "System bezpieczeństwa",
+          "value": "Spust, iglica i bezpiecznik upadkowy"
         }
       ]
     }
@@ -70,7 +70,7 @@
   "variants": [
     {
       "id": "color",
-      "name": "Color",
+      "name": "Kolor",
       "value": "Black"
     }
   ],

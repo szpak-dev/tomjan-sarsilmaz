@@ -1,24 +1,11 @@
 ---
-import { getRelativeLocaleUrl } from "astro:i18n";
-import { getBasePath } from "../libs/deployment";
+import { getLocaleUrl } from "../libs/url";
 import { translationRepository } from "../content";
 
 const languages = translationRepository.findAvailableLanguages();
 const currentLang = translationRepository.getLanguage(
   Astro.currentLocale as string
 );
-
-const basePath = getBasePath();
-const pathname = Astro.url.pathname;
-
-let currentPath = pathname.startsWith(basePath) 
-  ? pathname.slice(basePath.length)
-  : pathname;
-
-const localePrefix = `/${Astro.currentLocale}/`;
-currentPath = currentPath.startsWith(localePrefix)
-  ? currentPath.slice(localePrefix.length)
-  : currentPath;
 ---
 
 <div class="dropdown d-inline-block ms-3">
@@ -36,7 +23,7 @@ currentPath = currentPath.startsWith(localePrefix)
         <li>
           <a
             class="dropdown-item"
-            href={getRelativeLocaleUrl(code, currentPath)}
+            href={getLocaleUrl(Astro.url.pathname, Astro.currentLocale as string, code)}
           >
             {flag}
             {label}

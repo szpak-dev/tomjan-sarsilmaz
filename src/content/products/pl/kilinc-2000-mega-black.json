@@ -4,70 +4,70 @@
   "url": "https://www.sarsilmaz.com/en/product/detail/kilinc-2000-mega/black",
   "manufacturer": "sarsilmaz",
   "category_slug": "steel",
-  "category_name": "Steel",
+  "category_name": "Stalowy",
   "name": "KILINÇ 2000 MEGA Black",
   "name_short": "KILINÇ 2000 MEGA",
   "slug": "kilinc-2000-mega-black",
   "model_name": "",
-  "lead": "The Kılınç 2000 Mega, holding the title of sidearm of the Turkish National Police, holds an important place among Sarsılmaz's steel-framed pistols.",
+  "lead": "Kılınç 2000 Mega, posiadający tytuł broni bocznej Tureckiej Policji Krajowej, zajmuje ważne miejsce wśród pistoletów Sarsılmaz ze stalową ramą.",
   "description": [
-    "The Kılınç 2000 Mega, holding the title of sidearm of the Turkish National Police, holds an important place among Sarsılmaz's steel-framed pistols.",
-    "With its ergonomic grip panel option, the Kılınç 2000 Mega is a favorite among both professionals and firearm enthusiasts."
+    "Kılınç 2000 Mega, posiadający tytuł broni bocznej Tureckiej Policji Krajowej, zajmuje ważne miejsce wśród pistoletów Sarsılmaz ze stalową ramą.",
+    "Dzięki opcji ergonomicznego panelu chwytu, Kılınç 2000 Mega jest faworytem zarówno wśród profesjonalistów, jak i entuzjastów broni palnej."
   ],
   "attribute_groups": [
     {
       "id": "specification",
-      "name": "Specification",
+      "name": "Specyfikacja",
       "properties": [
         {
           "id": "caliber",
-          "name": "Caliber",
+          "name": "Kaliber",
           "value": "9 x 19 mm"
         },
         {
           "id": "trigger-pull",
-          "name": "Trigger Pull",
+          "name": "Nacisk spustowy",
           "value": "45 - 55 N"
         },
         {
           "id": "without-magazine",
-          "name": "Without Magazine",
+          "name": "Bez magazynka",
           "value": "905 g / 31.9 oz"
         },
         {
           "id": "barrel-length",
-          "name": "Barrel Length",
+          "name": "Długość lufy",
           "value": "116 mm / 4.6”"
         },
         {
           "id": "operating-prenciple",
-          "name": "Operating Prenciple",
-          "value": "Semi Auto"
+          "name": "Zasada działania",
+          "value": "Półautomatyczna"
         },
         {
           "id": "capacity",
-          "name": "Capacity",
-          "value": "10 / 15 / 17 Bullets"
+          "name": "Pojemność",
+          "value": "10 / 15 / 17 naboi"
         },
         {
           "id": "slide-width",
-          "name": "Slide Width",
+          "name": "Szerokość zamka",
           "value": "180 mm / 7.1”"
         },
         {
           "id": "rinfling",
-          "name": "Rinfling",
-          "value": "6 SAĞ (6 RIGHT) - 1/10” (250 mm)"
+          "name": "Gwintowanie",
+          "value": "6 SAĞ (6 PRAWE) - 1/10\" (250 mm)"
         },
         {
           "id": "muzzle-velocity",
-          "name": "Muzzle Velocity",
+          "name": "Prędkość wylotowa",
           "value": "350 m/s"
         },
         {
           "id": "safety-system",
-          "name": "Safety System",
-          "value": "Manuel Safety and Firing Pin"
+          "name": "System bezpieczeństwa",
+          "value": "Bezpiecznik manualny i iglicy"
         }
       ]
     }
@@ -75,7 +75,7 @@
   "variants": [
     {
       "id": "color",
-      "name": "Color",
+      "name": "Kolor",
       "value": "Black"
     }
   ],

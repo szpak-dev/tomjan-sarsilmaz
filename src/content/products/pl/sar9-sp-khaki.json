@@ -4,70 +4,70 @@
   "url": "https://www.sarsilmaz.com/en/product/detail/sar9-sp/khaki",
   "manufacturer": "sarsilmaz",
   "category_slug": "polymer",
-  "category_name": "Polymer",
+  "category_name": "Polimerowy",
   "name": "SAR9 SP Khaki",
   "name_short": "SAR9 SP",
   "slug": "sar9-sp-khaki",
   "model_name": "",
-  "lead": "The SAR9 SP stands out with its technical capabilities that meet all the superior features of the SAR9 series.",
+  "lead": "SAR9 SP wyróżnia się możliwościami technicznymi, które spełniają wszystkie doskonałe cechy serii SAR9.",
   "description": [
-    "The SAR9 SP stands out with its technical capabilities that meet all the superior features of the SAR9 series.",
-    "Developed according to the needs of the Special Forces Command and the Turkish Armed Forces to respond to different and specialized needs. Similar to other SAR9’s, the pistol that enables safe and practical use with polymer frame and alloy forged steel barrel comes with suppressor height sights with firing pin block and trigger safety. SAR9 SP also contains improvement options with silencer connection, magazine well and lanyard ring."
+    "SAR9 SP wyróżnia się możliwościami technicznymi, które spełniają wszystkie doskonałe cechy serii SAR9.",
+    "Opracowany zgodnie z potrzebami Dowództwa Sił Specjalnych i Sił Zbrojnych Turcji, aby odpowiadać różnym i wyspecjalizowanym potrzebom. Podobnie jak inne SAR9, pistolet umożliwiający bezpieczne i praktyczne użytkowanie z ramą polimerową i stopową kutą stalową lufą jest wyposażony w celowniki do tłumika z blokadą iglicy i bezpiecznikiem spustu. SAR9 SP zawiera również opcje ulepszeń z połączeniem tłumika, studnią magazynka i pierścieniem smyczy."
   ],
   "attribute_groups": [
     {
       "id": "specification",
-      "name": "Specification",
+      "name": "Specyfikacja",
       "properties": [
         {
           "id": "caliber",
-          "name": "Caliber",
+          "name": "Kaliber",
           "value": "9 x 19 mm"
         },
         {
           "id": "firing-speed",
-          "name": "Firing Speed",
+          "name": "Prędkość strzału",
           "value": "350 m/s"
         },
         {
           "id": "trigger-pull",
-          "name": "Trigger Pull",
+          "name": "Nacisk spustowy",
           "value": "15 - 25 N"
         },
         {
           "id": "without-magazine",
-          "name": "Without Magazine",
+          "name": "Bez magazynka",
           "value": "750 g / 26.4 oz"
         },
         {
           "id": "barrel-length",
-          "name": "Barrel Length",
+          "name": "Długość lufy",
           "value": "129 mm / 5.1”"
         },
         {
           "id": "operating-prenciple",
-          "name": "Operating Prenciple",
-          "value": "Semi Auto"
+          "name": "Zasada działania",
+          "value": "Półautomatyczna"
         },
         {
           "id": "capacity",
-          "name": "Capacity",
-          "value": "10 / 15 / 17 Bullets"
+          "name": "Pojemność",
+          "value": "10 / 15 / 17 naboi"
         },
         {
           "id": "slide-width",
-          "name": "Slide Width",
+          "name": "Szerokość zamka",
           "value": "185.5 mm / 7.3\""
         },
         {
           "id": "rinfling",
-          "name": "Rinfling",
-          "value": "6 SAĞ (6 RIGHT) - 1 / 10” (250 mm)"
+          "name": "Gwintowanie",
+          "value": "6 SAĞ (6 PRAWE) - 1 / 10\" (250 mm)"
         },
         {
           "id": "safety-system",
-          "name": "Safety System",
-          "value": "Manuel Safety, Trigger, Firing Pin and Drop Safety"
+          "name": "System bezpieczeństwa",
+          "value": "Bezpiecznik manualny, spust, iglica i bezpiecznik upadkowy"
         }
       ]
     }
@@ -75,7 +75,7 @@
   "variants": [
     {
       "id": "color",
-      "name": "Color",
+      "name": "Kolor",
       "value": "Khaki"
     }
   ],

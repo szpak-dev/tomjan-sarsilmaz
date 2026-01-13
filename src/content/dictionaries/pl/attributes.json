@@ -1,13 +1,13 @@
 {
-    "barrel-length": "Barrel Length",
-    "caliber": "Caliber",
-    "capacity": "Capacity",
-    "firing-speed": "Firing Speed",
-    "muzzle-velocity": "Muzzle Velocity",
-    "operating-prenciple": "Operating Prenciple",
-    "rinfling": "Rinfling",
-    "safety-system": "Safety System",
-    "slide-width": "Slide Width",
-    "trigger-pull": "Trigger Pull",
-    "without-magazine": "Without Magazine"
+    "barrel-length": "Długość lufy",
+    "caliber": "Kaliber",
+    "capacity": "Pojemność",
+    "firing-speed": "Prędkość strzału",
+    "muzzle-velocity": "Prędkość wylotowa",
+    "operating-prenciple": "Zasada działania",
+    "rinfling": "Gwintowanie",
+    "safety-system": "System bezpieczeństwa",
+    "slide-width": "Szerokość zamka",
+    "trigger-pull": "Nacisk spustowy",
+    "without-magazine": "Bez magazynka"
 }

@@ -48,13 +48,13 @@ export type Product = {
 export async function findProducts(lang: string): Promise<Product[]> {
     const products = await getCollection("products");
     
-    const result = products.map((p) => {
+    const filtered = products.filter((p) => p.data.lang === lang);
+    
+    return filtered.map((p) => {
         const product = p.data as Product;
         product.link = getProductUrl(product, lang);
         return product;
     });
-
-    return result;
 }
 
 export async function getProductBySlug(slug: string, lang: string): Promise<Product> {
@@ -66,6 +66,13 @@ export async function getProductBySlug(slug: string, lang: string): Promise<Prod
     }
 
     return product;
+}
+
+export async function findFeatured(lang: string): Promise<Product[]> {
+    const products = await findProducts(lang);
+    const featuredSlugs = ["k2-45c-stainless-steel", "sar-7-24-sport-platinum", "sar9-safari"];
+    
+    return products.filter(product => featuredSlugs.includes(product.slug));
 }
 
 export function getProductUrl(product: Product, lang: string): string {

@@ -4,66 +4,65 @@
   "url": "https://www.sarsilmaz.com/en/product/detail/sar9-t-sc-gen3/khaki",
   "manufacturer": "sarsilmaz",
   "category_slug": "polymer",
-  "category_name": "Polymer",
+  "category_name": "Polimerowy",
   "name": "SAR9 T SC GEN3 Khaki",
   "name_short": "SAR9 T SC GEN3",
   "slug": "sar9-t-sc-gen3-khaki",
   "model_name": "",
-  "lead": "The SAR9 T SC Gen3, one of Sarsılmaz's new generation models, offers an highly comfortable use with its fingersupported magazine and polymer frame that provides maximum grip comfort.",
+  "lead": "SAR9 T SC Gen3, jeden z modeli nowej generacji Sarsılmaz, oferuje wyjątkowo wygodne użytkowanie dzięki magazynkowi z podporą na palce i ramie polimerowej zapewniającej maksymalny komfort chwytu.",
   "description": [
-    "The SAR9 T SC Gen3, one of Sarsılmaz's new generation models, offers an highly comfortable use with its fingersupported magazine and polymer frame that provides maximum grip comfort.",
-    "Offering advanced advantages despite its compact design, the SAR9T SC Gen3 has a picatinny rail design that perfectly fits accessories such as flashlights and laser pointers. The SAR9T SC Gen3 prioritizes user safety with a square trigger guard that facilitates accessory mounting while increasing grip comfort, as well as a safe flat trigger design that seamlessly combines precision and performance. The SAR9T SC Gen3's slide design, which is suitable for optical mounting and has innovative lines that facilitate slide manipulation, maximizes RMSc red-dot compatibility, a soughtafter feature of the subcompact segment. The SAR9T SC Gen3 can be used with mechanical sights with its",
-    "co-witnessed front sight system and customizable dovetail front sight mount. The SAR9T SC Gen3 also stands out with its barrel design that allows suppressor/silencer integration."
+    "SAR9 T SC Gen3, jeden z modeli nowej generacji Sarsılmaz, oferuje wyjątkowo wygodne użytkowanie dzięki magazynkowi z podporą na palce i ramie polimerowej zapewniającej maksymalny komfort chwytu.",
+    "Oferując zaawansowane zalety pomimo kompaktowego designu, SAR9T SC Gen3 ma design szyny Picatinny, który idealnie pasuje do akcesoriów takich jak latarki i wskaźniki laserowe. SAR9T SC Gen3 priorytetowo traktuje bezpieczeństwo użytkownika dzięki kwadratowej osłonie spustu ułatwiającej montaż akcesoriów przy jednoczesnym zwiększeniu komfortu chwytu, a także bezpiecznym designem płaskiego spustu, który płynnie łączy precyzję i wydajność. Design zamka SAR9T SC Gen3, który jest odpowiedni do montażu optycznego i ma innowacyjne linie ułatwiające manipulację zamkiem, maksymalizuje kompatybilność z celownikiem kolimatorowym RMSc, poszukiwaną cechą segmentu subkompaktowego. SAR9T SC Gen3 może być używany z mechanicznymi celownikami dzięki systemowi celownika przedniego współosiowego i regulowanemu mocowaniu celownika przedniego w jaskółczy ogon. SAR9T SC Gen3 wyróżnia się również designem lufy, który pozwala na integrację tłumika."
   ],
   "attribute_groups": [
     {
       "id": "specification",
-      "name": "Specification",
+      "name": "Specyfikacja",
       "properties": [
         {
           "id": "caliber",
-          "name": "Caliber",
+          "name": "Kaliber",
           "value": "9 x 19 mm"
         },
         {
           "id": "trigger-pull",
-          "name": "Trigger Pull",
+          "name": "Nacisk spustowy",
           "value": "15 - 25 N"
         },
         {
           "id": "without-magazine",
-          "name": "Without Magazine",
+          "name": "Bez magazynka",
           "value": "555 g / 19.5 oz"
         },
         {
           "id": "barrel-length",
-          "name": "Barrel Length",
+          "name": "Długość lufy",
           "value": "100 mm / 3.9”"
         },
         {
           "id": "operating-prenciple",
-          "name": "Operating Prenciple",
-          "value": "Semi Auto"
+          "name": "Zasada działania",
+          "value": "Półautomatyczna"
         },
         {
           "id": "capacity",
-          "name": "Capacity",
-          "value": "12 / 15 / 17 / 19 Bullets"
+          "name": "Pojemność",
+          "value": "12 / 15 / 17 / 19 naboi"
         },
         {
           "id": "slide-width",
-          "name": "Slide Width",
+          "name": "Szerokość zamka",
           "value": "158 mm / 6.2”"
         },
         {
           "id": "muzzle-velocity",
-          "name": "Muzzle Velocity",
+          "name": "Prędkość wylotowa",
           "value": "350 m/s"
         },
         {
           "id": "safety-system",
-          "name": "Safety System",
-          "value": "Trigger, Firing pin and Drop Safety"
+          "name": "System bezpieczeństwa",
+          "value": "Spust, iglica i bezpiecznik upadkowy"
         }
       ]
     }
@@ -71,7 +70,7 @@
   "variants": [
     {
       "id": "color",
-      "name": "Color",
+      "name": "Kolor",
       "value": "Khaki"
     }
   ],

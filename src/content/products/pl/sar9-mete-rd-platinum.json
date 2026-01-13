@@ -4,65 +4,65 @@
   "url": "https://www.sarsilmaz.com/en/product/detail/sar9-mete/rd-platinum",
   "manufacturer": "sarsilmaz",
   "category_slug": "polymer",
-  "category_name": "Polymer",
+  "category_name": "Polimerowy",
   "name": "SAR9 METE Rd Platinum",
   "name_short": "SAR9 METE",
   "slug": "sar9-mete-rd-platinum",
   "model_name": "",
-  "lead": "Manufactured by Sarsılmaz completely with domestic design and engineering, SAR9 METE is the product of a projects which is realized with the philosophy of “manufacturing the best of pistols”.",
+  "lead": "Wyprodukowany przez Sarsılmaz całkowicie z krajowym designem i inżynierią, SAR9 METE jest produktem projektu zrealizowanego z filozofią wytwarzania najlepszych pistoletów.",
   "description": [
-    "Manufactured by Sarsılmaz completely with domestic design and engineering, SAR9 METE is the product of a projects which is realized with the philosophy of “manufacturing the best of pistols”.",
-    "SAR9 METE with new generation lightweight polymer frame stands out as it weighs only 950 grams. The pistol with alloy forced steel barrel and slide offers three sizes of changeable side plate and back straps. Equipped with optical fixed rear sight, SAR9 METE enables a safe use with trigger safety and firing pin block along with safety catch. SAR9 METE also enables use of accessories with the picatinny rail on its frame."
+    "Wyprodukowany przez Sarsılmaz całkowicie z krajowym designem i inżynierią, SAR9 METE jest produktem projektu zrealizowanego z filozofią wytwarzania najlepszych pistoletów.",
+    "SAR9 METE z nowej generacji lekką ramą polimerową wyróżnia się wagą zaledwie 950 gramów. Pistolet ze stopowej kutej stalowej lufy i zamka oferuje trzy rozmiary wymiennych paneli bocznych i oparć tylnych. Wyposażony w optyczny stały celownik tylny, SAR9 METE umożliwia bezpieczne użytkowanie dzięki bezpiecznikowi spustu i blokadzie iglicy wraz z bezpiecznikiem ręcznym. SAR9 METE umożliwia również użycie akcesoriów dzięki szynie Picatinny na swojej ramie."
   ],
   "attribute_groups": [
     {
       "id": "specification",
-      "name": "Specification",
+      "name": "Specyfikacja",
       "properties": [
         {
           "id": "caliber",
-          "name": "Caliber",
+          "name": "Kaliber",
           "value": "9 x 19 mm"
         },
         {
           "id": "trigger-pull",
-          "name": "Trigger Pull",
+          "name": "Nacisk spustowy",
           "value": "15 / 25 N"
         },
         {
           "id": "without-magazine",
-          "name": "Without Magazine",
+          "name": "Bez magazynka",
           "value": "650 g / 22.9 oz"
         },
         {
           "id": "barrel-length",
-          "name": "Barrel Length",
+          "name": "Długość lufy",
           "value": "113.5 mm / 4.5”"
         },
         {
           "id": "operating-prenciple",
-          "name": "Operating Prenciple",
-          "value": "Semi Auto"
+          "name": "Zasada działania",
+          "value": "Półautomatyczna"
         },
         {
           "id": "capacity",
-          "name": "Capacity",
-          "value": "10 / 15 / 17 / 19 Bullets"
+          "name": "Pojemność",
+          "value": "10 / 15 / 17 / 19 naboi"
         },
         {
           "id": "slide-width",
-          "name": "Slide Width",
+          "name": "Szerokość zamka",
           "value": "185.5 mm / 7.3\""
         },
         {
           "id": "muzzle-velocity",
-          "name": "Muzzle Velocity",
+          "name": "Prędkość wylotowa",
           "value": "350 m/s"
         },
         {
           "id": "safety-system",
-          "name": "Safety System",
-          "value": "Trigger, Firing pin and Drop Safety"
+          "name": "System bezpieczeństwa",
+          "value": "Spust, iglica i bezpiecznik upadkowy"
         }
       ]
     }
@@ -70,7 +70,7 @@
   "variants": [
     {
       "id": "color",
-      "name": "Color",
+      "name": "Kolor",
       "value": "Rd Platinum"
     }
   ],

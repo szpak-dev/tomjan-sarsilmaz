@@ -4,70 +4,70 @@
   "url": "https://www.sarsilmaz.com/en/product/detail/sar9/safari",
   "manufacturer": "sarsilmaz",
   "category_slug": "polymer",
-  "category_name": "Polymer",
+  "category_name": "Polimerowy",
   "name": "SAR9 Safari",
   "name_short": "SAR9",
   "slug": "sar9-safari",
   "model_name": "",
-  "lead": "Winner of “Türkiye’s Authentic Domestic Pistol Project” by far, SAR9 is designed to hit the target under most challenging conditions.",
+  "lead": "Zdecydowany zwycięzca projektu Autentyczny Krajowy Pistolet Turcji, SAR9 został zaprojektowany, aby trafić w cel w najbardziej wymagających warunkach.",
   "description": [
-    "Winner of “Türkiye’s Authentic Domestic Pistol Project” by far, SAR9 is designed to hit the target under most challenging conditions.",
-    "Standing out among its counterparts with its ease of use and lightweight structure, SAR9 has superior quality polymer frame. Besides offering all advantages of 9 millimeters, SAR9 also has a perfect fit with the user by means of changeable side plates (S-M-L) and back straps for fitting in different types of hands as well as the picatinny rail on the frame. Equipped also with pin and trigger safety, SAR9 offers sense of safety and comfort together."
+    "Zdecydowany zwycięzca projektu Autentyczny Krajowy Pistolet Turcji, SAR9 został zaprojektowany, aby trafić w cel w najbardziej wymagających warunkach.",
+    "Wyróżniający się wśród swoich odpowiedników łatwością użytkowania i lekką konstrukcją, SAR9 ma ramę polimerową najwyższej jakości. Oprócz oferowania wszystkich zalet 9 milimetrów, SAR9 idealnie dopasowuje się do użytkownika poprzez wymienne panele boczne (S-M-L) i oparcia tylne do dopasowania do różnych typów rąk, a także szynę Picatinny na ramie. Wyposażony również w bezpiecznik iglicy i spustu, SAR9 oferuje poczucie bezpieczeństwa i komfortu razem."
   ],
   "attribute_groups": [
     {
       "id": "specification",
-      "name": "Specification",
+      "name": "Specyfikacja",
       "properties": [
         {
           "id": "caliber",
-          "name": "Caliber",
+          "name": "Kaliber",
           "value": "9 x 19 mm"
         },
         {
           "id": "trigger-pull",
-          "name": "Trigger Pull",
+          "name": "Nacisk spustowy",
           "value": "15 - 25 N"
         },
         {
           "id": "without-magazine",
-          "name": "Without Magazine",
+          "name": "Bez magazynka",
           "value": "730 g / 25.7 oz"
         },
         {
           "id": "barrel-length",
-          "name": "Barrel Length",
+          "name": "Długość lufy",
           "value": "113.5 mm / 4.5”"
         },
         {
           "id": "operating-prenciple",
-          "name": "Operating Prenciple",
-          "value": "Semi Auto"
+          "name": "Zasada działania",
+          "value": "Półautomatyczna"
         },
         {
           "id": "capacity",
-          "name": "Capacity",
-          "value": "10 / 15 / 17 / 19 Bullets"
+          "name": "Pojemność",
+          "value": "10 / 15 / 17 / 19 naboi"
         },
         {
           "id": "slide-width",
-          "name": "Slide Width",
+          "name": "Szerokość zamka",
           "value": "185.5 mm / 7.3\""
         },
         {
           "id": "rinfling",
-          "name": "Rinfling",
-          "value": "6 SAĞ (6 RIGHT) - 1/10” (250 mm)"
+          "name": "Gwintowanie",
+          "value": "6 SAĞ (6 PRAWE) - 1/10\" (250 mm)"
         },
         {
           "id": "muzzle-velocity",
-          "name": "Muzzle Velocity",
+          "name": "Prędkość wylotowa",
           "value": "350 m/s"
         },
         {
           "id": "safety-system",
-          "name": "Safety System",
-          "value": "Manuel Safety, Trigger, Firing Pin and Drop Safety"
+          "name": "System bezpieczeństwa",
+          "value": "Bezpiecznik manualny, spust, iglica i bezpiecznik upadkowy"
         }
       ]
     }
@@ -75,7 +75,7 @@
   "variants": [
     {
       "id": "color",
-      "name": "Color",
+      "name": "Kolor",
       "value": "Safari"
     }
   ],

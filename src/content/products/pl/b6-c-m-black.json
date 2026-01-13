@@ -4,70 +4,70 @@
   "url": "https://www.sarsilmaz.com/en/product/detail/b6-c-m/black",
   "manufacturer": "sarsilmaz",
   "category_slug": "polymer",
-  "category_name": "Polymer",
+  "category_name": "Polimerowy",
   "name": "B6 C M Black",
   "name_short": "B6 C M",
   "slug": "b6-c-m-black",
   "model_name": "",
-  "lead": "B6 C M is a unique member of the B6 family of B6 family with its caliber of 7,65 millimeters.",
+  "lead": "B6 C M to wyjątkowy członek rodziny B6 z kalibrem 7,65 milimetra.",
   "description": [
-    "B6 C M is a unique member of the B6 family of B6 family with its caliber of 7,65 millimeters.",
-    "Having all features of the series except for having a different caliber, B6 C M has a lightweight polymer magazine despite the fact that it has the capacity of 16 bullets. One of the smallest members of the series, B6 C M allows its users the advantage of easy carrying with its 98-millimetre barrel length and 180-millimetre overall length."
+    "B6 C M to wyjątkowy członek rodziny B6 z kalibrem 7,65 milimetra.",
+    "Posiadając wszystkie cechy serii z wyjątkiem innego kalibru, B6 C M ma lekki polimerowy magazynek pomimo pojemności 16 naboi. Będąc jednym z najmniejszych członków serii, B6 C M oferuje użytkownikom zaletę łatwego noszenia dzięki długości lufy 98 milimetrów i całkowitej długości 180 milimetrów."
   ],
   "attribute_groups": [
     {
       "id": "specification",
-      "name": "Specification",
+      "name": "Specyfikacja",
       "properties": [
         {
           "id": "caliber",
-          "name": "Caliber",
+          "name": "Kaliber",
           "value": "7.65 x 21 mm"
         },
         {
           "id": "trigger-pull",
-          "name": "Trigger Pull",
+          "name": "Nacisk spustowy",
           "value": "55 - 65 N"
         },
         {
           "id": "without-magazine",
-          "name": "Without Magazine",
+          "name": "Bez magazynka",
           "value": "612 g / 21.6 oz"
         },
         {
           "id": "barrel-length",
-          "name": "Barrel Length",
+          "name": "Długość lufy",
           "value": "98 mm / 3.9”"
         },
         {
           "id": "operating-prenciple",
-          "name": "Operating Prenciple",
-          "value": "Semi Auto"
+          "name": "Zasada działania",
+          "value": "Półautomatyczna"
         },
         {
           "id": "capacity",
-          "name": "Capacity",
-          "value": "16 Bullets"
+          "name": "Pojemność",
+          "value": "16 naboi"
         },
         {
           "id": "slide-width",
-          "name": "Slide Width",
+          "name": "Szerokość zamka",
           "value": "157 mm / 6.2\""
         },
         {
           "id": "rinfling",
-          "name": "Rinfling",
-          "value": "6 SAĞ (6 RIGHT) - 1/10” (250 mm)"
+          "name": "Gwintowanie",
+          "value": "6 SAĞ (6 PRAWE) - 1/10\" (250 mm)"
         },
         {
           "id": "muzzle-velocity",
-          "name": "Muzzle Velocity",
+          "name": "Prędkość wylotowa",
           "value": "270 m/s"
         },
         {
           "id": "safety-system",
-          "name": "Safety System",
-          "value": "Manuel Safety and Firing Pin"
+          "name": "System bezpieczeństwa",
+          "value": "Bezpiecznik manualny i iglicy"
         }
       ]
     }
@@ -75,7 +75,7 @@
   "variants": [
     {
       "id": "color",
-      "name": "Color",
+      "name": "Kolor",
       "value": "Black"
     }
   ],

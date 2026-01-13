@@ -4,65 +4,65 @@
   "url": "https://www.sarsilmaz.com/en/product/detail/sar9-t-c-gen3/khaki",
   "manufacturer": "sarsilmaz",
   "category_slug": "polymer",
-  "category_name": "Polymer",
+  "category_name": "Polimerowy",
   "name": "SAR9 T C GEN3 Khaki",
   "name_short": "SAR9 T C GEN3",
   "slug": "sar9-t-c-gen3-khaki",
   "model_name": "",
-  "lead": "The SAR9T C GEN3, part of Sarsılmaz's third-generation SAR9 models, combines all the advantages of both micro and full-size pistols.",
+  "lead": "SAR9T C GEN3, część modeli SAR9 trzeciej generacji Sarsılmaz, łączy wszystkie zalety zarówno pistoletów mikro, jak i pełnowymiarowych.",
   "description": [
-    "The SAR9T C GEN3, part of Sarsılmaz's third-generation SAR9 models, combines all the advantages of both micro and full-size pistols.",
-    "The compact design of the SAR9T C GEN3 stands out with its barrel design, which allows for the attachment of a suppressor/silencer."
+    "SAR9T C GEN3, część modeli SAR9 trzeciej generacji Sarsılmaz, łączy wszystkie zalety zarówno pistoletów mikro, jak i pełnowymiarowych.",
+    "Kompaktowy design SAR9T C GEN3 wyróżnia się designem lufy, który pozwala na zamocowanie tłumika."
   ],
   "attribute_groups": [
     {
       "id": "specification",
-      "name": "Specification",
+      "name": "Specyfikacja",
       "properties": [
         {
           "id": "caliber",
-          "name": "Caliber",
+          "name": "Kaliber",
           "value": "9 x 19 mm"
         },
         {
           "id": "trigger-pull",
-          "name": "Trigger Pull",
+          "name": "Nacisk spustowy",
           "value": "15 - 25 N"
         },
         {
           "id": "without-magazine",
-          "name": "Without Magazine",
+          "name": "Bez magazynka",
           "value": "690 g / 24.3 oz"
         },
         {
           "id": "barrel-length",
-          "name": "Barrel Length",
+          "name": "Długość lufy",
           "value": "119 mm / 4.7”"
         },
         {
           "id": "operating-prenciple",
-          "name": "Operating Prenciple",
-          "value": "Semi Auto"
+          "name": "Zasada działania",
+          "value": "Półautomatyczna"
         },
         {
           "id": "capacity",
-          "name": "Capacity",
-          "value": "10 / 15 / 17 / 19 Bullets"
+          "name": "Pojemność",
+          "value": "10 / 15 / 17 / 19 naboi"
         },
         {
           "id": "slide-width",
-          "name": "Slide Width",
+          "name": "Szerokość zamka",
           "value": "175.5 mm / 6.9”"
         },
         {
           "id": "muzzle-velocity",
-          "name": "Muzzle Velocity",
+          "name": "Prędkość wylotowa",
           "value": "350 m/s"
         },
         {
           "id": "safety-system",
-          "name": "Safety System",
-          "value": "Trigger, Firing pin and Drop Safety"
+          "name": "System bezpieczeństwa",
+          "value": "Spust, iglica i bezpiecznik upadkowy"
         }
       ]
     }
@@ -70,7 +70,7 @@
   "variants": [
     {
       "id": "color",
-      "name": "Color",
+      "name": "Kolor",
       "value": "Khaki"
     }
   ],

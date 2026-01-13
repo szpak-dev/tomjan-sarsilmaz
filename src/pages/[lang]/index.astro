@@ -16,9 +16,7 @@ const lang = Astro.currentLocale as string;
 const t = translationRepository.getTranslator(lang);
 
 const products = await productRepository.findProducts(lang);
-// const featuredProducts = products.filter((product) => product.featured);
-const featuredProducts = [];
-// const activeProducts = products.filter((product) => product.active);
+const featuredProducts = await productRepository.findFeatured(lang);
 const activeProducts = products;;
 ---
 

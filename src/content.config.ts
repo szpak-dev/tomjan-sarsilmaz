@@ -26,7 +26,10 @@ const extraValueSchema = z.object({
 });
 
 const products = defineCollection({
-  loader: glob({ pattern: "**/*.json", base: "./src/content/products" }),
+  loader: glob({ pattern: "**/*.json", base: "./src/content/products", generateId: ({ entry, data }) => {
+    // Use the full path including language directory as ID
+    return entry;
+  }}),
   schema: z.object({
     id: z.string(),
     lang: z.string(),

@@ -32,7 +32,7 @@ const productData = await productRepository.getProductBySlug(product, lang);
 ---
 
 <Layout title={`${productData.name} | Tomasz Jantos`}>
-    <Back link={`/${lang}/`} label={lang === 'en' ? "Back" : "Powrót"} />
+    <Back targetPath="" label={lang === 'en' ? "Back" : "Powrót"} />
 
     <div class="vstack gap-4">
       <h1 class="mb-3 fs-2 fw-bold text-center">{productData.name}</h1>
