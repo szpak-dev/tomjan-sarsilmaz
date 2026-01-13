@@ -1,0 +1,111 @@
+{
+  "id": "p8-l-black",
+    "lang": "en",
+  "catalogNumber": "400038",
+  "active": true,
+  "name": "SARSILMAZ P8 L BLACK 9x19mm Semi Automatic Pistol",
+  "shortName": "P8 L",
+  "color": "Black",
+  "lead": "The P8 L continues to be the choice of experts with its compensator that reduces muzzle rise, as well as stainless forged steel frame, slide, and barrel options.",
+  "description": "Offering a strong and reliable use with its extended barrel length, the P8 L can easily adapt to the owner's preferences with its interchangeable front sight.",
+  "images": [
+    "p-8-l-black-0",
+    "p-8-l-black-1",
+    "p-8-l-black-2"
+  ],
+  "specification": [
+    {
+      "name": "Caliber", 
+      "value": "9x19 mm"
+    },
+    {
+      "name": "Trigger Pull", 
+      "value": "45-55 N"
+    },
+    {
+      "name": "Barrel Length", 
+      "value": "117 mm"
+    },
+    {
+      "name": "Operating Principle", 
+      "value": "Semi-auto"
+    },
+    {
+      "name": "Capacity", 
+      "value": "10/15/17 bullets"
+    },
+    {
+      "name": "Slide Width", 
+      "value": "182 mm"
+    },
+    {
+      "name": "Muzzle Velocity", 
+      "value": "350 m/s"
+    },
+    {
+      "name": "Safety System", 
+      "value": ["Manual Safety", "Firing Pin"]
+    }
+  ],
+  "features": [
+    {
+      "category": "Dimensions", 
+      "parameters": [
+        {
+          "name": "Overall Length", 
+          "value": "200 mm"
+        },
+        {
+          "name": "Height", 
+          "value": "140 mm"
+        },
+        {
+          "name": "Overall Width", 
+          "value": "33 mm"
+        },
+        {
+          "name": "Slide Width", 
+          "value": "182 mm"
+        },
+        {
+          "name": "Slide Height", 
+          "value": "22.8 mm"
+        },
+        {
+          "name": "Sight Radius", 
+          "value": "155 mm"
+        },
+        {
+          "name": "Trigger Distance", 
+          "value": "75 mm"
+        }
+      ]
+    },
+    {
+      "category": "Weights", 
+      "parameters": [
+        {
+          "name": "Without Magazine", 
+          "value": "955 g"
+        },
+        {
+          "name": "With Empty Magazine", 
+          "value": "1040 g"
+        },
+        {
+          "name": "With Loaded Magazine", 
+          "value": "1255 g"
+        }
+      ]
+    },
+    {
+      "category": "Product Features", 
+      "parameters": [
+        "Slide With Cooling Channels",
+        "Ergonomic Grip",
+        "Adjustable Rear Sight",
+        "Double Action Trigger"
+      ]
+    }
+  ]
+}

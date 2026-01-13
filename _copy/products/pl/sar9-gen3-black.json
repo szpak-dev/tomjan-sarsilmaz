@@ -1,0 +1,116 @@
+{
+  "id": "sar9-gen3-black",
+  "catalogNumber": "401339",
+  "active": true,
+  "name": "SARSILMAZ SAR9 GEN3 BLACK 9x19mm Pistolet Półautomatyczny",
+  "shortName": "SAR9 GEN3",
+  "color": "Czarny",
+  "lead": "Najnowsza i najbardziej zaawansowana technologicznie generacja serii SAR9, GEN3 oferuje użytkownikom zupełnie nowe wrażenia dzięki swoim cechom konstrukcyjnym i inżynieryjnym.",
+  "description": "Innowacyjna konstrukcja kształtująca modele SAR9 trzeciej generacji łączy w sobie wiedzę Sarsılmaz w zakresie ram polimerowych, kaset ze stali nierdzewnej, luf ze stali wysokostopowej i zamków na najbardziej zaawansowanym poziomie. SAR9 GEN3 oferuje również szeroką gamę opcji dostosowywania dzięki wymiennym panelom chwytu i nakładkom, bezpiecznikowi manualnemu oraz szynie Picatinny, która idealnie dopasowuje się do wszelkiego rodzaju akcesoriów. Trzecia generacja SAR9 przenosi bezpieczeństwo na wyższy poziom dzięki zabezpieczeniu spustu, systemowi bijnikowemu i zabezpieczeniom ramy. Kąt chwytu 18 stopni i zamek z ulepszonymi nacięciami chwytnymi, które zapewniają doskonałą kontrolę, to jedne z cech SAR9 GEN3, które zapewniają najbardziej komfortowe użytkowanie nawet w trudnych warunkach. Łącząc trwałość i precyzję, SAR9 GEN3 sprawia, że celowanie jest łatwiejsze niż kiedykolwiek dzięki 90-stopniowemu przełamaniu spustu, krótkiemu resetowi spustu i zwiększonej czułości spustu. Szersze i liczniejsze nacięcia chłodzące, opracowane w celu zapewnienia maksymalnej wydajności w kolejnych strzałach, umożliwiają chłodzenie lufy pod różnymi kątami. SAR9 GEN3 ulepsza opcję gotowości do kolimatora dzięki kompatybilnym przyrządom celowniczym co-witness.",
+  "images": [
+    "sar9-gen3-black-0",
+    "sar9-gen3-black-1",
+    "sar9-gen3-black-2"
+  ],
+  "specification": [
+    {
+      "name": "Caliber",
+      "value": "9 x 19 mm"
+    },
+    {
+      "name": "Trigger Pull",
+      "value": "15 - 25 N"
+    },
+    {
+      "name": "Barrel Length",
+      "value": "113.5 mm"
+    },
+    {
+      "name": "Operating Principle",
+      "value": "Semi Auto"
+    },
+    {
+      "name": "Capacity",
+      "value": "10 / 15 / 17 / 19 Bullets"
+    },
+    {
+      "name": "Slide Width",
+      "value": "185.5 mm"
+    },
+    {
+      "name": "Muzzle Velocity",
+      "value": "350 m/s"
+    },
+    {
+      "name": "Safety System",
+      "value": [
+        "Manual Safety",
+        "Trigger",
+        "Firing Pin",
+        "Drop Safety"
+      ]
+    }
+  ],
+  "features": [
+    {
+      "category": "Dimensions",
+      "parameters": [
+        {
+          "name": "Overall Length",
+          "value": "193 mm"
+        },
+        {
+          "name": "Height",
+          "value": "141.3 mm"
+        },
+        {
+          "name": "Overall Width",
+          "value": "35.7 mm"
+        },
+        {
+          "name": "Slide Width",
+          "value": "185.5 mm"
+        },
+        {
+          "name": "Slide Height",
+          "value": "25.5 mm"
+        },
+        {
+          "name": "Sight Radius",
+          "value": "162.3 mm"
+        },
+        {
+          "name": "Trigger Distance",
+          "value": "70 mm"
+        }
+      ]
+    },
+    {
+      "category": "Weights",
+      "parameters": [
+        {
+          "name": "Without Magazine",
+          "value": "670 g"
+        },
+        {
+          "name": "With Empty Magazine",
+          "value": "760 g"
+        },
+        {
+          "name": "With Loaded Magazine",
+          "value": "975 g"
+        }
+      ]
+    },
+    {
+      "category": "Product Features",
+      "parameters": [
+        "Polymer Frame",
+        "3 Different Size S-M-L Changeable Back Straps And Side Plates",
+        "Slide With Cooling Channels",
+        "Picatinny Rail"
+      ]
+    }
+  ],
+  "lang": "pl"
+}
