@@ -34,3 +34,4 @@ export function getDefaultLanguage(): AvailableLanguage {
 export function getTranslator(lang: string) {
     return useTranslations(lang as keyof typeof ui);
 }
+

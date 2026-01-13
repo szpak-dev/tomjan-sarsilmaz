@@ -16,8 +16,10 @@ const lang = Astro.currentLocale as string;
 const t = translationRepository.getTranslator(lang);
 
 const products = await productRepository.findProducts(lang);
-const featuredProducts = products.filter((product) => product.featured);
-const activeProducts = products.filter((product) => product.active);
+// const featuredProducts = products.filter((product) => product.featured);
+const featuredProducts = [];
+// const activeProducts = products.filter((product) => product.active);
+const activeProducts = products;;
 ---
 
 <Layout title={t("meta.title")}>

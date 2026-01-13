@@ -1,0 +1,86 @@
+{
+  "id": "sarsilmaz.k12-sport-stainless-steel-mat",
+  "lang": "en",
+  "url": "https://www.sarsilmaz.com/en/product/detail/k12-sport/stainless-steel-mat",
+  "manufacturer": "sarsilmaz",
+  "category_slug": "steel",
+  "category_name": "Steel",
+  "name": "K12 SPORT Stainless Steel Mat",
+  "name_short": "K12 SPORT",
+  "slug": "k12-sport-stainless-steel-mat",
+  "model_name": "",
+  "lead": "A member of the K12 family, K12 Sport is a significant part of this series developed specially for sports competitions.",
+  "description": [
+    "A member of the K12 family, K12 Sport is a significant part of this series developed specially for sports competitions.",
+    "Creating a different option with its structure suitable for quick magazine replacement K12 Sport is designed to achieve the most accurate results and obtain the highest efficiency in competitions."
+  ],
+  "attribute_groups": [
+    {
+      "id": "specification",
+      "name": "Specification",
+      "properties": [
+        {
+          "id": "caliber",
+          "name": "Caliber",
+          "value": "9 x 19 mm"
+        },
+        {
+          "id": "trigger-pull",
+          "name": "Trigger Pull",
+          "value": "15 - 30 N"
+        },
+        {
+          "id": "without-magazine",
+          "name": "Without Magazine",
+          "value": "1135 g / 40 oz"
+        },
+        {
+          "id": "barrel-length",
+          "name": "Barrel Length",
+          "value": "125 mm / 4.9”"
+        },
+        {
+          "id": "operating-prenciple",
+          "name": "Operating Prenciple",
+          "value": "Semi Auto"
+        },
+        {
+          "id": "capacity",
+          "name": "Capacity",
+          "value": "10 / 15 / 17 Bullets"
+        },
+        {
+          "id": "slide-width",
+          "name": "Slide Width",
+          "value": "188.7 mm / 7.4”"
+        },
+        {
+          "id": "rinfling",
+          "name": "Rinfling",
+          "value": "6 SAĞ (6 RIGHT) - 1/10” (250 mm)"
+        },
+        {
+          "id": "muzzle-velocity",
+          "name": "Muzzle Velocity",
+          "value": "350 m/s"
+        },
+        {
+          "id": "safety-system",
+          "name": "Safety System",
+          "value": "Manuel Safety and Firing Pin"
+        }
+      ]
+    }
+  ],
+  "variants": [
+    {
+      "id": "color",
+      "name": "Color",
+      "value": "Stainless Steel Mat"
+    }
+  ],
+  "extra_data": [],
+  "images": [
+    "sarsilmaz.pl/k12-sport-stainless-steel-mat-0"
+  ]
+}

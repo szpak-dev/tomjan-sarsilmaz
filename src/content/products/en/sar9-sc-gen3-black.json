@@ -1,117 +1,86 @@
 {
-  "id": "sar9-sc-gen3-black",
-  "catalogNumber": "",
-  "active": true,
-  "name": "SARSILMAZ SAR9 SC GEN3 BLACK 9x19mm Semi Automatic Pistol",
-  "shortName": "SAR9 SC GEN3",
-  "color": "Black",
+  "id": "sarsilmaz.sar9-sc-gen3-black",
+  "lang": "en",
+  "url": "https://www.sarsilmaz.com/en/product/detail/sar9-sc-gen3/black",
+  "manufacturer": "sarsilmaz",
+  "category_slug": "polymer",
+  "category_name": "Polymer",
+  "name": "SAR9 SC GEN3 Black",
+  "name_short": "SAR9 SC GEN3",
+  "slug": "sar9-sc-gen3-black",
+  "model_name": "",
   "lead": "Combining compact design, superior performance, and safety, the SAR9 SC GEN3 offers maximum comfort without sacrificing power with its ideal size for concealed carry.",
-  "description": "The 90° flat trigger design, which provides excellent trigger control for sudden and fast shots, increases shooting speed and accuracy while also providing faster response with a shorter reset distance. The slide design, enriched with strong lines and ergonomic details, makes for a highly practical racking experience, thus providing the user with superior performance both aesthetically and functionally. The specially designed cooling cuts, which play an important role in the superior performance of the SAR9 SC GEN3, help the barrel to cool faster and provide maximum control in rapid firing. The red dot sight compatibility, which is particularly emphasized in the third generation of the SAR9 SC, makes aiming faster and easier than ever. The squared trigger guard of the SAR9 SC GEN3, which has significant safety improvements, provides a comfortable and safe shooting experience. The SAR9 SC GEN3 also offers a wide range of customization options with its Picatinny rail that enables the integration of all kinds of accessories, a finger-rest magazine baseplate that enhances ergonomic grip, and 12 and 15-round magazine options.",
-  "images": [
-    "sar9-sc-gen3-black-0",
-    "sar9-sc-gen3-black-1",
-    "sar9-sc-gen3-black-2"
+  "description": [
+    "Combining compact design, superior performance, and safety, the SAR9 SC GEN3 offers maximum comfort without sacrificing power with its ideal size for concealed carry.",
+    "The 90° flat trigger design, which provides excellent trigger control for sudden and fast shots, increases shooting speed and accuracy while also providing faster response with a shorter reset distance. The slide design, enriched with strong lines and ergonomic details, makes for a highly practical racking experience, thus providing the user with superior performance both aesthetically and functionally. The specially designed cooling cuts, which play an important role in the superior performance of the SAR9 SC GEN3, help the barrel to cool faster and provide maximum control in rapid firing. The red dot sight compatibility, which is particularly emphasized in the third generation of the SAR9 SC, makes aiming faster and easier than ever. The squared trigger guard of the SAR9 SC GEN3, which has significant safety improvements, provides a comfortable and safe shooting experience. The SAR9 SC GEN3 also offers a wide range of customization options with its Picatinny rail that enables the integration of all kinds of accessories, a finger-rest magazine baseplate that enhances ergonomic grip, and 12 and 15-round magazine options."
   ],
-  "specification": [
+  "attribute_groups": [
     {
-      "name": "Caliber",
-      "value": "9 x 19 mm"
-    },
-    {
-      "name": "Trigger Pull",
-      "value": "20 - 30 N"
-    },
-    {
-      "name": "Barrel Length",
-      "value": "85 mm"
-    },
-    {
-      "name": "Operating Principle",
-      "value": "Semi Auto"
-    },
-    {
-      "name": "Capacity",
-      "value": "12 / 15 / 17 / 19 Bullets"
-    },
-    {
-      "name": "Slide Width",
-      "value": "158 mm"
-    },
-    {
-      "name": "Muzzle Velocity",
-      "value": "350 m/s"
-    },
-    {
-      "name": "Safety System",
-      "value": [
-        "Trigger",
-        "Firing pin",
-        "Drop Safety"
-      ]
-    }
-  ],
-  "features": [
-    {
-      "category": "Dimensions",
-      "parameters": [
+      "id": "specification",
+      "name": "Specification",
+      "properties": [
         {
-          "name": "Overall Length",
-          "value": "163 mm"
+          "id": "caliber",
+          "name": "Caliber",
+          "value": "9 x 19 mm"
         },
         {
-          "name": "Height",
-          "value": "133 mm"
+          "id": "trigger-pull",
+          "name": "Trigger Pull",
+          "value": "20 - 30 N"
         },
         {
-          "name": "Overall Width",
-          "value": "29.9 mm"
-        },
-        {
-          "name": "Slide Width",
-          "value": "158 mm"
-        },
-        {
-          "name": "Slide Height",
-          "value": "23.5 mm"
-        },
-        {
-          "name": "Sight Radius",
-          "value": "138.5 mm"
-        },
-        {
-          "name": "Trigger Distance",
-          "value": "68 mm"
-        }
-      ]
-    },
-    {
-      "category": "Weights",
-      "parameters": [
-        {
+          "id": "without-magazine",
           "name": "Without Magazine",
-          "value": "550 g"
+          "value": "550 g / 19.5 oz"
         },
         {
-          "name": "With Empty Magazine",
-          "value": "615 g"
+          "id": "barrel-length",
+          "name": "Barrel Length",
+          "value": "85 mm / 3.3”"
         },
         {
-          "name": "With Loaded Magazine",
-          "value": "765 g"
+          "id": "operating-prenciple",
+          "name": "Operating Prenciple",
+          "value": "Semi Auto"
+        },
+        {
+          "id": "capacity",
+          "name": "Capacity",
+          "value": "12 / 15 / 17 / 19 Bullets"
+        },
+        {
+          "id": "slide-width",
+          "name": "Slide Width",
+          "value": "158 mm / 6.2”"
+        },
+        {
+          "id": "rinfling",
+          "name": "Rinfling",
+          "value": "6 SAĞ (6 RIGHT) - 1/10” (250 mm)"
+        },
+        {
+          "id": "muzzle-velocity",
+          "name": "Muzzle Velocity",
+          "value": "350 m/s"
+        },
+        {
+          "id": "safety-system",
+          "name": "Safety System",
+          "value": "Trigger, Firing pin and Drop Safety"
         }
-      ]
-    },
-    {
-      "category": "Product Features",
-      "parameters": [
-        "Polymer Frame",
-        "Slide With Cooling Channels",
-        "Optic Ready Slide Cut",
-        "Aggressive Cover Stripes For Easy Installation",
-        "Picatinny Rail",
-        "Vertical Trigger Guard"
       ]
     }
   ],
-  "lang": "en"
+  "variants": [
+    {
+      "id": "color",
+      "name": "Color",
+      "value": "Black"
+    }
+  ],
+  "extra_data": [],
+  "images": [
+    "sarsilmaz.pl/sar9-sc-gen3-black-0"
+  ]
 }

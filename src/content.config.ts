@@ -1,42 +1,61 @@
 import { defineCollection, z } from 'astro:content';
 import { glob } from 'astro/loaders';
 
+const attributeSchema = z.object({
+  id: z.string(),
+  name: z.string(),
+  value: z.string(),
+});
+
+const attributeGroupSchema = z.object({
+  id: z.string(),
+  name: z.string(),
+  properties: z.array(attributeSchema),
+});
+
+const variantSchema = z.object({
+  id: z.string(),
+  name: z.string(),
+  value: z.string(),
+});
+
+const extraValueSchema = z.object({
+  id: z.string(),
+  name: z.string(),
+  value: z.string(),
+});
+
 const products = defineCollection({
   loader: glob({ pattern: "**/*.json", base: "./src/content/products" }),
   schema: z.object({
     id: z.string(),
     lang: z.string(),
-    catalogNumber: z.string(),
-    active: z.boolean(),
-    featured: z.boolean().optional().default(false),
+    url: z.string(),
+    manufacturer: z.string(),
+    category_slug: z.string(),
+    category_name: z.string(),
     name: z.string(),
-    shortName: z.string(),
-    color: z.string().optional(),
-    lead: z.string().optional(),
-    description: z.string().optional(),
-    images: z.array(z.string()),
-    specification: z.array(
-      z.object({
-        name: z.string(),
-        value: z.union([z.string(), z.array(z.string())]),
-      })
-    ),
-    features: z.array(
-      z.object({
-        category: z.string(),
-        parameters: z.array(
-          z.union([
-            z.string(),
-            z.array(z.string()),
-            z.object({
-              name: z.string(),
-              value: z.string(),
-            }),
-          ])
-        ),
-      })
-    ),
+    name_short: z.string().default(""),
+    slug: z.string(),
+    model_name: z.string().default(""),
+    lead: z.string().default(""),
+    description: z.array(z.string()).default([]),
+    attribute_groups: z.array(attributeGroupSchema).default([]),
+    variants: z.array(variantSchema).default([]),
+    extra_data: z.array(extraValueSchema).default([]),
+    images: z.array(z.string()).default([]),
   }),
 });
 
-export const collections = { products };
+const categories = defineCollection({
+  loader: glob({ pattern: "**/*.json", base: "./src/content/categories" }),
+  schema: z.object({
+    id: z.string(),
+    lang: z.string(),
+    manufacturer: z.string(),
+    name: z.string(),
+    slug: z.string(),
+  }),
+});
+
+export const collections = { products, categories };

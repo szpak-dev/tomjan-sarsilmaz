@@ -1,0 +1,86 @@
+{
+  "id": "sarsilmaz.b6-c-black",
+  "lang": "pl",
+  "url": "https://www.sarsilmaz.com/en/product/detail/b6-c/black",
+  "manufacturer": "sarsilmaz",
+  "category_slug": "polymer",
+  "category_name": "Polymer",
+  "name": "B6 C Black",
+  "name_short": "B6 C",
+  "slug": "b6-c-black",
+  "model_name": "",
+  "lead": "B6 C is Türkiye's first domestic compact polymer pistol.",
+  "description": [
+    "B6 C is Türkiye's first domestic compact polymer pistol.",
+    "Enabling concealed carrying with its short barrel, light and ergonomic structure, B6 C stands out among its counterparts in many countries besides Türkiye. B6 C is also preferred especially by official institutions and organizations."
+  ],
+  "attribute_groups": [
+    {
+      "id": "specification",
+      "name": "Specification",
+      "properties": [
+        {
+          "id": "caliber",
+          "name": "Caliber",
+          "value": "9 x 19 mm"
+        },
+        {
+          "id": "firing-speed",
+          "name": "Firing Speed",
+          "value": "350 m/s"
+        },
+        {
+          "id": "trigger-pull",
+          "name": "Trigger Pull",
+          "value": "15 - 25 N"
+        },
+        {
+          "id": "without-magazine",
+          "name": "Without Magazine",
+          "value": "640 g / 22.6 oz"
+        },
+        {
+          "id": "barrel-length",
+          "name": "Barrel Length",
+          "value": "99 mm / 3.9”"
+        },
+        {
+          "id": "operating-prenciple",
+          "name": "Operating Prenciple",
+          "value": "Semi Auto"
+        },
+        {
+          "id": "capacity",
+          "name": "Capacity",
+          "value": "10 / 13 Bullets"
+        },
+        {
+          "id": "slide-width",
+          "name": "Slide Width",
+          "value": "165 mm / 6.5\""
+        },
+        {
+          "id": "rinfling",
+          "name": "Rinfling",
+          "value": "6 SAĞ (6 RIGHT) - 1/10” (250 mm)"
+        },
+        {
+          "id": "safety-system",
+          "name": "Safety System",
+          "value": "Manuel Safety and Firing Pin"
+        }
+      ]
+    }
+  ],
+  "variants": [
+    {
+      "id": "color",
+      "name": "Color",
+      "value": "Black"
+    }
+  ],
+  "extra_data": [],
+  "images": [
+    "sarsilmaz.pl/b6-c-black-0"
+  ]
+}

@@ -1,0 +1,86 @@
+{
+  "id": "sarsilmaz.sar9-rd-bronze",
+  "lang": "pl",
+  "url": "https://www.sarsilmaz.com/en/product/detail/sar9/rd-bronze",
+  "manufacturer": "sarsilmaz",
+  "category_slug": "polymer",
+  "category_name": "Polymer",
+  "name": "SAR9 Rd Bronze",
+  "name_short": "SAR9",
+  "slug": "sar9-rd-bronze",
+  "model_name": "",
+  "lead": "Winner of “Türkiye’s Authentic Domestic Pistol Project” by far, SAR9 is designed to hit the target under most challenging conditions.",
+  "description": [
+    "Winner of “Türkiye’s Authentic Domestic Pistol Project” by far, SAR9 is designed to hit the target under most challenging conditions.",
+    "Standing out among its counterparts with its ease of use and lightweight structure, SAR9 has superior quality polymer frame. Besides offering all advantages of 9 millimeters, SAR9 also has a perfect fit with the user by means of changeable side plates (S-M-L) and back straps for fitting in different types of hands as well as the picatinny rail on the frame. Equipped also with pin and trigger safety, SAR9 offers sense of safety and comfort together."
+  ],
+  "attribute_groups": [
+    {
+      "id": "specification",
+      "name": "Specification",
+      "properties": [
+        {
+          "id": "caliber",
+          "name": "Caliber",
+          "value": "9 x 19 mm"
+        },
+        {
+          "id": "trigger-pull",
+          "name": "Trigger Pull",
+          "value": "15 - 25 N"
+        },
+        {
+          "id": "without-magazine",
+          "name": "Without Magazine",
+          "value": "730 g / 25.7 oz"
+        },
+        {
+          "id": "barrel-length",
+          "name": "Barrel Length",
+          "value": "113.5 mm / 4.5”"
+        },
+        {
+          "id": "operating-prenciple",
+          "name": "Operating Prenciple",
+          "value": "Semi Auto"
+        },
+        {
+          "id": "capacity",
+          "name": "Capacity",
+          "value": "10 / 15 / 17 / 19 Bullets"
+        },
+        {
+          "id": "slide-width",
+          "name": "Slide Width",
+          "value": "185.5 mm / 7.3\""
+        },
+        {
+          "id": "rinfling",
+          "name": "Rinfling",
+          "value": "6 SAĞ (6 RIGHT) - 1/10” (250 mm)"
+        },
+        {
+          "id": "muzzle-velocity",
+          "name": "Muzzle Velocity",
+          "value": "350 m/s"
+        },
+        {
+          "id": "safety-system",
+          "name": "Safety System",
+          "value": "Manuel Safety, Trigger, Firing Pin and Drop Safety"
+        }
+      ]
+    }
+  ],
+  "variants": [
+    {
+      "id": "color",
+      "name": "Color",
+      "value": "Rd Bronze"
+    }
+  ],
+  "extra_data": [],
+  "images": [
+    "sarsilmaz.pl/sar9-rd-bronze-0"
+  ]
+}

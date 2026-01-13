@@ -1,0 +1,86 @@
+{
+  "id": "sarsilmaz.p8-s-platinum",
+  "lang": "en",
+  "url": "https://www.sarsilmaz.com/en/product/detail/p8-s/platinum",
+  "manufacturer": "sarsilmaz",
+  "category_slug": "steel",
+  "category_name": "Steel",
+  "name": "P8 S Platinum",
+  "name_short": "P8 S",
+  "slug": "p8-s-platinum",
+  "model_name": "",
+  "lead": "With an optional gold plating option, the P8 S promises efficient use with its compensator and slide with cooling cuts.",
+  "description": [
+    "With an optional gold plating option, the P8 S promises efficient use with its compensator and slide with cooling cuts.",
+    "With its ergonomic structure and technical features, the P8 S has a reliable and target-oriented design. It stands out as a model open to different enhancements with its adjustable rear sight and interchangeable front sight."
+  ],
+  "attribute_groups": [
+    {
+      "id": "specification",
+      "name": "Specification",
+      "properties": [
+        {
+          "id": "caliber",
+          "name": "Caliber",
+          "value": "9 x 19 mm"
+        },
+        {
+          "id": "trigger-pull",
+          "name": "Trigger Pull",
+          "value": "45 - 55 N"
+        },
+        {
+          "id": "without-magazine",
+          "name": "Without Magazine",
+          "value": "895 g / 31.6 oz"
+        },
+        {
+          "id": "barrel-length",
+          "name": "Barrel Length",
+          "value": "97 mm / 3.8”"
+        },
+        {
+          "id": "operating-prenciple",
+          "name": "Operating Prenciple",
+          "value": "Semi Auto"
+        },
+        {
+          "id": "capacity",
+          "name": "Capacity",
+          "value": "10 / 15 / 17 Bullets"
+        },
+        {
+          "id": "slide-width",
+          "name": "Slide Width",
+          "value": "162 mm / 6.4”"
+        },
+        {
+          "id": "rinfling",
+          "name": "Rinfling",
+          "value": "6 SAĞ (6 RIGHT) - 1/10” (250 mm)"
+        },
+        {
+          "id": "muzzle-velocity",
+          "name": "Muzzle Velocity",
+          "value": "350 m/s"
+        },
+        {
+          "id": "safety-system",
+          "name": "Safety System",
+          "value": "Manuel Safety and Firing Pin"
+        }
+      ]
+    }
+  ],
+  "variants": [
+    {
+      "id": "color",
+      "name": "Color",
+      "value": "Platinum"
+    }
+  ],
+  "extra_data": [],
+  "images": [
+    "sarsilmaz.pl/p8-s-platinum-0"
+  ]
+}

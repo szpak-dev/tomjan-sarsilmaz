@@ -6,7 +6,11 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "load:contents": "tsx src/content.loader.ts",
+    "dicts:build": "tsx src/content.dictionaries.ts",
+    "dicts:sync": "tsx src/content.dictionaries.ts sync",
+    "translations": "tsx src/content.translations.ts"
   },
   "dependencies": {
     "@popperjs/core": "^2.11.8",
@@ -20,5 +24,8 @@
     "cloudinary": "^2.8.0",
     "dotenv": "^17.2.3",
     "slugify": "^1.6.6"
+  },
+  "devDependencies": {
+    "tsx": "^4.21.0"
   }
 }

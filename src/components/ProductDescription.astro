@@ -3,7 +3,7 @@ import { translationRepository } from "../content";
 import ProductSection from "./ProductSection.astro";
 
 export type Props = {
-  description: string;
+  description: string[];
   lang: string;
 };
 
@@ -12,5 +12,9 @@ const t = translationRepository.getTranslator(lang);
 ---
 
 <ProductSection heading={t("headings.description")}>
-  <p class="mb-4">{description}</p>
+  <div class="vstack gap-3">
+    {description.map((paragraph) => (
+      <p class="mb-0">{paragraph}</p>
+    ))}
+  </div>
 </ProductSection>

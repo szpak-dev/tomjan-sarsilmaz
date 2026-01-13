@@ -17,8 +17,8 @@ export async function getStaticPaths() {
 
     for (const product of products) {
       paths.push({
-        params: { lang: lang.code, product: product.id },
-        props: { lang: lang.code, product: product.id },
+        params: { lang: lang.code, product: product.slug },
+        props: { lang: lang.code, product: product.slug },
       });
     }
   }
@@ -28,8 +28,7 @@ export async function getStaticPaths() {
 
 const { lang, product } = Astro.props;
 
-const productData = await productRepository.getProductById(product, lang);
-productRepository.translateProduct(productData, lang);
+const productData = await productRepository.getProductBySlug(product, lang);
 ---
 
 <Layout title={`${productData.name} | Tomasz Jantos`}>
@@ -53,7 +52,7 @@ productRepository.translateProduct(productData, lang);
         </div>
         <div class="col-md-6">
           <ProductSpecification
-            specification={productData.specification}
+            attributeGroups={productData.attribute_groups}
             lang={lang}
           />
         </div>
@@ -62,12 +61,12 @@ productRepository.translateProduct(productData, lang);
     
     <div class="vstack gap-4">
       <ProductDescription
-        description={productData.description || ""}
+        description={productData.description || []}
         lang={lang}
       />
 
       <ProductFeatures 
-        features={productData.features} 
+        attributeGroups={productData.attribute_groups}
         lang={lang} 
       />
     </div>

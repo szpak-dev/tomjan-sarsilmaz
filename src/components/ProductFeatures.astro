@@ -1,27 +1,29 @@
 ---
 import { translationRepository } from "../content";
-import type { Feature } from "../content/product.repository";
-import AttributeGroup from "./AttributeGroup.astro";
+import type { AttributeGroup as AttributeGroupType } from "../content/product.repository";
+import Attribute from "./Attribute.astro";
 import ProductSection from "./ProductSection.astro";
 
 export type Props = {
-  features: Feature[];
+  attributeGroups: AttributeGroupType[];
   lang: string;
 };
 
-const { features, lang } = Astro.props;
+const { attributeGroups, lang } = Astro.props;
 const t = translationRepository.getTranslator(lang);
 ---
 <ProductSection heading={t("headings.features")}>
   <div class="vstack gap-3 px-4">
     {
-      features.map((feature) => (
-        <AttributeGroup
-          title={feature.category}
-          titleClass="fs-5 text-secondary"
-          attributes={feature.parameters}
-          attributesClass="px-3"
-        />
+      attributeGroups.map((group) => (
+        <div>
+          <h6 class="fs-6 text-secondary mb-2">{group.name}</h6>
+          <div class="vstack gap-2 ps-3">
+            {group.properties.map((prop) => (
+              <Attribute name={prop.name} value={prop.value} />
+            ))}
+          </div>
+        </div>
       ))
     }
   </div>

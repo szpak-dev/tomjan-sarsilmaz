@@ -1,120 +1,86 @@
 {
-  "id": "sar9-sp-khaki",
-  "catalogNumber": "400946",
-  "active": true,
-  "name": "SARSILMAZ SAR9 SP KHAKI 9x19mm Pistolet Półautomatyczny",
-  "shortName": "SAR9 SP",
-  "color": "Khaki",
-  "lead": "SAR9 SP wyróżnia się możliwościami technicznymi, które spełniają wszystkie nadrzędne cechy serii SAR9.",
-  "description": "Opracowany zgodnie z potrzebami Dowództwa Sił Specjalnych i Tureckich Sił Zbrojnych, aby reagować na różne i specjalistyczne potrzeby. Podobnie jak inne modele SAR9, pistolet umożliwiający bezpieczne i praktyczne użytkowanie dzięki polimerowej ramie i lufie z kutej stali stopowej, jest wyposażony w przyrządy celownicze o wysokości tłumika z blokadą iglicy i bezpiecznikiem spustu. SAR9 SP zawiera również opcje ulepszeń z połączeniem tłumika, gniazdem magazynka i pierścieniem na smycz.",
-  "images": [
-    "sar9-sp-khaki-0",
-    "sar9-sp-khaki-1",
-    "sar9-sp-khaki-2"
+  "id": "sarsilmaz.sar9-sp-khaki",
+  "lang": "pl",
+  "url": "https://www.sarsilmaz.com/en/product/detail/sar9-sp/khaki",
+  "manufacturer": "sarsilmaz",
+  "category_slug": "polymer",
+  "category_name": "Polymer",
+  "name": "SAR9 SP Khaki",
+  "name_short": "SAR9 SP",
+  "slug": "sar9-sp-khaki",
+  "model_name": "",
+  "lead": "The SAR9 SP stands out with its technical capabilities that meet all the superior features of the SAR9 series.",
+  "description": [
+    "The SAR9 SP stands out with its technical capabilities that meet all the superior features of the SAR9 series.",
+    "Developed according to the needs of the Special Forces Command and the Turkish Armed Forces to respond to different and specialized needs. Similar to other SAR9’s, the pistol that enables safe and practical use with polymer frame and alloy forged steel barrel comes with suppressor height sights with firing pin block and trigger safety. SAR9 SP also contains improvement options with silencer connection, magazine well and lanyard ring."
   ],
-  "specification": [
+  "attribute_groups": [
     {
-      "name": "Caliber",
-      "value": "9 x 19 mm"
-    },
-    {
-      "name": "Firing Speed",
-      "value": "350 m/s"
-    },
-    {
-      "name": "Trigger Pull",
-      "value": "15 - 25 N"
-    },
-    {
-      "name": "Barrel Length",
-      "value": "129 mm"
-    },
-    {
-      "name": "Operating Principle",
-      "value": "Semi Auto"
-    },
-    {
-      "name": "Capacity",
-      "value": "10 / 15 / 17 Bullets"
-    },
-    {
-      "name": "Slide Width",
-      "value": "185.5 mm"
-    },
-    {
-      "name": "Safety System",
-      "value": [
-        "Manual Safety",
-        "Trigger",
-        "Firing Pin",
-        "Drop Safety"
-      ]
-    }
-  ],
-  "features": [
-    {
-      "category": "Dimensions",
-      "parameters": [
+      "id": "specification",
+      "name": "Specification",
+      "properties": [
         {
-          "name": "Overall Length",
-          "value": "213 mm"
+          "id": "caliber",
+          "name": "Caliber",
+          "value": "9 x 19 mm"
         },
         {
-          "name": "Height",
-          "value": "145.5 mm"
+          "id": "firing-speed",
+          "name": "Firing Speed",
+          "value": "350 m/s"
         },
         {
-          "name": "Overall Width",
-          "value": "35.7 mm"
+          "id": "trigger-pull",
+          "name": "Trigger Pull",
+          "value": "15 - 25 N"
         },
         {
-          "name": "Slide Width",
-          "value": "185.5 mm"
-        },
-        {
-          "name": "Slide Height",
-          "value": "25.5 mm"
-        },
-        {
-          "name": "Sight Radius",
-          "value": "162.8 mm"
-        },
-        {
-          "name": "Trigger Distance",
-          "value": "70 mm"
-        }
-      ]
-    },
-    {
-      "category": "Weights",
-      "parameters": [
-        {
+          "id": "without-magazine",
           "name": "Without Magazine",
-          "value": "750 g"
+          "value": "750 g / 26.4 oz"
         },
         {
-          "name": "With Empty Magazine",
-          "value": "845 g"
+          "id": "barrel-length",
+          "name": "Barrel Length",
+          "value": "129 mm / 5.1”"
         },
         {
-          "name": "With Loaded Magazine",
-          "value": "1100 g"
+          "id": "operating-prenciple",
+          "name": "Operating Prenciple",
+          "value": "Semi Auto"
+        },
+        {
+          "id": "capacity",
+          "name": "Capacity",
+          "value": "10 / 15 / 17 Bullets"
+        },
+        {
+          "id": "slide-width",
+          "name": "Slide Width",
+          "value": "185.5 mm / 7.3\""
+        },
+        {
+          "id": "rinfling",
+          "name": "Rinfling",
+          "value": "6 SAĞ (6 RIGHT) - 1 / 10” (250 mm)"
+        },
+        {
+          "id": "safety-system",
+          "name": "Safety System",
+          "value": "Manuel Safety, Trigger, Firing Pin and Drop Safety"
         }
-      ]
-    },
-    {
-      "category": "Product Features",
-      "parameters": [
-        "Polymer Frame",
-        "3 Different Size S-M-L Changeable Back Straps And Side Plates",
-        "Picatinny Rail",
-        "Aglet Ring",
-        "Barrel Screw Cup",
-        "Magwell",
-        "Mounting Holes",
-        "High Rear and Front Sight"
       ]
     }
   ],
-  "lang": "pl"
+  "variants": [
+    {
+      "id": "color",
+      "name": "Color",
+      "value": "Khaki"
+    }
+  ],
+  "extra_data": [],
+  "images": [
+    "sarsilmaz.pl/sar9-sp-khaki-0"
+  ]
 }

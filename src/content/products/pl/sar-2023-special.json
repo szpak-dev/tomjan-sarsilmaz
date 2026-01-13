@@ -1,0 +1,81 @@
+{
+  "id": "sarsilmaz.sar-2023-special",
+  "lang": "pl",
+  "url": "https://www.sarsilmaz.com/en/product/detail/sar-2023/special",
+  "manufacturer": "sarsilmaz",
+  "category_slug": "polymer",
+  "category_name": "Polymer",
+  "name": "SAR 2023 Special",
+  "name_short": "SAR 2023",
+  "slug": "sar-2023-special",
+  "model_name": "",
+  "lead": "SAR 2023 specially developed by the engineers of Sarsılmaz in commemoration of and honoring the 100th Anniversary of the Republic of Türkiye, possesses a substantial value worth for collection thanks to its limited number of production.",
+  "description": [
+    "SAR 2023 specially developed by the engineers of Sarsılmaz in commemoration of and honoring the 100th Anniversary of the Republic of Türkiye, possesses a substantial value worth for collection thanks to its limited number of production.",
+    "This pistol enriched by design elements symbolizing history of the Turkish Republic affluent with successes while stepping ahead in her second centennial as well as future targets and objectives, presents an attractive outlook to this end. Where quality, innovation and performance are foremost, SAR 2023, 9x19 mm caliber semi-automatic pistol is ready at all times for a superior shot thanks to its ergonomic holster form, front as well as rear notches on the slide designed to make it ready for shooting in an easy and rapid manner. By means of its magazine option of capacity holding 15 to 17 bullets and weight of only 730 grams, introducing an optimum solution for those in search of a reliable and light-weight pistol, SAR 2023, while enabling the user a faultless shooting sensitivity thanks to its reduced reset distance by means of its 90-degree special design sports trigger, also provides for faster and more accurate repeated shots. Whereas cooling ducts of SAR 2023 on the cover enable faster cooling of the barrel particularly following serial shots, reducing recoil substantially. Thanks to the picatinny rail system, SAR 2023 compatible to all kinds of accessories with ease, is at the same time a multi-faceted pistol facilitating usage of reddot. Its ergonomic form and interchangeable backrest feature at sizes “M” and “L” are amongst other advantages of SAR 2023. SAR 2023, besides and further to its technical characteristics, is in possession of an appearance befitting the 100th Anniversary of the Turkish Republic by means of its attractive design elements as well. SAR 2023 saluting the second centennial of our Republic by the special 100th Anniversary Logo on the cover and also such golden marking elements enriched by the same 100th Anniversary Logo, is further emphasizing the targets towards the future via its energetic outlook."
+  ],
+  "attribute_groups": [
+    {
+      "id": "specification",
+      "name": "Specification",
+      "properties": [
+        {
+          "id": "caliber",
+          "name": "Caliber",
+          "value": "9 x 19 mm"
+        },
+        {
+          "id": "trigger-pull",
+          "name": "Trigger Pull",
+          "value": "15 - 25 N"
+        },
+        {
+          "id": "without-magazine",
+          "name": "Without Magazine",
+          "value": "700 g / 24.9 oz"
+        },
+        {
+          "id": "barrel-length",
+          "name": "Barrel Length",
+          "value": "114.9 mm / 4.5\""
+        },
+        {
+          "id": "operating-prenciple",
+          "name": "Operating Prenciple",
+          "value": "Semi Auto"
+        },
+        {
+          "id": "capacity",
+          "name": "Capacity",
+          "value": "17 Bullets"
+        },
+        {
+          "id": "slide-width",
+          "name": "Slide Width",
+          "value": "185 mm / 7.3\""
+        },
+        {
+          "id": "muzzle-velocity",
+          "name": "Muzzle Velocity",
+          "value": "350 m/s"
+        },
+        {
+          "id": "safety-system",
+          "name": "Safety System",
+          "value": "Trigger, Firing pin and Drop Safety"
+        }
+      ]
+    }
+  ],
+  "variants": [
+    {
+      "id": "color",
+      "name": "Color",
+      "value": "Special"
+    }
+  ],
+  "extra_data": [],
+  "images": [
+    "sarsilmaz.pl/sar-2023-special-0"
+  ]
+}
