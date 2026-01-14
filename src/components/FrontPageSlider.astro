@@ -19,7 +19,7 @@ const slides: CarouselSlideType[] = products.map((product, index) => ({
 const id = "promotedProducts";
 ---
 
-<Carousel {id} fade dark>
+<Carousel {id} fade dark class="bg-white border-light shadow-sm mb-4">
   <Carousel.Indicators {id} {slides} />
   <Carousel.Inner>
     {slides.map((slide, index) => (

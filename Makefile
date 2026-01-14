@@ -7,9 +7,6 @@ help:
 	@echo "Available targets:"
 	@echo "  make copy-scraped-data      Copy raw JSONL files from scraping directory"
 	@echo "  make load-products          Transform and load products from scraped JSONL"
-	@echo "  make decompose              Extract attributes and variants from products"
-	@echo "  make init-translations      Initialize translation files (en/ and pl/ folders)"
-	@echo "  make all                    Copy data, load products, decompose, and init translations"
 
 copy-scraped-data:
 	@echo "Copying scraped data from $(SCRAPING_DATA_DIR)..."

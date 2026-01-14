@@ -53,8 +53,10 @@ interface Category {
 /**
  * Load dictionary from file
  */
-function loadDictionary<T = any>(language: string, fileName: string): T {
-  const dictionaryPath = path.join(projectRoot, 'src', 'content', 'dictionaries', language, fileName);
+function loadDictionary<T = any>(manufacturer: string, language: string, fileName: string): T {
+  const dictionaryPath = manufacturer
+    ? path.join(projectRoot, 'src', 'content', 'dictionaries', manufacturer, language, fileName)
+    : path.join(projectRoot, 'src', 'content', 'dictionaries', language, fileName);
   
   if (!fs.existsSync(dictionaryPath)) {
     throw new Error(`Dictionary file not found: ${dictionaryPath}`);
@@ -229,29 +231,33 @@ function translateProduct(
 /**
  * Translate all products from source language to target language
  */
-export async function translateProducts(sourceLang: string, targetLang: string): Promise<void> {
-  console.log(`Translating products from ${sourceLang} to ${targetLang}...\n`);
+export async function translateProducts(manufacturer: string, sourceLang: string, targetLang: string): Promise<void> {
+  console.log(`Translating ${manufacturer} products from ${sourceLang} to ${targetLang}...\n`);
   
   // Load all dictionaries for target language
   console.log('Loading dictionaries...');
   const dictionaries = {
-    attributeGroups: loadDictionary<Record<string, string>>(targetLang, 'attribute-groups.json'),
-    attributes: loadDictionary<Record<string, string>>(targetLang, 'attributes.json'),
-    variants: loadDictionary<Record<string, string>>(targetLang, 'variants.json'),
-    descriptions: loadDictionary<Record<string, string[]>>(targetLang, 'descriptions.json'),
-    categories: loadDictionary<Record<string, string>>(targetLang, 'categories.json'),
-    attributeValues: loadDictionary<Record<string, Record<string, string>>>(targetLang, 'attribute-values.json')
+    attributeGroups: loadDictionary<Record<string, string>>(manufacturer, targetLang, 'attribute-groups.json'),
+    attributes: loadDictionary<Record<string, string>>(manufacturer, targetLang, 'attributes.json'),
+    variants: loadDictionary<Record<string, string>>(manufacturer, targetLang, 'variants.json'),
+    descriptions: loadDictionary<Record<string, string[]>>(manufacturer, targetLang, 'descriptions.json'),
+    categories: loadDictionary<Record<string, string>>(manufacturer, targetLang, 'categories.json'),
+    attributeValues: loadDictionary<Record<string, Record<string, string>>>(manufacturer, targetLang, 'attribute-values.json')
   };
   console.log('✓ Dictionaries loaded\n');
   
   // Get source products directory
-  const sourceProductsDir = path.join(projectRoot, 'src', 'content', 'products', sourceLang);
+  const sourceProductsDir = manufacturer
+    ? path.join(projectRoot, 'src', 'content', 'products', manufacturer, sourceLang)
+    : path.join(projectRoot, 'src', 'content', 'products', sourceLang);
   if (!fs.existsSync(sourceProductsDir)) {
     throw new Error(`Source products directory not found: ${sourceProductsDir}`);
   }
   
   // Get target products directory
-  const targetProductsDir = path.join(projectRoot, 'src', 'content', 'products', targetLang);
+  const targetProductsDir = manufacturer
+    ? path.join(projectRoot, 'src', 'content', 'products', manufacturer, targetLang)
+    : path.join(projectRoot, 'src', 'content', 'products', targetLang);
   if (!fs.existsSync(targetProductsDir)) {
     fs.mkdirSync(targetProductsDir, { recursive: true });
   }
@@ -307,23 +313,27 @@ export async function translateProducts(sourceLang: string, targetLang: string):
 /**
  * Translate all categories from source language to target language
  */
-export async function translateCategories(sourceLang: string, targetLang: string): Promise<void> {
-  console.log(`\nTranslating categories from ${sourceLang} to ${targetLang}...\n`);
+export async function translateCategories(manufacturer: string, sourceLang: string, targetLang: string): Promise<void> {
+  console.log(`\nTranslating ${manufacturer} categories from ${sourceLang} to ${targetLang}...\n`);
   
   // Load categories dictionary for target language
   console.log('Loading categories dictionary...');
-  const categoriesDict = loadDictionary<Record<string, string>>(targetLang, 'categories.json');
+  const categoriesDict = loadDictionary<Record<string, string>>(manufacturer, targetLang, 'categories.json');
   console.log('✓ Dictionary loaded\n');
   
   // Get source categories directory
-  const sourceCategoriesDir = path.join(projectRoot, 'src', 'content', 'categories', sourceLang);
+  const sourceCategoriesDir = manufacturer
+    ? path.join(projectRoot, 'src', 'content', 'categories', manufacturer, sourceLang)
+    : path.join(projectRoot, 'src', 'content', 'categories', sourceLang);
   if (!fs.existsSync(sourceCategoriesDir)) {
     console.log(`Source categories directory not found: ${sourceCategoriesDir}, skipping categories`);
     return;
   }
   
   // Get target categories directory
-  const targetCategoriesDir = path.join(projectRoot, 'src', 'content', 'categories', targetLang);
+  const targetCategoriesDir = manufacturer
+    ? path.join(projectRoot, 'src', 'content', 'categories', manufacturer, targetLang)
+    : path.join(projectRoot, 'src', 'content', 'categories', targetLang);
   if (!fs.existsSync(targetCategoriesDir)) {
     fs.mkdirSync(targetCategoriesDir, { recursive: true });
   }
@@ -387,23 +397,25 @@ export async function translateCategories(sourceLang: string, targetLang: string
 /**
  * Update existing products with translations from dictionaries
  */
-export async function updateProductTranslations(targetLang: string): Promise<void> {
-  console.log(`Updating ${targetLang} products with dictionary translations...\n`);
+export async function updateProductTranslations(manufacturer: string, targetLang: string): Promise<void> {
+  console.log(`Updating ${manufacturer} ${targetLang} products with dictionary translations...\n`);
   
   // Load all dictionaries for target language
   console.log('Loading dictionaries...');
   const dictionaries = {
-    attributeGroups: loadDictionary<Record<string, string>>(targetLang, 'attribute-groups.json'),
-    attributes: loadDictionary<Record<string, string>>(targetLang, 'attributes.json'),
-    variants: loadDictionary<Record<string, string>>(targetLang, 'variants.json'),
-    descriptions: loadDictionary<Record<string, string[]>>(targetLang, 'descriptions.json'),
-    categories: loadDictionary<Record<string, string>>(targetLang, 'categories.json'),
-    attributeValues: loadDictionary<Record<string, Record<string, string>>>(targetLang, 'attribute-values.json')
+    attributeGroups: loadDictionary<Record<string, string>>(manufacturer, targetLang, 'attribute-groups.json'),
+    attributes: loadDictionary<Record<string, string>>(manufacturer, targetLang, 'attributes.json'),
+    variants: loadDictionary<Record<string, string>>(manufacturer, targetLang, 'variants.json'),
+    descriptions: loadDictionary<Record<string, string[]>>(manufacturer, targetLang, 'descriptions.json'),
+    categories: loadDictionary<Record<string, string>>(manufacturer, targetLang, 'categories.json'),
+    attributeValues: loadDictionary<Record<string, Record<string, string>>>(manufacturer, targetLang, 'attribute-values.json')
   };
   console.log('✓ Dictionaries loaded\n');
   
   // Get target products directory
-  const targetProductsDir = path.join(projectRoot, 'src', 'content', 'products', targetLang);
+  const targetProductsDir = manufacturer
+    ? path.join(projectRoot, 'src', 'content', 'products', manufacturer, targetLang)
+    : path.join(projectRoot, 'src', 'content', 'products', targetLang);
   if (!fs.existsSync(targetProductsDir)) {
     throw new Error(`Target products directory not found: ${targetProductsDir}`);
   }
@@ -447,27 +459,66 @@ export async function updateProductTranslations(targetLang: string): Promise<voi
   }
 }
 
+/**
+ * Find all manufacturers (subdirectories) in the content/products folder
+ */
+function findManufacturers(): string[] {
+  const productsPath = path.join(projectRoot, 'src', 'content', 'products');
+  
+  if (!fs.existsSync(productsPath)) {
+    return [];
+  }
+  
+  return fs.readdirSync(productsPath, { withFileTypes: true })
+    .filter(dirent => dirent.isDirectory())
+    .map(dirent => dirent.name);
+}
+
 // Main entry point for CLI execution
 async function main() {
   const args = process.argv.slice(2);
   const command = args[0];
   
   if (command === 'update') {
-    const targetLang = args[1] || 'pl';
-    await updateProductTranslations(targetLang);
-  } else {
-    const sourceLang = args[0];
-    const targetLang = args[1];
+    const manufacturer = args[1];
+    const targetLang = args[2] || args[1] || 'pl';
     
-    if (!sourceLang || !targetLang) {
-      console.error('Error: Both source and target languages are required');
-      console.error('Usage: npm run translations -- <sourceLang> <targetLang>');
-      console.error('   or: npm run translations -- update <targetLang>');
+    // If only one arg after 'update', treat it as targetLang (legacy)
+    if (args.length === 2) {
+      await updateProductTranslations('', args[1]);
+    } else {
+      if (!manufacturer) {
+        console.error('Error: Manufacturer is required');
+        console.error('Usage: npm run translations -- update <manufacturer> <targetLang>');
+        console.error('   or: npm run translations -- update <targetLang> (legacy)');
+        process.exit(1);
+      }
+      await updateProductTranslations(manufacturer, targetLang);
+    }
+  } else {
+    // Check if args match old format: <sourceLang> <targetLang>
+    // or new format: <manufacturer> <sourceLang> <targetLang>
+    if (args.length === 2) {
+      // Legacy format: sourceLang targetLang
+      const sourceLang = args[0];
+      const targetLang = args[1];
+      await translateProducts('', sourceLang, targetLang);
+      await translateCategories('', sourceLang, targetLang);
+    } else if (args.length === 3) {
+      // New format: manufacturer sourceLang targetLang
+      const manufacturer = args[0];
+      const sourceLang = args[1];
+      const targetLang = args[2];
+      await translateProducts(manufacturer, sourceLang, targetLang);
+      await translateCategories(manufacturer, sourceLang, targetLang);
+    } else {
+      console.error('Error: Invalid arguments');
+      console.error('Usage: npm run translations -- <manufacturer> <sourceLang> <targetLang>');
+      console.error('   or: npm run translations -- <sourceLang> <targetLang> (legacy)');
+      console.error('   or: npm run translations -- update <manufacturer> <targetLang>');
+      console.error('   or: npm run translations -- update <targetLang> (legacy)');
       process.exit(1);
     }
-    
-    await translateProducts(sourceLang, targetLang);
-    await translateCategories(sourceLang, targetLang);
   }
 }
 
