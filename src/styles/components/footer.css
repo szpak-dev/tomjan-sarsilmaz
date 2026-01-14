@@ -1,0 +1,25 @@
+.hover-link {
+  transition: color 0.2s ease-in-out, transform 0.2s ease-in-out;
+}
+
+.hover-link:hover {
+  color: #0dcaf0 !important;
+  transform: translateX(4px);
+}
+
+.ui-footer {
+  background: linear-gradient(180deg, #1a1a1a 0%, #0d0d0d 100%);
+}
+
+.footer-socials .social-link {
+  transition: all 0.2s ease-in-out;
+}
+
+.footer-socials .social-link:hover {
+  color: #0dcaf0 !important;
+  transform: translateX(4px);
+}
+
+.footer-socials .social-name {
+  font-size: 0.95rem;
+}

@@ -1,14 +1,15 @@
 ---
+import type { AttributeGroup } from "../../content/product.repository";
 import Attribute from "./Attribute.astro";
 
 export type Props = {
-  attributes: string[] | { name: string; value: string }[];
+  group: AttributeGroup;
   title?: string;
   titleClass?: string;
   attributesClass?: string;
 };
 
-const { title, attributes = [], titleClass, attributesClass } = Astro.props;
+const { title, group, titleClass, attributesClass } = Astro.props;
 ---
 
 <div class="attribute-group">
@@ -18,7 +19,7 @@ const { title, attributes = [], titleClass, attributesClass } = Astro.props;
     </h6>
   }
   {
-    attributes && attributes.map((attr) => (
+    group.properties && group.properties.map((attr) => (
         <>
           {typeof attr === "string" ? (
             <Attribute value={attr} className={attributesClass} />

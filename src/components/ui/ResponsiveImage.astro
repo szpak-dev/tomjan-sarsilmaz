@@ -1,0 +1,44 @@
+---
+import { CldImage } from "astro-cloudinary";
+
+export type Props = {
+  src: string;
+  alt?: string;
+  width?: number;
+  height?: number;
+  crop?: "pad" | "fill" | "crop";
+  objectFit?: "contain" | "cover" | "fill";
+  responsive?: boolean;
+  aspectRatio?: string | number;
+  class?: string;
+}
+
+const { 
+  src, 
+  alt = "Responsive image",
+  width = 400,
+  height = 300,
+  crop = "pad",
+  objectFit = "cover",
+  responsive = true,
+  aspectRatio = "4:3",
+  class: customClass = ""
+} = Astro.props;
+
+const objectFitClass = {
+  contain: "object-fit-contain",
+  cover: "object-fit-cover",
+  fill: "object-fit-fill",
+}[objectFit];
+---
+
+<CldImage
+    src={src}
+    alt={alt}
+    crop={crop as "pad" | "fill" | "crop"}
+    width={width}
+    height={height}
+    aspectRatio={typeof aspectRatio === 'string' ? undefined : aspectRatio}
+    {...(responsive && { sizes: "(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" })}
+    class={`${objectFitClass} ${customClass}`}
+/>

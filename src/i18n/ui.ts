@@ -11,11 +11,20 @@ export const ui = {
         'nav.home': 'Home',
         'nav.products': 'Products',
 
+        // frontpage
+        'frontpage.distributor': 'Official Distributor in Poland',
+        'frontpage.distributorSlogan': 'We are proud to be the official distributor of Sarsilmaz firearms in Poland. Sarsilmaz is renowned for its high- quality craftsmanship and innovative designs, making it a trusted choice among firearm enthusiasts.',
+
         // Headings
         'headings.products': 'Products',
         'headings.description': 'Description',
         'headings.features': 'Features',
         'headings.specification': 'Specification',
+
+        // footer
+        'footer.contact': 'Contact',
+        'footer.followUs': 'Follow us',
+        'footer.allRightsReserved': 'All rights reserved',
 
         // Specifications
         'spec.Caliber': 'Caliber',
@@ -73,11 +82,20 @@ export const ui = {
         'nav.home': 'Strona główna',
         'nav.products': 'Produkty',
 
+        // frontpage
+        'frontpage.distributor': 'Oficjalny Dystrybutor w Polsce',
+        'frontpage.distributorSlogan': 'Jesteśmy dumni, że jesteśmy oficjalnym dystrybutorem broni Sarsilmaz w Polsce. Sarsilmaz jest znany z wysokiej jakości rzemiosła i innowacyjnych projektów, co czyni go zaufanym wyborem wśród entuzjastów broni.',
+
         // Headings
         'headings.products': 'Produkty',
         'headings.description': 'Opis',
         'headings.features': 'Cechy',
         'headings.specification': 'Specyfikacja',
+
+        // footer
+        'footer.contact': 'Kontakt',
+        'footer.followUs': 'Obserwuj nas',
+        'footer.allRightsReserved': 'Wszelkie prawa zastrzeżone',
 
         // Specifications
         'spec.Caliber': 'Kaliber',

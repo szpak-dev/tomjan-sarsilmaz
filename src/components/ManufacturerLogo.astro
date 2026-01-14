@@ -1,0 +1,21 @@
+---
+import { CldImage } from "astro-cloudinary";
+import Card from "./ui/Card.astro";
+
+const { manufacturer } = Astro.props;
+---
+
+<Card animation="none">
+  <div
+    slot="body"
+    class="d-flex align-items-center justify-content-center"
+    style="min-height: 200px;"
+  >
+    <CldImage
+      src={manufacturer.logoUrl}
+      alt={manufacturer.name + " logo"}
+      crop="fill"
+      class="object-fit"
+    />
+  </div>
+</Card>

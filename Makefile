@@ -15,7 +15,7 @@ copy-scraped-data:
 	@cp $(SCRAPING_DATA_DIR)/final_categories.jsonl $(SCRAPED_DIR)/categories.jsonl
 	@echo "✓ Files copied successfully"
 
-load-products:
-	@echo "Loading products..."
-	@npm run load:products
+load-contents:
+	@echo "Loading contents..."
+	@npm run load:contents
 

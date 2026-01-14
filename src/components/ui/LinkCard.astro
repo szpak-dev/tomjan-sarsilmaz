@@ -1,0 +1,45 @@
+---
+import Card from "./Card.astro";
+
+export type Props = {
+  href: string;
+  /** Image properties: {src?, alt?, fit?} */
+  image?: { src?: string; alt?: string; fit?: "contain" | "cover" | "fill" };
+  /** Badge properties: {items?, position?} */
+  badges?: { items?: Array<{ text: string; variant?: string }>; position?: "below" | "beside" };
+  /** Border properties: {style?, shadow?, rounded?} */
+  border?: { style?: "none" | "light" | "bold" | "colored"; shadow?: "none" | "sm" | "md" | "lg"; rounded?: "none" | "sm" | "md" | "lg" | "full" };
+  /** Card variant/style: 'default', 'elevated', 'gradient', 'dark', 'light' */
+  variant?: "default" | "elevated" | "gradient" | "dark" | "light";
+  /** Animation type: 'none', 'lift', 'fade', 'slide', 'scale', 'flip' */
+  animation?: "none" | "lift" | "fade" | "slide" | "scale" | "flip";
+  /** Custom CSS class */
+  class?: string;
+};
+
+const {
+  href,
+  image,
+  badges,
+  border,
+  variant,
+  animation,
+  class: customClass,
+} = Astro.props;
+---
+
+<Card
+  href={href}
+  image={image}
+  badges={badges}
+  border={border}
+  variant={variant}
+  animation={animation}
+  class={"ui-link-card " + customClass}
+>
+  <slot name="title" slot="title" />
+  <slot name="subtitle" slot="subtitle" />
+  <slot name="text" slot="text" />
+  <slot name="body" slot="body" />
+  <slot name="footer" slot="footer" />
+</Card>

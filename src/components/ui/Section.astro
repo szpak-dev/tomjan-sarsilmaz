@@ -1,0 +1,15 @@
+---
+export type Props = {
+  heading?: string;
+  divider?: boolean;
+  class?: string;
+};
+
+const { heading, divider = false, class: className } = Astro.props;
+---
+
+<section class:list={["ui-section", className]}>
+    {heading && <h2 class="fs-4 fw-bold mb-0">{heading}</h2>}
+    {divider && <hr class="text-secondary" />}
+    <slot/>
+</section>

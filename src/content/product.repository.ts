@@ -45,7 +45,7 @@ export type Product = {
     images: string[];
 }
 
-export async function findProducts(lang: string): Promise<Product[]> {
+export async function findProducts(manufacturer: string, lang: string): Promise<Product[]> {
     const products = await getCollection("products");
     
     const filtered = products.filter((p) => p.data.lang === lang);
@@ -57,8 +57,8 @@ export async function findProducts(lang: string): Promise<Product[]> {
     });
 }
 
-export async function getProductBySlug(slug: string, lang: string): Promise<Product> {
-    const products = await findProducts(lang);
+export async function getProductBySlug(manufacturer: string, slug: string, lang: string): Promise<Product> {
+    const products = await findProducts(manufacturer, lang);
     const product = products.find((product) => product.slug === slug);
         
     if (!product) {
@@ -66,13 +66,6 @@ export async function getProductBySlug(slug: string, lang: string): Promise<Prod
     }
 
     return product;
-}
-
-export async function findFeatured(lang: string): Promise<Product[]> {
-    const products = await findProducts(lang);
-    const featuredSlugs = ["k2-45c-stainless-steel", "sar-7-24-sport-platinum", "sar9-safari"];
-    
-    return products.filter(product => featuredSlugs.includes(product.slug));
 }
 
 export function getProductUrl(product: Product, lang: string): string {

@@ -1,0 +1,23 @@
+---
+import type { Product } from "../../content/product.repository";
+import { makeUrl } from "../../libs/url";
+import Card from "../ui/Card.astro";
+
+export type Props = {
+  product: Product;
+};
+
+const { product } = Astro.props;
+---
+
+<Card
+  href={makeUrl(Astro, { path: `${product.slug}/` })}
+  image={{ src: product.images[0], alt: product.name, fit: "cover" }}
+  badges={{ items: [{ text: product.category_name, variant: "light" }], position: "below" }}
+  border={{ style: "light", shadow: "sm" }}
+  variant="elevated"
+>
+  <h6 slot="title" class="card-title text-truncate m-0 mt-1" title={product.name}>
+    {product.name_short}
+  </h6>
+</Card>

@@ -1,74 +1,45 @@
 ---
-import { CldImage } from "astro-cloudinary";
-import Back from "../../components/Back.astro";
 import Layout from "../../layouts/Layout.astro";
-import ProductSpecification from "../../components/ProductSpecification.astro";
-import ProductFeatures from "../../components/ProductFeatures.astro";
-import ProductDescription from "../../components/ProductDescription.astro";
+import ProductPage from "../../layouts/ProductPage.astro";
 
-import { productRepository, translationRepository } from "../../content";
+import {
+  manufacturerRepository,
+  translationRepository,
+  productRepository,
+} from "../../content";
 
 export async function getStaticPaths() {
-  const availableLangs = translationRepository.findAvailableLanguages();
+  const manufacturers = manufacturerRepository.find();
+  const languages = translationRepository.findAvailableLanguages();
+
   const paths = [];
 
-  for (const lang of availableLangs) {
-    const products = await productRepository.findProducts(lang.code);
+  for (const { code: lang } of languages) {
+    for (const manufacturer of manufacturers) {
+      const products = await productRepository.findProducts(
+        manufacturer.slug,
+        lang
+      );
 
-    for (const product of products) {
-      paths.push({
-        params: { lang: lang.code, product: product.slug },
-        props: { lang: lang.code, product: product.slug },
-      });
+      for (const product of products) {
+        paths.push({
+          params: {
+            lang,
+            manufacturer: manufacturer.slug,
+            product: product.slug,
+          },
+          props: { manufacturer, product, lang },
+        });
+      }
     }
   }
 
   return paths;
 }
 
-const { lang, product } = Astro.props;
-
-const productData = await productRepository.getProductBySlug(product, lang);
+const { manufacturer, product, lang } = Astro.props;
 ---
 
-<Layout title={`${productData.name} | Tomasz Jantos`}>
-    <Back targetPath="" label={lang === 'en' ? "Back" : "Powrót"} />
-
-    <div class="vstack gap-4">
-      <h1 class="mb-3 fs-2 fw-bold text-center">{productData.name}</h1>
-      <div class="row">
-        <div class="col-md-6 mb-4">
-          <CldImage
-            crop="fill"
-            format="auto"
-            quality="auto"
-            width={500}
-            src={productData.images?.[0]}
-            class="card-img-top"
-            alt={productData.name}
-            loading={'eager'}
-            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-          />
-        </div>
-        <div class="col-md-6">
-          <ProductSpecification
-            attributeGroups={productData.attribute_groups}
-            lang={lang}
-          />
-        </div>
-      </div>
-    </div>
-    
-    <div class="vstack gap-4">
-      <ProductDescription
-        description={productData.description || []}
-        lang={lang}
-      />
-
-      <ProductFeatures 
-        attributeGroups={productData.attribute_groups}
-        lang={lang} 
-      />
-    </div>
-  </div>
+<Layout title={`${manufacturer.name}`} lang={lang}>
+  <ProductPage manufacturer={manufacturer} product={product} />
 </Layout>

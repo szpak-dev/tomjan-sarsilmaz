@@ -1,0 +1,48 @@
+---
+import { CldImage } from "astro-cloudinary";
+import ProductSpecification from "../components/product/ProductSpecification.astro";
+import Section from "../components/ui/Section.astro";
+
+import type { Manufacturer } from "../content/manufacturer.repository";
+import type { Product } from "../content/product.repository";
+
+export type Props = {
+  manufacturer: Manufacturer;
+  product: Product;
+};
+
+const { manufacturer, product } = Astro.props;
+const specification = product.attribute_groups.find( (g) => g.id === "specification" );
+---
+
+<div id="productPage" class="mt-4 animate-fade-in">
+  <div class="heading d-flex flex-column animate-fade-in-up">
+    <h1 class="fw-bold text-center m-0">{product.name_short}</h1>
+    <h2 class="h3 text-secondary text-center m-0">{product.category_name}</h2>
+  </div>
+
+  <div class="row mt-5">
+    <div class="col-md-6 d-flex justify-content-center align-items-center animate-fade-in-left">
+      <CldImage
+        src={product.images[0]}
+        alt={product.name_short}
+        width={600}
+      />
+    </div>
+    <div class="col-md-6 animate-fade-in-right">
+      <Section heading="Specification" divider={true}>
+        {specification && <ProductSpecification specification={specification} />}
+      </Section>
+    </div>
+  </div>
+
+  <Section heading="Description" divider={true} class="mt-5">
+    <div class="bg-white p-2">
+      {
+        product.description.map((paragraph) => (
+          <p class="text fw-light lh-base">{paragraph}</p>
+        ))
+      }
+    </div>
+  </Section>
+</div>

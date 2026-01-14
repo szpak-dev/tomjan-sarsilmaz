@@ -1,40 +1,32 @@
 ---
 import Layout from "../../layouts/Layout.astro";
-import FrontPageSlider from "../../components/FrontPageSlider.astro";
-import ProductCard from "../../components/ProductCard.astro";
-import { translationRepository, productRepository } from "../../content";
-import FrontPageSection from "../../components/FrontPageSection.astro";
+import CategoryPage from "../../layouts/CategoryPage.astro";
+
+import {
+  manufacturerRepository,
+  translationRepository,
+  productRepository,
+  miscRepository,
+} from "../../content";
 
 export async function getStaticPaths() {
-  return translationRepository.findAvailableLanguages().map((lang) => ({
-    params: { lang: lang.code },
-    props: {},
-  }));
+  const manufacturers = manufacturerRepository.find();
+  const languages = translationRepository.findAvailableLanguages();
+
+  return languages.flatMap(({ code: lang }) =>
+    manufacturers.map((manufacturer) => ({
+      params: { lang, manufacturer: manufacturer.slug },
+      props: { manufacturer, lang },
+    }))
+  );
 }
 
-const lang = Astro.currentLocale as string;
-const t = translationRepository.getTranslator(lang);
-
-const products = await productRepository.findProducts(lang);
-const featuredProducts = await productRepository.findFeatured(lang);
-const activeProducts = products;;
+const {lang } = Astro.props;
+const manufacturer = manufacturerRepository.get('sarsilmaz')
+const products = await productRepository.findProducts(manufacturer.slug, lang);
+const sliderItems = miscRepository.findSliderItems(manufacturer.slug);
 ---
 
-<Layout title={t("meta.title")}>
-  
-  <section id="promotedProductSlider" class="row mt-4">
-    <FrontPageSlider products={featuredProducts} />
-  </section>
-  
-  <FrontPageSection heading={t("headings.products")}>
-    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
-      {activeProducts.map((product) => {
-        return (
-          <div class="col">
-            <ProductCard product={product} />
-          </div>
-        )
-      })}
-    </div>
-  </FrontPageSection>
+<Layout title={`${manufacturer.name}`} lang={lang}>
+  <CategoryPage {manufacturer} {products} {sliderItems} {lang} />
 </Layout>

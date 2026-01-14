@@ -1,14 +1,12 @@
 ---
-import { getLocaleUrl } from "../libs/url";
-import { translationRepository } from "../content";
+import { makeUrl } from "../../libs/url";
+import { translationRepository } from "../../content";
 
 const languages = translationRepository.findAvailableLanguages();
-const currentLang = translationRepository.getLanguage(
-  Astro.currentLocale as string
-);
+const currentLang = translationRepository.getLanguage( Astro.currentLocale as string );
 ---
 
-<div class="dropdown d-inline-block ms-3">
+<div class="ui-language-selector dropdown d-inline-block ms-3">
   <button
     class="btn btn-outline-secondary dropdown-toggle btn-sm"
     type="button"
@@ -21,10 +19,7 @@ const currentLang = translationRepository.getLanguage(
     {
       languages.map(({ code, label, flag }) => (
         <li>
-          <a
-            class="dropdown-item"
-            href={getLocaleUrl(Astro.url.pathname, Astro.currentLocale as string, code)}
-          >
+          <a class="dropdown-item" href={makeUrl(Astro, { targetLocale: code })} >
             {flag}
             {label}
           </a>

@@ -1,0 +1,47 @@
+---
+import OfficialDistributor from "../components/OfficialDistributor.astro";
+import ProductCard from "../components/product/ProductCard.astro";
+import Section from "../components/ui/Section.astro";
+import Slider, { type SliderItem } from "../components/ui/Slider.astro";
+
+import type { Manufacturer } from "../content/manufacturer.repository";
+import type { Product } from "../content/product.repository";
+
+export type Props = {
+  manufacturer: Manufacturer;
+  products: Product[];
+  sliderItems: SliderItem[];
+  lang: string;
+};
+
+const { manufacturer, products, sliderItems, lang } = Astro.props;
+---
+
+<div class="category-page animate-fade-in">
+    <div class="d-flex justify-content-center animate-scale-in my-3">
+        <Slider
+          items={sliderItems}
+          indicators={true}
+          controls={false}
+        />
+    </div>
+
+    <div class="d-flex justify-content-center animate-scale-in my-5">
+        <OfficialDistributor 
+          manufacturer={manufacturer} 
+          lang={lang} 
+        />
+    </div>
+
+    <Section heading={"Oferta"} divider={true}>
+        <div class="row row-cols-1 row-cols-md-4 g-4 animate-stagger">
+          {
+            products.map((product) => (
+              <div class="col">
+                <ProductCard product={product} />
+              </div>
+            ))
+          }
+        </div>
+    </Section>
+</div>

@@ -1,0 +1,27 @@
+.hero-section {
+  padding: 2rem 0 1rem;
+  animation: fadeIn 0.8s ease-in;
+}
+
+.hero-title {
+  color: var(--bs-body-color);
+  letter-spacing: -0.02em;
+  margin-bottom: 1rem;
+}
+
+.hero-slogan {
+  font-size: 1.25rem;
+  max-width: 600px;
+  margin: 0 auto;
+  color: var(--bs-secondary-color);
+}
+
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 2rem;
+  }
+  
+  .hero-slogan {
+    font-size: 1.1rem;
+  }
+}

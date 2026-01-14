@@ -11,62 +11,63 @@ export function findSocialAccounts(): SocialAccount[] {
     ];
 }
 
-export type BusinessPartner = {
+export type SiteOwner = {
     name: string;
-    link: {
-        url: string;
-        label: string;
-        target: string;
+    company: {
+        name: string;
+        taxId: string; // nip
+        registrationId: string; // regon
+    };
+    address: {
+        street: string;
+        postalCode: string;
+        city: string;
+        country: string;
+    };
+    contact: {
+        email: string;
+        phone: {
+            number: string;
+            url: string;
+        };
+        website: string;
+    };
+};
+
+export function getSiteOwner(): SiteOwner {
+    return {
+        name: "Tomasz Jantos",
+        company: {
+            name: "Grey Hunter Tomasz Jantos",
+            taxId: "9512111440",
+            registrationId: "146876673",
+        },
+        address: {
+            street: "Belgradzka 18/108",
+            postalCode: "02-793",
+            city: "Warszawa",
+            country: "Polska",
+        },
+        contact: {
+            email: "tomek.jantos@greyhunter.com.pl",
+            phone: {
+                number: "+48 502 770 556",
+                url: "tel:+48502770556",
+            },
+            website: "https://greyhunter.com.pl",
+        },
     };
 }
 
-export function findBusinessPartners(): BusinessPartner[] {
-    return [
-        { 
-            name: 'Partner 1', 
-            link: { 
-                url: '/', 
-                label: 'Partner 1', 
-                target: '_blank' 
-            } 
-        },
-        { 
-            name: 'Partner 2', 
-            link: { 
-                url: '/', 
-                label: 'Partner 2', 
-                target: '_blank' 
-            } 
-        },
-    ];
-}
-
-export type DownloadableOffer = {
-    label: string;
-    url: string;
-    target: string;
-}
-
-export function findDownloadableOffers(lang: string = 'en'): DownloadableOffer[] {
-    return [
-        { 
-            url: '/', 
-            label: lang === 'en' ? 'Marttiini Catalog' : 'Katalog Marttiini',
-            target: '_blank'
-        },
-        { 
-            url: '/', 
-            label: lang === 'en' ? 'Databank' : 'Databank',
-            target: '_blank'
-        },
-    ];
-}
-
-export function findIcon(name: string): string {
-    const icons: Record<string, string> = {
-        'Dimensions': 'bi bi-arrows-fullscreen',
-        'Weight': 'bi bi-balance-scale',
+export function findSliderItems(manufacturer: string): { image: string; altText: string; }[] {
+    const mapping: Record<string, { image: string; altText: string; }[]> = {
+        "sarsilmaz": [
+            { image: "sarsilmaz.pl/slider-0", altText: "Slider Item 0", },
+            { image: "sarsilmaz.pl/slider-1", altText: "Slider Item 1", },
+            { image: "sarsilmaz.pl/slider-2", altText: "Slider Item 2", },
+            { image: "sarsilmaz.pl/slider-3", altText: "Slider Item 3", },
+        ],
     }
 
-    return icons[name] || '';
+    return mapping[manufacturer] || [];
 }

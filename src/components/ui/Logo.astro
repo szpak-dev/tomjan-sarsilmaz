@@ -1,18 +1,21 @@
 ---
 import { CldImage } from "astro-cloudinary";
-import { getRelativeLocaleUrl } from "astro:i18n";
+import { makeUrl } from "../../libs/url";
 const lang = Astro.currentLocale as string;
 ---
 
-<a href={getRelativeLocaleUrl(lang)} class="text-white text-decoration-none">
+<a
+  href={makeUrl(Astro, { targetLocale: lang, path: "/" })}
+  class="ui-logo text-white text-decoration-none"
+>
   <CldImage
-    class={"h-100 w-100"}
+    class={"h-100 w-100"} 
     crop="fill"
     gravity="auto"
     format="auto"
     quality="auto"
     width={70}
-    src={`sarsilmaz.pl/grey-hunter-logo-02.svg`}
+    src={`eley.com.pl/grey-hunter-logo-02.svg`}
     alt="Grey Hunter Logo"
     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
   />

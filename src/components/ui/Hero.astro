@@ -1,0 +1,24 @@
+---
+import { useTranslations } from "../../i18n/utils";
+
+interface Props {
+  lang?: string;
+  title?: string;
+  slogan?: string;
+}
+
+const { lang = 'en', title, slogan } = Astro.props;
+const t = useTranslations(lang as 'en' | 'pl');
+
+const heroTitle = title || t('frontpage.title');
+const heroSlogan = slogan || t('frontpage.slogan');
+---
+
+<div class="text-center mb-5 hero-section">
+  <h1 class="display-4 fw-bold mb-3 hero-title">
+    {heroTitle}
+  </h1>
+  <p class="lead text-muted hero-slogan">
+    {heroSlogan}
+  </p>
+</div>

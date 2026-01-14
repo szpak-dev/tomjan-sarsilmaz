@@ -1,0 +1,65 @@
+---
+import { miscRepository } from "../../content"
+import FooterSocials from "./FooterSocials.astro";
+import { useTranslations } from "../../i18n/utils";
+
+interface Props {
+  lang?: string;
+}
+
+const { lang = 'en' } = Astro.props;
+const t = useTranslations(lang as 'en' | 'pl');
+
+const owner = miscRepository.getSiteOwner();
+const socials = miscRepository.findSocialAccounts();
+const currentYear = new Date().getFullYear();
+---
+<footer class="ui-footer bg-dark text-white py-5">
+  <div class="container">
+    <div class="row g-4">
+      <!-- Company Info -->
+      <div class="col-md-4">
+        <h5 class="fw-bold mb-3">{owner.company.name}</h5>
+        <p class="mb-1 text-white-50 small">{owner.address.street}</p>
+        <p class="mb-1 text-white-50 small">{owner.address.postalCode} {owner.address.city}</p>
+        <p class="mb-3 text-white-50 small">{owner.address.country}</p>
+        <p class="mb-1 text-white-50 small">NIP: {owner.company.taxId}</p>
+        <p class="mb-0 text-white-50 small">REGON: {owner.company.registrationId}</p>
+      </div>
+
+      <!-- Contact Info -->
+      <div class="col-md-4">
+        <h5 class="fw-bold mb-3">{t('footer.contact')}</h5>
+        <div class="d-flex flex-column gap-2">
+          <a href={owner.contact.phone.url} class="text-white text-decoration-none d-flex align-items-center gap-2 hover-link">
+            <i class="bi bi-telephone-fill fs-5"></i>
+            <span>{owner.contact.phone.number}</span>
+          </a>
+          <a href={`mailto:${owner.contact.email}`} class="text-white text-decoration-none d-flex align-items-center gap-2 hover-link">
+            <i class="bi bi-envelope-fill fs-5"></i>
+            <span>{owner.contact.email}</span>
+          </a>
+          <a href={owner.contact.website} target="_blank" rel="noopener noreferrer" class="text-white text-decoration-none d-flex align-items-center gap-2 hover-link">
+            <i class="bi bi-globe fs-5"></i>
+            <span>greyhunter.com.pl</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Social Media -->
+      <div class="col-md-4">
+        <h5 class="fw-bold mb-3">{t('footer.followUs')}</h5>
+        <FooterSocials socials={socials} />
+      </div>
+    </div>
+
+    <!-- Copyright -->
+    <div class="row mt-4 pt-4 border-top border-secondary">
+      <div class="col text-center">
+        <p class="mb-0 text-white-50 small">
+          &copy; {currentYear} {owner.company.name}. {t('footer.allRightsReserved')}
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>

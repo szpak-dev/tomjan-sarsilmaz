@@ -1,0 +1,142 @@
+/* Card Component Animations and Styles */
+
+.card-animate-lift {
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1),
+    box-shadow 0.3s ease;
+}
+
+.card-animate-lift:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+}
+
+.card-animate-fade {
+  transition: opacity 0.3s ease, box-shadow 0.3s ease;
+  opacity: 0.95;
+}
+
+.card-animate-fade:hover {
+  opacity: 1;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.card-animate-slide {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-animate-slide:hover {
+  transform: translateX(4px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.card-animate-scale {
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1),
+    box-shadow 0.3s ease;
+}
+
+.card-animate-scale:hover {
+  transform: scale(1.02);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+}
+
+.card-animate-flip {
+  perspective: 1000px;
+  transition: transform 0.6s;
+}
+
+.card-animate-flip:hover {
+  transform: rotateY(5deg) rotateX(2deg);
+}
+
+.card {
+  overflow: hidden;
+  border-radius: inherit;
+}
+
+.card-img-top {
+  transition: transform 0.4s ease;
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.card:hover .card-img-top {
+  transform: scale(1.05);
+}
+
+.card-body {
+  position: relative;
+  z-index: 2;
+}
+
+.card-title {
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  transition: color 0.3s ease;
+}
+
+.card-subtitle {
+  font-size: 0.875rem;
+  color: var(--bs-secondary);
+}
+
+.card-badges {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.card-badges-beside {
+  flex-wrap: nowrap;
+  margin-top: 0;
+  align-items: center;
+}
+
+.card-title-with-badges {
+  margin-bottom: 0;
+}
+
+.badge {
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+.card-text {
+  font-size: 0.9375rem;
+  line-height: 1.5;
+  margin-top: 0.75rem;
+}
+
+.card-link-wrapper {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Ensure entire card is clickable when link is present */
+.card.position-relative .stretched-link::after {
+  z-index: 1;
+}
+
+/* Show pointer cursor on card with link */
+.card.position-relative:has(.stretched-link) {
+  cursor: pointer;
+}
+
+.card.position-relative:has(.stretched-link) .card-img-top {
+  cursor: pointer;
+}
+
+.card-footer {
+  background-color: rgba(0, 0, 0, 0.02);
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+  font-size: 0.875rem;
+}
+
+.transition-all {
+  transition: all 0.3s ease;
+}
+
+.duration-300 {
+  transition-duration: 0.3s;
+}

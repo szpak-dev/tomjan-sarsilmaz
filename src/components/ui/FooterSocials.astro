@@ -1,0 +1,28 @@
+---
+type Social = {
+  name: string;
+  url: string;
+  icon: string;
+};
+
+interface Props {
+  socials: Social[];
+}
+
+const { socials } = Astro.props;
+---
+
+<div class="footer-socials d-flex flex-column gap-2">
+  {socials.map((social) => (
+    <a 
+      href={social.url} 
+      target="_blank"
+      rel="noopener noreferrer"
+      class="text-white text-decoration-none d-flex align-items-center gap-2 social-link"
+      title={social.name}
+    >
+      <i class={`${social.icon} fs-5`}></i>
+      <span class="social-name">{social.name}</span>
+    </a>
+  ))}
+</div>

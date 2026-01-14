@@ -75,6 +75,15 @@ jobs:
             --site "${{ steps.pages.outputs.origin }}" \
             --base "${{ steps.pages.outputs.base_path }}"
         working-directory: ${{ env.BUILD_PATH }}
+      - name: Verify index.html was built
+        run: |
+          if [ -f "${{ env.BUILD_PATH }}/dist/index.html" ]; then
+            echo "✓ index.html built successfully"
+            ls -lh ${{ env.BUILD_PATH }}/dist/index.html
+          else
+            echo "✗ index.html not found after build"
+            exit 1
+          fi
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:

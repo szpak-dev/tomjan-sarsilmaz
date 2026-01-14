@@ -1,0 +1,301 @@
+---
+import { CldImage } from "astro-cloudinary";
+import { Badge } from "astro-bootstrap";
+
+export type Props = {
+  /** Image configuration */
+  image?: {
+    src?: string;
+    alt?: string;
+    fit?: "contain" | "cover" | "fill";
+  };
+  /** Badges configuration */
+  badges?: {
+    items?: Array<{ text: string; variant?: string }>;
+    position?: "below" | "beside";
+  };
+  /** Border and shadow configuration */
+  border?: {
+    style?: "none" | "light" | "bold" | "colored";
+    shadow?: "none" | "sm" | "md" | "lg";
+    rounded?: "none" | "sm" | "md" | "lg" | "full";
+  };
+  href?: string;
+  /** Card variant/style: 'default', 'elevated', 'gradient', 'dark', 'light' */
+  variant?: "default" | "elevated" | "gradient" | "dark" | "light";
+  /** Animation type: 'none', 'lift', 'fade', 'slide', 'scale', 'flip' */
+  animation?: "none" | "lift" | "fade" | "slide" | "scale" | "flip";
+  /** Rounded corners: 'none', 'sm', 'md', 'lg', 'full' */
+  rounded?: "none" | "sm" | "md" | "lg" | "full";
+  /** Custom CSS class */
+  class?: string;
+};
+
+const {
+  image = {},
+  badges = {},
+  border = {},
+  href,
+  variant = "default",
+  animation = "lift",
+  rounded = "none",
+  class: customClass = "",
+} = Astro.props;
+
+const badgeItems = badges.items || [];
+const badgePosition = badges.position || "below";
+const borderStyle = border.style || "light";
+const shadowLevel = border.shadow || "sm";
+const borderRounded = border.rounded || rounded;
+
+const hasImage = !!image.src;
+const hasLink = !!href;
+
+// Build dynamic classes
+const variantClasses = {
+  default: "bg-white text-dark",
+  elevated: "bg-white text-dark border border-light",
+  gradient: "bg-gradient text-dark",
+  dark: "bg-dark text-white",
+  light: "bg-light text-dark",
+};
+
+const animationClasses = {
+  none: "",
+  lift: "card-animate-lift",
+  fade: "card-animate-fade",
+  slide: "card-animate-slide",
+  scale: "card-animate-scale",
+  flip: "card-animate-flip",
+};
+
+const borderClasses = {
+  none: "border-0",
+  light: "border border-light",
+  bold: "border-2 border-dark",
+  colored: "border-3 border-primary",
+};
+
+const shadowClasses = {
+  none: "shadow-none",
+  sm: "shadow-sm",
+  md: "shadow",
+  lg: "shadow-lg",
+};
+
+const roundedClasses = {
+  none: "rounded-0",
+  sm: "rounded-1",
+  md: "rounded-3",
+  lg: "rounded-4",
+  full: "rounded-5",
+};
+
+const cardClasses = `
+  card h-100 position-relative
+  ${variantClasses[variant]} 
+  ${animationClasses[animation]} 
+  ${borderClasses[borderStyle]} 
+  ${shadowClasses[shadowLevel]} 
+  ${roundedClasses[borderRounded]}
+  transition-all duration-300
+  ${customClass}
+`;
+
+// Determine content rendering based on slot hierarchy
+// Check slot content by rendering to string and checking if it has meaningful content
+const hasBodySlot = Astro.slots.has("body") && (await Astro.slots.render("body")).trim().length > 0;
+const hasTitleSlot = Astro.slots.has("title") && (await Astro.slots.render("title")).trim().length > 0;
+const hasSubtitleSlot = Astro.slots.has("subtitle") && (await Astro.slots.render("subtitle")).trim().length > 0;
+const hasTextSlot = Astro.slots.has("text") && (await Astro.slots.render("text")).trim().length > 0;
+const hasBadgesSlot = Astro.slots.has("badges") && (await Astro.slots.render("badges")).trim().length > 0;
+const hasFooterSlot = Astro.slots.has("footer") && (await Astro.slots.render("footer")).trim().length > 0;
+
+// Check if we need to render the card-body wrapper
+// Only render wrapper if there's content OTHER than just body slot
+const needsWrapper = hasTitleSlot || hasSubtitleSlot || hasTextSlot || hasBadgesSlot || hasFooterSlot;
+
+// Image fit and rounded classes
+const imageFitClasses = {
+  contain: "object-fit-contain",
+  cover: "object-fit-cover",
+  fill: "object-fit-fill",
+};
+
+const imageRoundedClasses = {
+  none: "rounded-0",
+  sm: "rounded-1",
+  md: "rounded-3",
+  lg: "rounded-4",
+  full: "rounded-5",
+};
+---
+
+{hasLink ? (
+  <a href={href} class={`${cardClasses} card-link-wrapper`}>
+    {/* Card Image */}
+    {hasImage && (
+      <CldImage
+        src={image.src!}
+        alt={image.alt || "Card image"}
+        crop="pad"
+        width={400}
+        height={300}
+        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+        class={`card-img-top ${imageFitClasses[image.fit || "cover"]} ${imageRoundedClasses[borderRounded] === "rounded-0" ? "" : "border-0"}`}
+      />
+    )}
+    <slot name="image" />
+
+    {/* If ONLY body slot with nothing else, render it directly without wrapper */}
+    {hasBodySlot && !needsWrapper && (
+      <slot name="body" />
+    )}
+
+    {/* If there's title/subtitle/text/badges/footer, render with wrapper */}
+    {needsWrapper && (
+      <div class="ui-card card-body d-flex flex-column">
+      {/* Title with badges */}
+      {hasTitleSlot && badgeItems.length > 0 && (
+        badgePosition === "beside" ? (
+          <div class="card-title-with-badges d-flex align-items-start">
+            <div><slot name="title" /></div>
+            <div class="card-badges card-badges-beside">
+              {badgeItems.map((badge) => (
+                <Badge variant={badge.variant || "secondary"} class="text-uppercase px-1 py-1">
+                  {badge.text}
+                </Badge>
+              ))}
+            </div>
+          </div>
+        ) : (
+          <>
+            <div><slot name="title" /></div>
+            <div class="card-badges">
+              {badgeItems.map((badge) => (
+                <Badge variant={badge.variant || "secondary"} class="text-uppercase px-1 py-1">
+                  {badge.text}
+                </Badge>
+              ))}
+            </div>
+          </>
+        )
+      )}
+      
+      {/* Just title without badges */}
+      {hasTitleSlot && badgeItems.length === 0 && (
+        <div><slot name="title" /></div>
+      )}
+
+      {/* Subtitle */}
+      {hasSubtitleSlot && !hasBodySlot && (
+        <div class="card-subtitle mb-2"><slot name="subtitle" /></div>
+      )}
+
+      {/* Badges slot */}
+      {hasBadgesSlot && !hasBodySlot && (
+        <div class="card-badges"><slot name="badges" /></div>
+      )}
+
+      {/* Text content */}
+      {hasTextSlot && !hasBodySlot && (
+        <div class="card-text"><slot name="text" /></div>
+      )}
+
+      {/* Body slot takes over everything else */}
+      {hasBodySlot && <slot name="body" />}
+
+      {/* Footer */}
+      {hasFooterSlot && (
+        <div class="card-footer">
+          <slot name="footer" />
+        </div>
+      )}
+      </div>
+    )}
+  </a>
+) : (
+  <div class={cardClasses}>
+    {/* Card Image */}
+    {hasImage && (
+      <CldImage
+        src={image.src!}
+        alt={image.alt || "Card image"}
+        crop="pad"
+        width={400}
+        height={300}
+        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+        class={`card-img-top ${imageFitClasses[image.fit || "cover"]} ${imageRoundedClasses[borderRounded] === "rounded-0" ? "" : "border-0"}`}
+      />
+    )}
+    <slot name="image" />
+
+    {/* If ONLY body slot with nothing else, render it directly without wrapper */}
+    {hasBodySlot && !needsWrapper && (
+      <slot name="body" />
+    )}
+
+    {/* If there's title/subtitle/text/badges/footer, render with wrapper */}
+    {needsWrapper && (
+      <div class="ui-card card-body d-flex flex-column">
+      {/* Title with badges */}
+      {hasTitleSlot && badgeItems.length > 0 && (
+        badgePosition === "beside" ? (
+          <div class="card-title-with-badges d-flex align-items-start">
+            <div><slot name="title" /></div>
+            <div class="card-badges card-badges-beside">
+              {badgeItems.map((badge) => (
+                <Badge variant={badge.variant || "secondary"} class="text-uppercase px-1 py-1">
+                  {badge.text}
+                </Badge>
+              ))}
+            </div>
+          </div>
+        ) : (
+          <>
+            <div><slot name="title" /></div>
+            <div class="card-badges">
+              {badgeItems.map((badge) => (
+                <Badge variant={badge.variant || "secondary"} class="text-uppercase px-1 py-1">
+                  {badge.text}
+                </Badge>
+              ))}
+            </div>
+          </>
+        )
+      )}
+      
+      {/* Just title without badges */}
+      {hasTitleSlot && badgeItems.length === 0 && (
+        <div><slot name="title" /></div>
+      )}
+
+      {/* Subtitle */}
+      {hasSubtitleSlot && !hasBodySlot && (
+        <div class="card-subtitle mb-2"><slot name="subtitle" /></div>
+      )}
+
+      {/* Badges slot */}
+      {hasBadgesSlot && !hasBodySlot && (
+        <div class="card-badges"><slot name="badges" /></div>
+      )}
+
+      {/* Text content */}
+      {hasTextSlot && !hasBodySlot && (
+        <div class="card-text"><slot name="text" /></div>
+      )}
+
+      {/* Body slot takes over everything else */}
+      {hasBodySlot && <slot name="body" />}
+
+      {/* Footer */}
+      {hasFooterSlot && (
+        <div class="card-footer">
+          <slot name="footer" />
+        </div>
+      )}
+      </div>
+    )}
+  </div>
+)}
+

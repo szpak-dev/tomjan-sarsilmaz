@@ -1,0 +1,60 @@
+---
+import { CldImage } from "astro-cloudinary";
+import { Carousel } from "astro-bootstrap";
+import type { CarouselSlideType } from "astro-bootstrap";
+
+export type SliderItem = {
+  image: string;
+  altText: string;
+  title?: string;
+  caption?: string;
+  link?: string;
+}
+
+export type Props = {
+  items: SliderItem[];
+  indicators?: boolean;
+  controls?: boolean;
+};
+
+const { items, indicators = true, controls = true } = Astro.props;
+
+const slides: CarouselSlideType[] = items.map((item, index) => ({
+  img: item.image,
+  alt: item.altText,
+  active: index === 0,
+}));
+
+const id = "promotedProducts";
+---
+
+<Carousel {id} fade dark>
+    {indicators && <Carousel.Indicators {id} {slides} />}
+
+    <Carousel.Inner>
+      {slides.map((slide, index) => (
+        <Carousel.Item active={index === 0}>
+            <CldImage
+              src={slide.img}
+              alt={slide.alt}
+              width={1200}
+              height={600}
+              loading={"eager"}
+              gravity="center"
+            />
+
+            {items[index].title || items[index].caption ? (
+              <div class="carousel-caption d-none d-md-block">
+                  {items[index].title && <h5>{items[index].title}</h5>}
+                  {items[index].caption && <p>{items[index].caption}</p>}
+              </div>
+            ) : null
+            }
+
+            {items[index].link && <a href={items[index].link} class="stretched-link"></a>}
+        </Carousel.Item>
+      ))}
+    </Carousel.Inner>
+
+    {controls && <Carousel.Controls {id} /> }
+</Carousel>
