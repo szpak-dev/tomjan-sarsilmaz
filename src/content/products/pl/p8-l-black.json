@@ -1,18 +1,18 @@
 {
-  "id": "sarsilmaz.k12-sport-x",
-  "lang": "en",
-  "url": "https://www.sarsilmaz.com/en/product/detail/k12-sport-x",
+  "id": "sarsilmaz.p8-l-black",
+  "lang": "pl",
+  "url": "https://www.sarsilmaz.com/product/detail/p8-l/black",
   "manufacturer": "sarsilmaz",
-  "category_slug": "steel",
-  "category_name": "Steel",
-  "name": "K12 SPORT X",
-  "name_short": "K12 SPORT X",
-  "slug": "k12-sport-x",
+  "category_slug": "fullsize",
+  "category_name": "Pełny Rozmiar",
+  "name": "P8 L Black",
+  "name_short": "P8 L",
+  "slug": "p8-l-black",
   "model_name": "",
-  "lead": "The latest model of the K12 series, the K12 Sport X, was produced for the most efficient use with its cooling cuts and grip designed to facilitate grip.",
+  "lead": "P8 L pozostaje wyborem ekspertów dzięki kompensatorowi redukującemu podrzut, a także ramie, zamkowi i lufie z kutej stali nierdzewnej.",
   "description": [
-    "The latest model of the K12 series, the K12 Sport X, was produced for the most efficient use with its cooling cuts and grip designed to facilitate grip.",
-    "The model, featuring adjustable rear sight, firing pin safety, hammer safety, and safety lever, combines functionality and elegance with the Cerakote® coating on the grip panel."
+    "P8 L pozostaje wyborem ekspertów dzięki kompensatorowi redukującemu podrzut, a także ramie, zamkowi i lufie z kutej stali nierdzewnej.",
+    "Oferując mocne i niezawodne użytkowanie dzięki wydłużonej lufie, P8 L może łatwo dostosować się do preferencji właściciela dzięki wymiennej muszce."
   ],
   "attribute_groups": [
     {
@@ -27,17 +27,17 @@
         {
           "id": "trigger-pull",
           "name": "Trigger Pull",
-          "value": "15 - 30 N"
+          "value": "45 - 55 N"
         },
         {
           "id": "without-magazine",
           "name": "Without Magazine",
-          "value": "1075 g"
+          "value": "955 g"
         },
         {
           "id": "barrel-length",
           "name": "Barrel Length",
-          "value": "125 mm / 4.9\""
+          "value": "117 mm / 4.6\""
         },
         {
           "id": "operating-principle",
@@ -52,7 +52,7 @@
         {
           "id": "slide-width",
           "name": "Slide Width",
-          "value": "188.7 mm / 7.4\""
+          "value": "182 mm / 7.2\""
         },
         {
           "id": "muzzle-velocity",
@@ -71,13 +71,13 @@
     {
       "id": "color",
       "name": "Color",
-      "value": "Stainless Steel"
+      "value": "Black"
     }
   ],
   "extra_data": [],
   "images": [
-    "sarsilmaz.pl/k12-sport-x-0",
-    "sarsilmaz.pl/k12-sport-x-1",
-    "sarsilmaz.pl/k12-sport-x-2"
+    "sarsilmaz.pl/p8-l-black-0",
+    "sarsilmaz.pl/p8-l-black-1",
+    "sarsilmaz.pl/p8-l-black-2"
   ]
 }

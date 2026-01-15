@@ -1,113 +1,83 @@
 {
-  "id": "k12-sport",
-  "catalogNumber": "400613",
-  "active": true,
-  "featured": true,
-  "color": "Stal Nierdzewna",
-  "name": "SARSILMAZ K12 SPORT 9x19mm Pistolet Półautomatyczny",
-  "shortName": "K12 Sport",
+  "id": "sarsilmaz.k12-sport",
+  "lang": "pl",
+  "url": "https://www.sarsilmaz.com/pl/product/detail/k12-sport",
+  "manufacturer": "sarsilmaz",
+  "category_slug": "steel",
+  "category_name": "Stal",
+  "name": "K12 SPORT",
+  "name_short": "K12 SPORT",
+  "slug": "k12-sport",
+  "model_name": "",
   "lead": "Członek rodziny K12, K12 Sport jest znaczącą częścią tej serii, opracowaną specjalnie z myślą o zawodach sportowych.",
-  "description": "Tworząc inną opcję dzięki konstrukcji przystosowanej do szybkiej wymiany magazynka, K12 Sport został zaprojektowany, aby osiągać najdokładniejsze wyniki i uzyskiwać najwyższą wydajność w zawodach.",
-  "images": [
-    "k12-sport-0",
-    "k12-sport-1",
-    "k12-sport-2"
+  "description": [
+    "Członek rodziny K12, K12 Sport jest znaczącą częścią tej serii, opracowaną specjalnie z myślą o zawodach sportowych.",
+    "Tworząc inną opcję dzięki konstrukcji przystosowanej do szybkiej wymiany magazynka, K12 Sport został zaprojektowany, aby osiągać najdokładniejsze wyniki i uzyskiwać najwyższą wydajność w zawodach."
   ],
-  "specification": [
+  "attribute_groups": [
     {
-      "name": "Caliber",
-      "value": "9 x 19 mm"
-    },
-    {
-      "name": "Trigger Pull",
-      "value": "15 - 30 N"
-    },
-    {
-      "name": "Barrel Length",
-      "value": "125 mm"
-    },
-    {
-      "name": "Operating Principle",
-      "value": "Semi Auto"
-    },
-    {
-      "name": "Capacity",
-      "value": "10 / 15 / 17 Bullets"
-    },
-    {
-      "name": "Slide Width",
-      "value": "188.7 mm"
-    },
-    {
-      "name": "Muzzle Velocity",
-      "value": "350 m/s"
-    },
-    {
-      "name": "Safety System",
-      "value": [
-        "Manual Safety",
-        "Firing Pin"
-      ]
-    }
-  ],
-  "features": [
-    {
-      "category": "Dimensions",
-      "parameters": [
+      "id": "specification",
+      "name": "Specification",
+      "properties": [
         {
-          "name": "Overall Length",
-          "value": "217 mm"
+          "id": "caliber",
+          "name": "Caliber",
+          "value": "9 x 19 mm"
         },
         {
-          "name": "Height",
-          "value": "150 mm"
+          "id": "trigger-pull",
+          "name": "Trigger Pull",
+          "value": "15 - 30 N"
         },
         {
-          "name": "Overall Width",
-          "value": "41.5 mm"
-        },
-        {
-          "name": "Slide Width",
-          "value": "188.7 mm"
-        },
-        {
-          "name": "Slide Width",
-          "value": "23 mm"
-        },
-        {
-          "name": "Sight Radius",
-          "value": "171 mm"
-        },
-        {
-          "name": "Trigger Distance",
-          "value": "71 mm"
-        }
-      ]
-    },
-    {
-      "category": "Weights",
-      "parameters": [
-        {
+          "id": "without-magazine",
           "name": "Without Magazine",
           "value": "1135 g / 40 oz"
         },
         {
-          "name": "With Empty Magazine",
-          "value": "1240 g / 43.7 oz"
+          "id": "barrel-length",
+          "name": "Barrel Length",
+          "value": "125 mm / 4.9\""
         },
         {
-          "name": "With Loaded Magazine",
-          "value": "1450 g / 51.1 oz"
+          "id": "operating-principle",
+          "name": "Operating Principle",
+          "value": "Semi Auto"
+        },
+        {
+          "id": "capacity",
+          "name": "Capacity",
+          "value": "10 / 15 / 17 Bullets"
+        },
+        {
+          "id": "slide-width",
+          "name": "Slide Width",
+          "value": "188.7 mm / 7.4\""
+        },
+        {
+          "id": "muzzle-velocity",
+          "name": "Muzzle Velocity",
+          "value": "350 m/s"
+        },
+        {
+          "id": "safety-system",
+          "name": "Safety System",
+          "value": "Manual Safety and Firing Pin"
         }
-      ]
-    },
-    {
-      "category": "Product Features",
-      "parameters": [
-        "Adjustable Rear Sight",
-        "Single Action Trigger"
       ]
     }
   ],
-  "lang": "pl"
+  "variants": [
+    {
+      "id": "color",
+      "name": "Color",
+      "value": "Stainless Steel"
+    }
+  ],
+  "extra_data": [],
+  "images": [
+    "sarsilmaz.pl/k12-sport-0",
+    "sarsilmaz.pl/k12-sport-1",
+    "sarsilmaz.pl/k12-sport-2"
+  ]
 }

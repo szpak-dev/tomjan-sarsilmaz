@@ -1,0 +1,167 @@
+{
+  "id": "sarsilmaz.p8-s-stainless-steel",
+  "lang": "en",
+  "url": "https://www.sarsilmaz.com/en/product/detail/p8-s/stainless-steel",
+  "manufacturer": "sarsilmaz",
+  "category_slug": "compact",
+  "category_name": "Compact",
+  "name": "P8 S Stainless Steel",
+  "name_short": "P8 S",
+  "slug": "p8-s-stainless-steel",
+  "model_name": "",
+  "lead": "With an optional gold plating option, the P8 S promises efficient use with its compensator and slide with cooling cuts.",
+  "description": [
+    "With an optional gold plating option, the P8 S promises efficient use with its compensator and slide with cooling cuts.",
+    "With its ergonomic structure and technical features, the P8 S has a reliable and target-oriented design. It stands out as a model open to different enhancements with its adjustable rear sight and interchangeable front sight."
+  ],
+  "attribute_groups": [
+    {
+      "id": "specification",
+      "name": "Specification",
+      "properties": [
+        {
+          "id": "caliber",
+          "name": "Caliber",
+          "value": "9 x 19 mm"
+        },
+        {
+          "id": "trigger-pull",
+          "name": "Trigger Pull",
+          "value": "45 - 55 N"
+        },
+        {
+          "id": "barrel-length",
+          "name": "Barrel Length",
+          "value": "97 mm / 3.8\""
+        },
+        {
+          "id": "operating-principle",
+          "name": "Operating Principle",
+          "value": "Semi Auto"
+        },
+        {
+          "id": "capacity",
+          "name": "Capacity",
+          "value": "10 / 15 / 17 Bullets"
+        },
+        {
+          "id": "slide-width",
+          "name": "Slide Width",
+          "value": "162 mm / 6.4\""
+        },
+        {
+          "id": "muzzle-velocity",
+          "name": "Muzzle Velocity",
+          "value": "350 m/s"
+        },
+        {
+          "id": "safety-system",
+          "name": "Safety System",
+          "value": "Manual Safety and Firing Pin"
+        }
+      ]
+    },
+    {
+      "id": "dimensions",
+      "name": "Dimensions",
+      "properties": [
+        {
+          "id": "overall-length",
+          "name": "Overall Length",
+          "value": "190 mm"
+        },
+        {
+          "id": "height",
+          "name": "Height",
+          "value": "140 mm"
+        },
+        {
+          "id": "overall-width",
+          "name": "Overall Width",
+          "value": "33 mm"
+        },
+        {
+          "id": "slide-height",
+          "name": "Slide Height",
+          "value": "22.8 mm"
+        },
+        {
+          "id": "sight-radius",
+          "name": "Sight Radius",
+          "value": "135 mm"
+        },
+        {
+          "id": "trigger-distance",
+          "name": "Trigger Distance",
+          "value": "75 mm"
+        }
+      ]
+    },
+    {
+      "id": "weights",
+      "name": "Weights",
+      "properties": [
+        {
+          "id": "without-magazine",
+          "name": "Without Magazine",
+          "value": "895 g"
+        },
+        {
+          "id": "with-empty-magazine",
+          "name": "With Empty Magazine",
+          "value": "985 g"
+        },
+        {
+          "id": "with-loaded-magazine",
+          "name": "With Loaded Magazine",
+          "value": "1195 g"
+        }
+      ]
+    },
+    {
+      "id": "product-features",
+      "name": "Product Features",
+      "properties": [
+        {
+          "id": "slide-with-cooling-channels",
+          "name": "Slide With Cooling Channels",
+          "value": "Yes"
+        },
+        {
+          "id": "adjustable-rear-sight",
+          "name": "Adjustable Rear Sight",
+          "value": "Yes"
+        },
+        {
+          "id": "ergonomic-grip",
+          "name": "Ergonomic Grip",
+          "value": "Yes"
+        },
+        {
+          "id": "double-action-trigger",
+          "name": "Double Action Trigger",
+          "value": "Yes"
+        }
+      ]
+    }
+  ],
+  "variants": [
+    {
+      "id": "color",
+      "name": "Color",
+      "value": "Stainless Steel"
+    }
+  ],
+  "extra_data": [
+    {
+      "id": "catalog-number",
+      "name": "Catalog Number",
+      "value": "400476"
+    }
+  ],
+  "images": [
+    "sarsilmaz.pl/p8-s-stainless-steel-0",
+    "sarsilmaz.pl/p8-s-stainless-steel-1",
+    "sarsilmaz.pl/p8-s-stainless-steel-2"
+  ]
+}
