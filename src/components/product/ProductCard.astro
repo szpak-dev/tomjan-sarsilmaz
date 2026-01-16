@@ -1,23 +1,58 @@
 ---
 import type { Product } from "../../content/product.repository";
 import { makeUrl } from "../../libs/url";
+import { queryValue } from "../../libs/queries";
 import Card from "../ui/Card.astro";
+import type { Category } from "../../content/category.repository";
 
 export type Props = {
   product: Product;
+  category: Category
+  badgeQueries?: {
+    variant: string;
+    propKeys: string[];
+    templates?: string[];
+  }
+  label?: {
+    text: string;
+    colorClass?: string;
+  };
 };
 
-const { product } = Astro.props;
+const { product, category, badgeQueries, label } = Astro.props;
+
+function getBadges() {
+  if (!badgeQueries?.propKeys) {
+    return [{ text: category.name, variant: "light" }];
+  }
+
+  const badges = badgeQueries.propKeys
+    .map((key, index) => {
+      const value = queryValue(product, key);
+      if (value !== null && value !== undefined) {
+        const template = badgeQueries.templates?.[index] || "{value}";
+        const text = template.replace("{value}", String(value));
+        return { text, variant: badgeQueries.variant };
+      }
+      return null;
+    })
+    .filter((badge) => badge !== null);
+
+  return badges.length > 0 ? badges : [{ text: category.name, variant: "light" }];
+}
+
+const badgesItems = getBadges();
 ---
 
 <Card
-  href={makeUrl(Astro, { path: `${product.slug}/` })}
+  href={makeUrl(Astro, { path: `/${product.slug}/` })}
   image={{ src: product.images[0], alt: product.name, fit: "cover" }}
-  badges={{ items: [{ text: product.category_name, variant: "light" }], position: "below" }}
+  badges={{ items: badgesItems, position: "below" }}
   border={{ style: "light", shadow: "sm" }}
   variant="elevated"
+  label={label ? { text: label.text, position: "right", colorClass: label.colorClass } : undefined}
 >
-  <h6 slot="title" class="card-title text-truncate m-0 mt-1" title={product.name}>
-    {product.name_short}
-  </h6>
+  <h5 slot="title" class="card-title text-truncate m-0 mb-1" title={product.name}>
+    {product.name}
+  </h5>
 </Card>

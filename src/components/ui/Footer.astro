@@ -1,17 +1,16 @@
 ---
-import { miscRepository } from "../../content"
-import FooterSocials from "./FooterSocials.astro";
+import Socials from "./Socials.astro";
 import { useTranslations } from "../../i18n/utils";
+import type { SiteOwner, SocialLink } from "../../content/site.repository";
 
 interface Props {
-  lang?: string;
+  lang: string;
+  owner: SiteOwner;
+  socials: SocialLink[];
 }
 
-const { lang = 'en' } = Astro.props;
+const { lang, owner, socials } = Astro.props;
 const t = useTranslations(lang as 'en' | 'pl');
-
-const owner = miscRepository.getSiteOwner();
-const socials = miscRepository.findSocialAccounts();
 const currentYear = new Date().getFullYear();
 ---
 <footer class="ui-footer bg-dark text-white py-5">
@@ -49,7 +48,13 @@ const currentYear = new Date().getFullYear();
       <!-- Social Media -->
       <div class="col-md-4">
         <h5 class="fw-bold mb-3">{t('footer.followUs')}</h5>
-        <FooterSocials socials={socials} />
+        <Socials 
+          socials={socials.map(s => ({ name: s.name, url: s.url, icon: s.icon }))} 
+          showLabels={true}
+          size="md"
+          gap={2}
+          justify="start"
+        />
       </div>
     </div>
 

@@ -1,33 +1,82 @@
 ---
 import Layout from "../../layouts/Layout.astro";
-import CategoryPage from "../../layouts/CategoryPage.astro";
+import FrontPage from "../../layouts/FrontPage.astro";
 
 import {
+  categoryRepository,
+  frontPageRepository,
   manufacturerRepository,
-  translationRepository,
   productRepository,
-  miscRepository,
+  siteRepository,
 } from "../../content";
 
 export async function getStaticPaths() {
-  const manufacturers = manufacturerRepository.find();
-  const languages = translationRepository.findAvailableLanguages();
+  const languages = siteRepository.getAvailableLanguages().map((l) => l.code);
+  const paths = [];
 
-  return languages.flatMap(({ code: lang }) =>
-    manufacturers.map((manufacturer) => ({
-      params: { lang, manufacturer: manufacturer.slug },
-      props: { manufacturer, lang },
-    }))
-  );
+  for (const lang of languages) {
+    const manufacturer = await manufacturerRepository.get("sarsilmaz", lang);
+    const ownerStory = siteRepository.getOwnerStory(manufacturer.id, lang);
+    const categories = await categoryRepository.findManufacturerCategories(
+      manufacturer.id,
+      lang
+    );
+
+    const categorySections = await Promise.all(
+      categories.map(async (category) => {
+        const products = await productRepository.findCategoryProducts(
+          manufacturer.id,
+          category.slug,
+          lang
+        );
+        
+        return {
+          category,
+          products,
+        };
+      })
+    );
+
+    paths.push({
+      params: { lang },
+      props: {
+        manufacturer,
+        ownerStory,
+        categorySections,
+      },
+    });
+  }
+
+  return paths;
 }
 
-const {lang } = Astro.props;
-const manufacturer = manufacturerRepository.get('sarsilmaz')
-const products = await productRepository.findProducts(manufacturer.slug, lang);
-const sliderItems = miscRepository.findSliderItems(manufacturer.slug);
-console.log(sliderItems);
+const { lang } = Astro.params;
+const { manufacturer, ownerStory, categorySections } = Astro.props;
+
+const socials = siteRepository.getSocialAccounts();
+const owner = siteRepository.getSiteOwner();
+const languages = siteRepository.getAvailableLanguages();
+const currentLanguage = siteRepository.getLanguage(lang);
+const sliderItems = frontPageRepository.getSliderItems(manufacturer.id);
+const navigationItems = siteRepository.getNavigationItems(lang);
+const allNavigationItems = siteRepository.getAllNavigationItems();
 ---
 
-<Layout title={`${manufacturer.name}`} lang={lang}>
-  <CategoryPage {manufacturer} {products} {sliderItems} {lang} />
+<Layout
+  title={manufacturer.name}
+  {lang}
+  {socials}
+  {owner}
+  {languages}
+  {currentLanguage}
+  {navigationItems}
+  {allNavigationItems}
+>
+  <FrontPage 
+    {lang} 
+    {manufacturer}
+    {sliderItems} 
+    {ownerStory}
+    {categorySections}
+  />
 </Layout>

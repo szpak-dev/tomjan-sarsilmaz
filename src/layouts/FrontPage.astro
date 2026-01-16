@@ -1,0 +1,73 @@
+---
+import Slider, { type SliderItem } from "../components/ui/Slider.astro";
+import type { Manufacturer } from "../content/manufacturer.repository";
+import type { Product } from "../content/product.repository";
+import type { Category } from "../content/category.repository";
+import Section from "../components/ui/Section.astro";
+import Grid from "../components/ui/Grid.astro";
+import { siteRepository } from "../content";
+import Page from "../components/utils/Page.astro";
+import OwnerStory from "../components/OwnerStory.astro";
+import ProductCard from "../components/product/ProductCard.astro";
+
+export type CategorySection = {
+  category: Category;
+  products: Product[];
+};
+
+export type Props = {
+  lang: string;
+  manufacturer: Manufacturer;
+  sliderItems: SliderItem[];
+  ownerStory: string;
+  categorySections: CategorySection[];
+};
+
+const { lang, manufacturer, sliderItems, ownerStory, categorySections } =
+  Astro.props;
+
+const t = siteRepository.getTranslator(lang);
+---
+
+<Page id="frontPage" gap={5} gapMobile={5} animation="animate-fade-in">
+  <Section id="promoSlider">
+    <Slider items={sliderItems} />
+  </Section>
+
+  <h1 class="fw-bold text-center my-4">{
+    t("frontpage.distributor")}
+  </h1>
+
+  <Section id="ownerStory" class="mb-5" divider={false}>
+    <OwnerStory manufacturer={manufacturer} story={ownerStory} />
+  </Section>
+
+  {
+    categorySections.map(({ category, products }) => (
+      <Section
+        id={`category-${category.slug}`}
+        heading={category.name}
+        divider={true}
+      >
+        <Grid cols={{ xs: 1, sm: 2, md: 3 }} gap={4}>
+          {products.map((product) => (
+            <div class="col">
+              <ProductCard
+                product={{ ...product, name: product.name_short }}
+                category={category}
+                badgeQueries={{
+                  variant: "light",
+                  propKeys: [
+                    "attribute_groups[{id=specification}].properties[{id=caliber}].value",
+                    "attribute_groups[{id=specification}].properties[{id=trigger-pull}].value",
+                  ],
+                  templates: ["{value}", "{value}"],
+                }}
+              />
+            </div>
+          ))}
+        </Grid>
+      </Section>
+    ))
+  }
+</Page>

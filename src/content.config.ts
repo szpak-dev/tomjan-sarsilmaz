@@ -1,6 +1,47 @@
 import { defineCollection, z } from 'astro:content';
 import { glob } from 'astro/loaders';
 
+const manufacturers = defineCollection({
+  schema: z.object({
+    id: z.string(),
+    lang: z.string(),
+    name: z.string(),
+    logoImage: z.string(),
+    website: z.string(),
+    link: z.object({
+      url: z.string(),
+      target: z.string(),
+    }),
+    socials: z.array(z.object({
+      label: z.string(),
+      url: z.string(),
+      icon: z.string(),
+    })),
+    description: z.array(z.string()).default([]),
+    domains: z.array(z.string()).default([]),
+  }),
+  loader: glob({
+    pattern: "**/*.json", base: "./src/content/manufacturers", generateId: ({ entry }) => {
+      return entry;
+    }
+  }),
+});
+
+const categories = defineCollection({
+  schema: z.object({
+    id: z.string(),
+    lang: z.string(),
+    manufacturer: z.string(),
+    name: z.string(),
+    slug: z.string(),
+  }),
+  loader: glob({
+    pattern: "**/*.json", base: "./src/content/categories", generateId: ({ entry }) => {
+      return entry;
+    }
+  }),
+});
+
 const attributeSchema = z.object({
   id: z.string(),
   name: z.string(),
@@ -26,8 +67,7 @@ const extraValueSchema = z.object({
 });
 
 const products = defineCollection({
-  loader: glob({ pattern: "**/*.json", base: "./src/content/products", generateId: ({ entry, data }) => {
-    // Use the full path including language directory as ID
+  loader: glob({ pattern: "**/*.json", base: "./src/content/products", generateId: ({ entry }) => {
     return entry;
   }}),
   schema: z.object({
@@ -50,15 +90,8 @@ const products = defineCollection({
   }),
 });
 
-const categories = defineCollection({
-  loader: glob({ pattern: "**/*.json", base: "./src/content/categories" }),
-  schema: z.object({
-    id: z.string(),
-    lang: z.string(),
-    manufacturer: z.string(),
-    name: z.string(),
-    slug: z.string(),
-  }),
-});
-
-export const collections = { products, categories };
+export const collections = { 
+  manufacturers,
+  products, 
+  categories 
+};

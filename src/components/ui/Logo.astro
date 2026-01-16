@@ -1,7 +1,12 @@
 ---
 import { CldImage } from "astro-cloudinary";
 import { makeUrl } from "../../libs/url";
-const lang = Astro.currentLocale as string;
+
+export type Props = {
+  lang: string;
+};
+
+const { lang } = Astro.props;
 ---
 
 <a

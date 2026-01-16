@@ -1,0 +1,25 @@
+{
+    "id": "sarsilmaz",
+    "lang": "pl",
+    "name": "Sarsilmaz",
+    "logoImage": "https://res.cloudinary.com/dcpogr7md/image/upload/v1768058636/greyhunter.com.pl/sarsilmaz_logo_blue.png",
+    "website": "https://www.sarsilmaz.com.tr",
+    "link": {
+        "url": "https://szpak-dev.github.io/tomjan-sarsilmaz/pl/",
+        "target": "_blank"
+    },
+    "socials": [
+        {
+            "label": "Sarsilmaz Polska",
+            "url": "https://www.facebook.com/Sarsilmaz",
+            "icon": "bi bi-facebook"
+        }
+    ],
+    "description": [
+        "Sarsilmaz to wiodący turecki producent broni i uzbrojenia sportowego.",
+        "Dzięki dziesięcioleciom doświadczenia, Sarsilmaz produkuje niezawodną i innowacyjną broń dla myśliwych i strzelców sportowych.",
+        "Uznawana na całym świecie za jakość rzemiosła i nowoczesny projekt broni."
+    ],
+    "domains": ["broń", "karabiny myśliwskie", "uzbrojenie sportowe", "produkcja broni"],
+    "imageOrientation": "landscape"
+}

@@ -1,24 +1,35 @@
 ---
-import { translationRepository } from "../content";
 import type { Manufacturer } from "../content/manufacturer.repository";
-import ManufacturerLogo from "./ManufacturerLogo.astro";
+import { makeUrl } from "../libs/url";
+import { CldImage } from "astro-cloudinary";
+import Card from "./ui/Card.astro";
 
 export type Props = {
-    lang: string;
-    manufacturer: Manufacturer;
-}
+  manufacturer: Manufacturer;
+};
 
-const { lang, manufacturer } = Astro.props;
+const { manufacturer } = Astro.props;
 
-const t = translationRepository.getTranslator(lang);
+const href = manufacturer.link.url.startsWith('http')
+  ? manufacturer.link.url
+  : makeUrl(Astro, { path: manufacturer.link.url });
 ---
 
-<section class="row">
-    <div class="col-md-6 d-flex flex-column justify-content-center align-items-center">
-        <h2 class="h5 fw-bold">{t('frontpage.distributor')}</h2>
-        <p class="text-secondary">{t('frontpage.distributorSlogan')}</p>
-    </div>
-    <div class="col-md-6 d-flex flex-column justify-content-center align-items-center">
-        <ManufacturerLogo manufacturer={manufacturer} />
-    </div>
-</section>
+<Card
+  href={href}
+  target={manufacturer.link.target}
+  variant="elevated"
+  animation="lift"
+>
+  <div
+    slot="body"
+    class="d-flex align-items-center justify-content-center"
+    style="min-height: 280px;"
+  >
+    <CldImage
+      src={manufacturer.logoImage}
+      alt={manufacturer.name + " logo"}
+      width={400}
+    />
+  </div>
+</Card>

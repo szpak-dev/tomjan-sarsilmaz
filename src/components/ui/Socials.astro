@@ -1,18 +1,42 @@
 ---
-const { socials } = Astro.props;
+import type { SocialLink } from "../../content/site.repository";
 
-type SocialProps = {
-  name: string;
-  url: string;
-  icon: string;
+export type Props = {
+  socials: SocialLink[];
+  showLabels?: boolean;
+  size?: "sm" | "md" | "lg";
+  gap?: number;
+  justify?: "start" | "center" | "end";
 };
+
+const {
+  socials,
+  showLabels = true,
+  size = "md",
+  gap = 3,
+  justify = "center",
+} = Astro.props;
+
+const sizeClass = {
+  sm: "fs-7",
+  md: "fs-6",
+  lg: "fs-5",
+}[size];
 ---
 
-<div class="ui-socials d-flex gap-4 justify-content-center">
-    {socials.map((social: SocialProps) => (
-      <a href={social.url} class="fs-6 link-underline link-underline-opacity-0 py-2 text-white">
-        <i class={social.icon}></i>
-        {social.name}
+<div class={`ui-socials d-flex gap-${gap} justify-content-${justify}`}>
+  {
+    socials.map((social) => (
+      <a
+        href={social.url}
+        class={`${sizeClass} link-underline link-underline-opacity-0 py-2 ${social.color || ""}`}
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label={social.name}
+      >
+        <i class={social.icon} />
+        {showLabels && <span class="ms-2">{social.name}</span>}
       </a>
-    ))}
+    ))
+  }
 </div>

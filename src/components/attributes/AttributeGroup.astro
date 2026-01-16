@@ -4,29 +4,26 @@ import Attribute from "./Attribute.astro";
 
 export type Props = {
   group: AttributeGroup;
-  title?: string;
+  title: string;
   titleClass?: string;
-  attributesClass?: string;
+  attributeClass?: string;
 };
 
-const { title, group, titleClass, attributesClass } = Astro.props;
+const { title, group, titleClass, attributeClass } = Astro.props;
 ---
 
 <div class="attribute-group">
-  {title && 
-    <h6 class={`h6 fw-bold ${titleClass}`}>
-        {title}
-    </h6>
-  }
-  {
-    group.properties && group.properties.map((attr) => (
-        <>
-          {typeof attr === "string" ? (
-            <Attribute value={attr} className={attributesClass} />
-          ) : (
-            <Attribute name={attr.name} value={attr.value} className={attributesClass} />
-          )}
-        </>
-      ))
-  }
+  <h6 class={`h6 fw-bold mb-2 ${titleClass ?? ""} text-secondary`}>
+    {title}
+  </h6>
+  <div class="attributes-list px-3">
+    {group.properties.map((prop, index) => (
+      <Attribute
+        name={prop.name}
+        value={prop.value}
+        class={attributeClass ?? ""}
+        isLast={index === group.properties.length - 1}
+      />
+    ))}
+  </div>
 </div>

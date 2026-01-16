@@ -1,6 +1,11 @@
 ---
 import { CldImage } from "astro-cloudinary";
 import Card from "./ui/Card.astro";
+import type { Manufacturer } from "../content/manufacturer.repository";
+
+export type Props = {
+  manufacturer: Manufacturer;
+};
 
 const { manufacturer } = Astro.props;
 ---
@@ -8,11 +13,11 @@ const { manufacturer } = Astro.props;
 <Card animation="none">
   <div
     slot="body"
-    class="d-flex align-items-center justify-content-center"
+    class="d-flex align-items-center justify-content-center flex-grow-1 animate-fade-in"
     style="min-height: 200px;"
   >
     <CldImage
-      src={manufacturer.logoUrl}
+      src={manufacturer.logoImage}
       alt={manufacturer.name + " logo"}
       crop="fill"
       class="object-fit"

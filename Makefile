@@ -1,7 +1,7 @@
 .PHONY: copy-scraped-data load-products decompose init-translations help
 
 SCRAPING_DATA_DIR := /Users/gorky/Sites/scraping/sarsilmaz/data
-SCRAPED_DIR := ./scraped
+SCRAPED_DIR := ./scraped/sarsilmaz
 
 help:
 	@echo "Available targets:"

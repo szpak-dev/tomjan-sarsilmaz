@@ -2,20 +2,21 @@
 import { CldImage } from "astro-cloudinary";
 import Card from "../ui/Card.astro";
 
-const { product } = Astro.props;
+const { product, manufacturer } = Astro.props;
+// const cropMode = manufacturer.imageOrientation === "portrait" ? "fill" : "fit";
+// const gravity = manufacturer.imageOrientation === "portrait" ? "auto" : undefined;
+// const width = manufacturer.imageOrientation === "portrait" ? 400 : undefined;
 ---
 
 <Card animation="none">
   <div
     slot="body"
-    class="d-flex align-items-center justify-content-center"
-    style="min-height: 200px;"
+    class="d-flex flex-grow-1 align-items-center justify-content-center"
   >
     <CldImage
       src={product.images[0]}
       alt={product.name + " logo"}
-      height={400}
-      crop={"fit"}
+      width={400}
       class="object-fit"
     />
   </div>

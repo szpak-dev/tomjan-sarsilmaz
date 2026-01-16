@@ -12,7 +12,7 @@ export const ui = {
         'nav.products': 'Products',
 
         // frontpage
-        'frontpage.distributor': 'Official Distributor in Poland',
+        'frontpage.distributor': 'Official Polish Distributor of Sarsilmaz Firearms',
         'frontpage.distributorSlogan': 'I am proud to be the official distributor of Sarsilmaz firearms in Poland. Sarsilmaz is renowned for its high-quality craftsmanship and innovative designs, making it a trusted choice among firearm enthusiasts.',
 
         // Headings
@@ -21,10 +21,14 @@ export const ui = {
         'headings.features': 'Features',
         'headings.specification': 'Specification',
         'headings.my-offer': 'My Offer',
+        'headings.official-distributor': 'Official Distributor',
+        'headings.owner-story': 'My Choice',
+        'headings.owner-story-why': 'Why',
+
 
         // footer
         'footer.contact': 'Contact',
-        'footer.followUs': 'Follow us',
+        'footer.followUs': 'Follow Me',
         'footer.allRightsReserved': 'All rights reserved',
 
         // Specifications
@@ -84,7 +88,7 @@ export const ui = {
         'nav.products': 'Produkty',
 
         // frontpage
-        'frontpage.distributor': 'Oficjalny Dystrybutor w Polsce',
+        'frontpage.distributor': 'Oficjalny Dystrybutor Broni Sarsilmaz w Polsce',
         'frontpage.distributorSlogan': 'Jestem oficjalnym dystrybutorem broni Sarsilmaz w Polsce. Sarsilmaz jest znany z wysokiej jakości rzemiosła i innowacyjnych projektów, co czyni go zaufanym wyborem wśród entuzjastów broni.',
 
         // Headings
@@ -93,11 +97,13 @@ export const ui = {
         'headings.features': 'Cechy',
         'headings.specification': 'Specyfikacja',
         'headings.my-offer': 'Moja Oferta',
-
+        'headings.official-distributor': 'Oficjalny Dystrybutor',
+        'headings.owner-story': 'Mój Wybór',
+        'headings.owner-story-why': 'Dlaczego',
 
         // footer
         'footer.contact': 'Kontakt',
-        'footer.followUs': 'Obserwuj nas',
+        'footer.followUs': 'Obserwuj',
         'footer.allRightsReserved': 'Wszelkie prawa zastrzeżone',
 
         // Specifications

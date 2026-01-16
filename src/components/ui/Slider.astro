@@ -9,7 +9,7 @@ export type SliderItem = {
   title?: string;
   caption?: string;
   link?: string;
-}
+};
 
 export type Props = {
   items: SliderItem[];
@@ -29,41 +29,59 @@ const id = "promotedProducts";
 ---
 
 <Carousel {id} fade dark>
-    {indicators && <Carousel.Indicators {id} {slides} />}
+  {indicators && <Carousel.Indicators {id} {slides} />}
 
-    <Carousel.Inner>
-      {slides.map((slide, index) => (
+  <Carousel.Inner>
+    {
+      slides.map((slide, index) => (
         <Carousel.Item active={index === 0}>
-            {items[index].image.startsWith('http') ? (
-              <img
-                src={items[index].image}
-                alt={slide.alt}
-                loading={index === 0 ? "eager" : "lazy"}
-                class="d-block w-100"
-              />
-            ) : (
-              <CldImage
-                src={slide.img}
-                alt={slide.alt}
-                width={1200}
-                height={675}
-                loading={"eager"}
-                crop={"fill"}
-              />
-            )}
+          {slide.img.startsWith("http") ? (
+            <img
+              src={slide.img}
+              alt={slide.alt}
+              width={1200}
+              height={675}
+              loading="eager"
+              class="d-block w-100 carousel-image"
+            />
+          ) : (
+            <CldImage
+              src={slide.img}
+              alt={slide.alt}
+              width={1200}
+              height={675}
+              loading={"eager"}
+              class="carousel-image"
+            />
+          )}
 
-            {items[index].title || items[index].caption ? (
-              <div class="carousel-caption d-none d-md-block">
-                  {items[index].title && <h5>{items[index].title}</h5>}
-                  {items[index].caption && <p>{items[index].caption}</p>}
-              </div>
-            ) : null
-            }
+          {items[index].title || items[index].caption ? (
+            <div class="carousel-caption d-none d-md-block">
+              {items[index].title && <h5>{items[index].title}</h5>}
+              {items[index].caption && <p>{items[index].caption}</p>}
+            </div>
+          ) : null}
 
-            {items[index].link && <a href={items[index].link} class="stretched-link"></a>}
+          {items[index].link && (
+            <a href={items[index].link} class="stretched-link" />
+          )}
         </Carousel.Item>
-      ))}
-    </Carousel.Inner>
+      ))
+    }
+  </Carousel.Inner>
 
-    {controls && <Carousel.Controls {id} /> }
+  {controls && <Carousel.Controls {id} />}
 </Carousel>
+
+<style>
+  :global(.carousel-image) {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+  }
+  
+  :global(.carousel-inner) {
+    aspect-ratio: 16 / 9;
+  }
+</style>

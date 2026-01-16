@@ -1,48 +1,64 @@
 ---
-import { CldImage } from "astro-cloudinary";
+import ProductImage from "../components/product/ProductImage.astro";
 import ProductSpecification from "../components/product/ProductSpecification.astro";
 import Section from "../components/ui/Section.astro";
+import Page from "../components/utils/Page.astro";
 
 import type { Manufacturer } from "../content/manufacturer.repository";
+import type { Category } from "../content/category.repository";
 import type { Product } from "../content/product.repository";
+import { siteRepository } from "../content";
 
 export type Props = {
+  lang: string;
   manufacturer: Manufacturer;
+  category: Category;
   product: Product;
 };
 
-const { manufacturer, product } = Astro.props;
-const specification = product.attribute_groups.find( (g) => g.id === "specification" );
+const { lang, manufacturer, category, product } = Astro.props;
+const t = siteRepository.getTranslator(lang);
 ---
 
-<div id="productPage" class="mt-4 animate-fade-in">
-  <div class="heading d-flex flex-column animate-fade-in-up">
+<Page id="productPage" gap={5} animation="animate-fade-in">
+  <Section id="productHeading">
     <h1 class="fw-bold text-center m-0">{product.name_short}</h1>
-    <h2 class="h3 text-secondary text-center m-0">{product.category_name}</h2>
-  </div>
+    <h2 class="h3 text-secondary text-center m-0">{category.name}</h2>
+  </Section>
 
-  <div class="row mt-5">
-    <div class="col-md-6 d-flex justify-content-center align-items-center animate-fade-in-left">
-      <CldImage
-        src={product.images[0]}
-        alt={product.name_short}
-        width={600}
-      />
+  <div class="row g-4">
+    <div class="col-12 col-md-6">
+      <ProductImage {product} {manufacturer} />
     </div>
-    <div class="col-md-6 animate-fade-in-right">
-      <Section heading="Specification" divider={true}>
-        {specification && <ProductSpecification specification={specification} />}
+
+    <div class="col-12 col-md-6">
+      <Section
+        id="productSpecification"
+        heading={t("headings.specification")}
+        divider={true}
+      >
+        {
+          product.attribute_groups.map((specification) => (
+            <ProductSpecification {specification} />
+          ))
+        }
       </Section>
     </div>
   </div>
 
-  <Section heading="Description" divider={true} class="mt-5">
-    <div class="bg-white p-2">
-      {
-        product.description.map((paragraph) => (
-          <p class="text fw-light lh-base">{paragraph}</p>
-        ))
-      }
+  <div class="row">
+    <div class="col-12 col-lg-9 mx-auto">
+      <Section
+        id="productDescription"
+        heading={t("headings.description")}
+        divider={true}
+      >
+        {
+          product.description.map((paragraph) => (
+            <p class="text fw-light lh-base">{paragraph}</p>
+          ))
+        }
+      </Section>
     </div>
-  </Section>
-</div>
+  </div>
+</Page>

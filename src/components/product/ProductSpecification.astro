@@ -1,20 +1,14 @@
 ---
-import type { AttributeGroup } from '../../content/product.repository';
+import type { AttributeGroup as IAttributeGroup } from '../../content/product.repository';
+import AttributeGroup from '../attributes/AttributeGroup.astro';
 
 export type Props = {
-  specification: AttributeGroup;
+  specification: IAttributeGroup;
 };
 
 const { specification } = Astro.props;
 ---
 
-{specification && specification.properties && (
-  <ul class="list-group list-group-flush">
-    {specification.properties.map((prop) => (
-      <li class="list-group-item d-flex flex-column flex-sm-row justify-content-sm-between align-items-sm-start gap-2">
-        <strong class=" flex-shrink-0">{prop.name}</strong>
-        <span class="text-end text-sm-end">{prop.value}</span>
-      </li>
-    ))}
-  </ul>
-)}
+<div class="mb-3 mb-sm-4 p-2 bg-white">
+  <AttributeGroup group={specification} title={specification.name} />
+</div>

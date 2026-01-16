@@ -20,7 +20,15 @@ export type Props = {
     shadow?: "none" | "sm" | "md" | "lg";
     rounded?: "none" | "sm" | "md" | "lg" | "full";
   };
+  /** Label configuration - displayed with position absolute */
+  label?: {
+    text: string;
+    position: "left" | "right";
+    color?: string;
+    colorClass?: string;
+  };
   href?: string;
+  target?: string;
   /** Card variant/style: 'default', 'elevated', 'gradient', 'dark', 'light' */
   variant?: "default" | "elevated" | "gradient" | "dark" | "light";
   /** Animation type: 'none', 'lift', 'fade', 'slide', 'scale', 'flip' */
@@ -35,7 +43,9 @@ const {
   image = {},
   badges = {},
   border = {},
+  label,
   href,
+  target,
   variant = "default",
   animation = "lift",
   rounded = "none",
@@ -132,18 +142,33 @@ const imageRoundedClasses = {
 ---
 
 {hasLink ? (
-  <a href={href} class={`${cardClasses} card-link-wrapper`}>
+  <a href={href} target={target} class={`${cardClasses} card-link-wrapper`}>
+    {/* Label */}
+    {label && (
+      <div
+        class={`position-absolute ${label.colorClass || ""}`}
+        style={{
+          [label.position]: "0",
+          top: "0",
+          ...(label.color && { backgroundColor: label.color }),
+        }}
+      >
+        {label.text}
+      </div>
+    )}
     {/* Card Image */}
     {hasImage && (
-      <CldImage
-        src={image.src!}
-        alt={image.alt || "Card image"}
-        crop="pad"
-        width={400}
-        height={300}
-        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-        class={`card-img-top ${imageFitClasses[image.fit || "cover"]} ${imageRoundedClasses[borderRounded] === "rounded-0" ? "" : "border-0"}`}
-      />
+      <div class="d-flex justify-content-center">
+        <CldImage
+          src={image.src!}
+          alt={image.alt || "Card image"}
+          crop="pad"
+          width={400}
+          height={300}
+          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+          class={`card-img-top ${imageFitClasses[image.fit || "cover"]} ${imageRoundedClasses[borderRounded] === "rounded-0" ? "" : "border-0"}`}
+        />
+      </div>
     )}
     <slot name="image" />
 
@@ -216,17 +241,32 @@ const imageRoundedClasses = {
   </a>
 ) : (
   <div class={cardClasses}>
+    {/* Label */}
+    {label && (
+      <div
+        class={`position-absolute ${label.colorClass || ""}`}
+        style={{
+          [label.position]: "0",
+          top: "0",
+          ...(label.color && { backgroundColor: label.color }),
+        }}
+      >
+        {label.text}
+      </div>
+    )}
     {/* Card Image */}
     {hasImage && (
-      <CldImage
-        src={image.src!}
-        alt={image.alt || "Card image"}
-        crop="pad"
-        width={400}
-        height={300}
-        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-        class={`card-img-top ${imageFitClasses[image.fit || "cover"]} ${imageRoundedClasses[borderRounded] === "rounded-0" ? "" : "border-0"}`}
-      />
+      <div class="d-flex justify-content-center">
+        <CldImage
+          src={image.src!}
+          alt={image.alt || "Card image"}
+          crop="pad"
+          width={400}
+          height={300}
+          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+          class={`card-img-top ${imageFitClasses[image.fit || "cover"]} ${imageRoundedClasses[borderRounded] === "rounded-0" ? "" : "border-0"}`}
+        />
+      </div>
     )}
     <slot name="image" />
 

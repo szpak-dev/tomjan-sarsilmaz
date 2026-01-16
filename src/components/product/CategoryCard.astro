@@ -1,0 +1,22 @@
+---
+import type { Category } from "../../content/category.repository";
+import { makeUrl } from "../../libs/url";
+import Card from "../ui/Card.astro";
+
+export type Props = {
+  category: Category;
+};
+
+const { category } = Astro.props;
+---
+
+<Card
+  href={makeUrl(Astro, { path: `${category.manufacturer}/${category.slug}/` })}
+  image={{ src: category.image, alt: category.name, fit: "cover" }}
+  border={{ style: "light", shadow: "sm" }}
+  variant="elevated"
+>
+  <h6 slot="title" class="card-title text-truncate m-0 mt-1" title={category.name}>
+    {category.name}
+  </h6>
+</Card>

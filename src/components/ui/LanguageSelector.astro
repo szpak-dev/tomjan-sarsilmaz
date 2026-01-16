@@ -1,9 +1,32 @@
 ---
 import { makeUrl } from "../../libs/url";
-import { translationRepository } from "../../content";
+import type { AvailableLanguage, NavigationItem } from "../../content/site.repository";
 
-const languages = translationRepository.findAvailableLanguages();
-const currentLang = translationRepository.getLanguage( Astro.currentLocale as string );
+interface Props {
+  languages: AvailableLanguage[];
+  currentLanguage: AvailableLanguage;
+  currentId?: string;
+  allNavigationItems: Record<string, NavigationItem[]>;
+}
+
+const { languages, currentLanguage, currentId, allNavigationItems } = Astro.props;
+
+// Function to get the correct URL for a target language
+function getLanguageUrl(targetLang: string): string {
+  // If we have a currentId, find the corresponding slug in the target language
+  if (currentId) {
+    const targetNavItems = allNavigationItems[targetLang];
+    const targetItem = targetNavItems?.find(item => item.id === currentId);
+    
+    if (targetItem) {
+      // Use the slug for the target language
+      return `/${targetLang}/${targetItem.slug}/`;
+    }
+  }
+  
+  // Fallback to the default behavior (just switch the locale)
+  return makeUrl(Astro, { targetLocale: targetLang });
+}
 ---
 
 <div class="ui-language-selector dropdown d-inline-block ms-3">
@@ -13,13 +36,13 @@ const currentLang = translationRepository.getLanguage( Astro.currentLocale as st
     data-bs-toggle="dropdown"
     aria-expanded="false"
   >
-    {currentLang.flag}
+    {currentLanguage.flag}
   </button>
   <ul class="dropdown-menu">
     {
       languages.map(({ code, label, flag }) => (
         <li>
-          <a class="dropdown-item" href={makeUrl(Astro, { targetLocale: code })} >
+          <a class="dropdown-item" href={getLanguageUrl(code)} >
             {flag}
             {label}
           </a>

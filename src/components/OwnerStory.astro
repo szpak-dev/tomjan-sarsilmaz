@@ -1,0 +1,31 @@
+---
+import { siteRepository } from "../content";
+import type { Manufacturer } from "../content/manufacturer.repository";
+import ManufacturerLogo from "./ManufacturerLogo.astro";
+import Socials from "./ui/Socials.astro";
+
+export type Props = {
+    manufacturer: Manufacturer;
+    story: string;
+}
+
+const { manufacturer, story } = Astro.props;
+const t = siteRepository.getTranslator(manufacturer.lang);
+---
+
+<section class="row animate-fade-in">
+    <div class="col-md-6 d-flex flex-column justify-content-center align-items-center py-3 py-md-0 px-3 px-md-0">
+        <h2 class="h5 fw-bold">{t('headings.owner-story-why') + " " + manufacturer.name + "?"}</h2>
+        <p class="text-secondary">{story}</p>
+        <Socials 
+            socials={manufacturer.socials.map(s => ({ name: s.label, url: s.url, icon: s.icon }))} 
+            showLabels={true}
+            size="lg"
+            gap={4}
+            justify="center"
+        />
+    </div>
+    <div class="col-md-6 d-flex flex-column justify-content-center align-items-center py-3 py-md-0 px-3 px-md-0">
+        <ManufacturerLogo manufacturer={manufacturer} />
+    </div>
+</section>

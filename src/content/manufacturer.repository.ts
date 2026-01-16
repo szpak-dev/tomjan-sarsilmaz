@@ -1,35 +1,43 @@
-export type Manufacturer = {
-    name: string;
-    slug: string;
-    logoUrl: string;
-    socials: { name: string; url: string; icon: string }[];
-};
+import { getCollection } from 'astro:content';
 
-const data = [
-    {
-        name: "Sarsilmaz",
-        slug: "sarsilmaz",
-        logoUrl: "greyhunter.com.pl/sarsilmaz_logo_blue.webp",
-        socials: [
-            { 
-                name: "Sarsilmaz Polska", 
-                url: "https://www.facebook.com/sarsilmaz.polska", 
-                icon: "bi bi-facebook", 
-            },
-        ],
-    },
-]
-
-export function find(): Manufacturer[] {
-    return data
+export type SocialLink = {
+    label: string;
+    url: string;
+    icon: string;
 }
 
-export function get(slug: string): Manufacturer {
-    const manufacturer = data.find(manufacturer => manufacturer.slug === slug);
-    
+export type ManufacturerLink = {
+    url: string;
+    target: string; // '_self' for internal links, '_blank' for external
+}
+
+export type Manufacturer = {
+    id: string;
+    lang: string;
+    name: string;
+    logoImage: string;
+    website: string;
+    link: ManufacturerLink;
+    socials: SocialLink[];
+    description: string[];
+    domains: string[];
+    imageOrientation: "portrait" | "landscape";
+}
+
+export async function findAll(lang: string): Promise<Manufacturer[]> {
+    const manufacturers = await getCollection('manufacturers');
+    return manufacturers
+        .map((entry) => entry.data as Manufacturer)
+        .filter((manufacturer) => manufacturer.lang === lang);
+}
+
+export async function get(id: string, lang: string): Promise<Manufacturer> {
+    const manufacturers = await findAll(lang);
+    const manufacturer = manufacturers.find((m) => m.id === id);
+
     if (!manufacturer) {
-        throw new Error(`Manufacturer with slug "${slug}" not found.`);
+        throw new Error(`Manufacturer with id '${id}' not found for lang '${lang}'`);
     }
-    
+
     return manufacturer;
 }

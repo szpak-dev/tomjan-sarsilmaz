@@ -1,0 +1,46 @@
+---
+export type GridProps = {
+  cols?: {
+    xs?: number;
+    sm?: number;
+    md?: number;
+    lg?: number;
+    xl?: number;
+    xxl?: number;
+  };
+  gap?: number; // 0-5
+  animate?: string; // animation class(es) to apply
+};
+
+export type Props = GridProps;
+
+const { cols = { xs: 1, md: 3 }, gap = 3, animate } = Astro.props;
+
+const rowColsClasses = Object.entries(cols)
+  .map(([breakpoint, colsNum]) => {
+    if (breakpoint === 'xs') return `row-cols-${colsNum}`;
+    return `row-cols-${breakpoint}-${colsNum}`;
+  })
+  .join(' ');
+
+const rowClasses = `row g-${gap} ${rowColsClasses} ${animate || ''}`;
+
+export const GridItem = 'GridItem';
+---
+
+<div class={rowClasses}>
+  <slot />
+</div>
+
+<style>
+  :global(.col) {
+    /* col styles if needed */
+  }
+</style>
+
+<!-- GridItem component -->
+<template id="grid-item-template">
+  <div class="col">
+    <slot />
+  </div>
+</template>

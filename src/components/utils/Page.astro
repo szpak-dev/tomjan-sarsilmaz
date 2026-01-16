@@ -1,0 +1,21 @@
+---
+export type Props = {
+    id: string;
+    gap?: number | string;
+    gapMobile?: number | string;
+    animation?: string;
+    class?: string;
+}
+
+const { 
+    id, 
+    gap = 4, 
+    gapMobile = 4, 
+    animation = "", 
+    class: customClass = "" 
+} = Astro.props;
+---
+
+<div id={id} class:list={["d-flex", "flex-column", `gap-${gapMobile}`, `gap-md-${gap}`, animation, customClass]}>
+    <slot />
+</div>

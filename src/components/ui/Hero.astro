@@ -1,24 +1,18 @@
 ---
-import { useTranslations } from "../../i18n/utils";
-
-interface Props {
-  lang?: string;
-  title?: string;
-  slogan?: string;
+export type Props = {
+  title: string;
+  slogan: string;
+  gap?: number
 }
 
-const { lang = 'en', title, slogan } = Astro.props;
-const t = useTranslations(lang as 'en' | 'pl');
-
-const heroTitle = title || t('frontpage.title');
-const heroSlogan = slogan || t('frontpage.slogan');
+const { title, slogan, gap = 4 } = Astro.props;
 ---
 
-<div class="text-center mb-5 hero-section">
-  <h1 class="display-4 fw-bold mb-3 hero-title">
-    {heroTitle}
+<div class="hero text-center d-flex flex-column justify-content-center align-items-center" style={`gap: ${gap}px`}>
+  <h1 class="hero-title display-4 fw-bold p-0 m-0">
+    {title}
   </h1>
-  <p class="lead text-muted hero-slogan">
-    {heroSlogan}
+  <p class="hero-slogan lead text-muted p-0 m-0">
+    {slogan}
   </p>
 </div>

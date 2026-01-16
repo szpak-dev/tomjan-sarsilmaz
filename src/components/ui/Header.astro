@@ -1,22 +1,92 @@
 ---
+import { Navbar } from "astro-bootstrap";
+import type { NavbarItemType } from "astro-bootstrap";
+import { CldImage } from "astro-cloudinary";
+import { makeUrl } from "../../libs/url";
 import Logo from "./Logo.astro";
 import LanguageSelector from "./LanguageSelector.astro";
 import Socials from "./Socials.astro";
-import { manufacturerRepository } from "../../content";
+import Navigation from "./Navigation.astro";
 
-const manufacturer = manufacturerRepository.get('sarsilmaz');
+import type {
+  SocialLink,
+  AvailableLanguage,
+  NavigationItem,
+} from "../../content/site.repository";
+
+export type Props = {
+  lang: string;
+  socials: SocialLink[];
+  languages: AvailableLanguage[];
+  currentLanguage: AvailableLanguage;
+  navigationItems: NavigationItem[];
+  currentId?: string;
+  allNavigationItems: Record<string, NavigationItem[]>;
+};
+
+const {
+  lang,
+  socials,
+  languages,
+  currentLanguage,
+  navigationItems,
+  currentId,
+  allNavigationItems,
+} = Astro.props;
+
+const id = "main-navbar";
 ---
 
 <header class="ui-header container-fluid px-0">
   <div class="socials-container bg-dark">
-    <Socials socials={manufacturer.socials} />
+    <Socials 
+      socials={socials.map(s => ({ name: s.name, url: s.url, icon: s.icon, color: s.color }))} 
+      showLabels={false}
+      size="lg"
+      gap={4}
+      justify="center"
+    />
   </div>
-  <div class="container d-flex justify-content-between align-items-center py-2">
-    <Logo />
-    <div class="d-flex align-items-center gap-3">
-      <LanguageSelector />
+
+  <Navbar class="navbar-expand-sm bg-light" data-bs-theme="light">
+    <div class="container">
+      <a
+        class="navbar-brand"
+        href={makeUrl(Astro, { targetLocale: lang, path: "/" })}
+      >
+        <CldImage
+          class={"h-100 w-100"}
+          crop="fill"
+          gravity="auto"
+          format="auto"
+          quality="auto"
+          width={70}
+          src={`eley.com.pl/grey-hunter-logo-02.svg`}
+          alt="Grey Hunter Logo"
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+        />
+      </a>
+      <Navbar.Toggler controls={id} />
+      <Navbar.Collapse {id}>
+        <div class="d-flex align-items-center justify-content-between gap-3 w-100" >
+          <nav class="nav d-flex gap-2 flex-wrap justify-content-evenly align-items-center mx-3">
+            {
+              navigationItems.map((item) => (
+                <a
+                  href={item.path}
+                  class={`btn btn-sm btn-outline-secondary border-0 ${currentId === item.id ? "active" : ""}`}
+                  title={item.name}
+                >
+                  <span>{item.name}</span>
+                </a>
+              ))
+            }
+          </nav>
+          <LanguageSelector {languages} {currentLanguage} {currentId} {allNavigationItems} />
+        </div>
+      </Navbar.Collapse>
     </div>
-  </div>
+  </Navbar>
 </header>
 <div class="container-fluid bg-secondary text-center py-1 shadow-sm">
   <span class="text-white fw-bold">GREY HUNTER</span>
