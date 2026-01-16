@@ -25,6 +25,7 @@ const {lang } = Astro.props;
 const manufacturer = manufacturerRepository.get('sarsilmaz')
 const products = await productRepository.findProducts(manufacturer.slug, lang);
 const sliderItems = miscRepository.findSliderItems(manufacturer.slug);
+console.log(sliderItems);
 ---
 
 <Layout title={`${manufacturer.name}`} lang={lang}>

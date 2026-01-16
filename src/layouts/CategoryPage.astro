@@ -3,6 +3,7 @@ import OfficialDistributor from "../components/OfficialDistributor.astro";
 import ProductCard from "../components/product/ProductCard.astro";
 import Section from "../components/ui/Section.astro";
 import Slider, { type SliderItem } from "../components/ui/Slider.astro";
+import { translationRepository } from "../content";
 
 import type { Manufacturer } from "../content/manufacturer.repository";
 import type { Product } from "../content/product.repository";
@@ -15,6 +16,7 @@ export type Props = {
 };
 
 const { manufacturer, products, sliderItems, lang } = Astro.props;
+const t = translationRepository.getTranslator(lang);
 ---
 
 <div class="category-page animate-fade-in">
@@ -33,7 +35,7 @@ const { manufacturer, products, sliderItems, lang } = Astro.props;
         />
     </div>
 
-    <Section heading={"Oferta"} divider={true}>
+    <Section heading={t('headings.my-offer')} divider={true}>
         <div class="row row-cols-1 row-cols-md-4 g-4 animate-stagger">
           {
             products.map((product) => (

@@ -34,14 +34,23 @@ const id = "promotedProducts";
     <Carousel.Inner>
       {slides.map((slide, index) => (
         <Carousel.Item active={index === 0}>
-            <CldImage
-              src={slide.img}
-              alt={slide.alt}
-              width={1200}
-              height={600}
-              loading={"eager"}
-              gravity="center"
-            />
+            {items[index].image.startsWith('http') ? (
+              <img
+                src={items[index].image}
+                alt={slide.alt}
+                loading={index === 0 ? "eager" : "lazy"}
+                class="d-block w-100"
+              />
+            ) : (
+              <CldImage
+                src={slide.img}
+                alt={slide.alt}
+                width={1200}
+                height={675}
+                loading={"eager"}
+                crop={"fill"}
+              />
+            )}
 
             {items[index].title || items[index].caption ? (
               <div class="carousel-caption d-none d-md-block">
