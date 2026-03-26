@@ -45,7 +45,7 @@ export type SocialLink = {
 
 export function getSocialAccounts(): SocialLink[] {
     return [
-        { name: "Facebook", url: "https://www.facebook.com/greyhunter", icon: "bi bi-facebook", color: "text-primary" },
+        { name: "Facebook", url: "https://www.facebook.com/sarsilmaz.polska", icon: "bi bi-facebook", color: "text-primary" },
         { name: "Instagram", url: "https://www.instagram.com/greyhunter", icon: "bi bi-instagram", color: "text-danger" },
     ];
 }
@@ -65,6 +65,7 @@ export type SiteOwner = {
     };
     contact: {
         email: string;
+        email2: string;
         phone: {
             number: string;
             url: string;
@@ -90,6 +91,7 @@ export function getSiteOwner(): SiteOwner {
         },
         contact: {
             email: "tomek.jantos@greyhunter.com.pl",
+            email2: "pawel.lukasik@greyhunter.com.pl",
             phone: {
                 number: "+48 502 770 556",
                 url: "tel:+48502770556",
@@ -104,7 +106,7 @@ export function getOwnerStory(manufacturerId: string, lang: string): string {
     const stories: Record<string, Record<string, string>> = {
         "sarsilmaz": {
             "en": "Sarsilmaz represents the modern face of Turkish firearms engineering. With decades of proven excellence, they've earned recognition worldwide for their reliability and innovative designs. Whether for hunting or sport shooting, Sarsilmaz firearms combine precision manufacturing with timeless quality. I partnered with them because they understand that a firearm must be dependable when it matters most.",
-            "pl": "Sarsilmaz reprezentuje nowoczesne oblicze tureckiej inżynierii strzeleckiej. Dzięki dziesięcioleciom sprawdzonej doskonałości zdobyli uznanie na całym świecie za niezawodność i innowacyjne projekty. Niezależnie od tego, czy chodzi o łowiectwo czy sport strzelecki, karabiny Sarsilmaz łączą precyzyjną produkcję z ponadczasową jakością. Zawiązałem z nimi partnerstwo, ponieważ wiedzą, że broń musi być niezawodna, gdy to się liczy najbardziej."
+            "pl": "Sarsilmaz reprezentuje nowoczesne oblicze tureckiej inżynierii strzeleckiej. Dzięki dziesięcioleciom doświadczenia w produkcji broni na rynek wojskowy i cywilny, tworzą produkty znane ze swej jakości i niezawodności. Dzięki szerokiej ofercie, produkty marki Sarsilmaz trafiają do strzelców na całym świecie. Zarówno do tych, którzy rozpoczynają swoją przygodę ze strzelectwem sportowym jak również i do profesjonalistów, dla których broń palna jest codziennym narzędziem pracy."
         },
     };
 

@@ -38,6 +38,10 @@ const currentYear = new Date().getFullYear();
             <i class="bi bi-envelope-fill fs-5"></i>
             <span>{owner.contact.email}</span>
           </a>
+          <a href={`mailto:${owner.contact.email}`} class="text-white text-decoration-none d-flex align-items-center gap-2 hover-link">
+            <i class="bi bi-envelope-fill fs-5"></i>
+            <span>{owner.contact.email2}</span>
+          </a>
           <a href={owner.contact.website} target="_blank" rel="noopener noreferrer" class="text-white text-decoration-none d-flex align-items-center gap-2 hover-link">
             <i class="bi bi-globe fs-5"></i>
             <span>greyhunter.com.pl</span>
