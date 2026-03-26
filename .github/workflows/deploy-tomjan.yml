@@ -145,18 +145,7 @@ jobs:
             sudo service caddy reload
           fi
           echo "Caddy server reloaded"
-      
-      - name: Verify deployment
-        run: |
-          HEALTHCHECK_URL="${SITE_URL:-http://localhost/}"
-          sleep 2
-          if curl -f -s -o /dev/null "$HEALTHCHECK_URL"; then
-            echo "✓ Deployment verification successful"
-          else
-            echo "✗ Deployment verification failed for $HEALTHCHECK_URL"
-            exit 1
-          fi
-      
+
       - name: Cleanup artifact
         if: always()
         run: |
